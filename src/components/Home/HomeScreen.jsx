@@ -1,10 +1,9 @@
 import React from 'react';
 
 export default function HomeScreen() {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <div>
+      <h1>home</h1>
+    </div>
+  );
 }
-
