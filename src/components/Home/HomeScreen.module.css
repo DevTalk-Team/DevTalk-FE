@@ -1,0 +1,56 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+}
+.appname {
+  color: var(--color-bg);
+  font-size: 2rem;
+}
+.bellicon {
+  all: unset;
+  color: var(--color-bg);
+}
+
+.middle {
+  padding: 1rem 1.2rem;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homemenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+.btn2,
+.btn3,
+.btn4,
+.btn5 {
+  all: unset;
+  width: 80vw;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
+.btn2 {
+  background-color: var(--color-bg);
+  color: var(--color-white);
+}
+.btn3,
+.btn4,
+.btn5 {
+  border: 0.4rem solid var(--color-bg-light);
+  color: var(--color-bg);
+}
