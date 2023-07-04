@@ -3,11 +3,39 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import HomeScreen from './components/Home/HomeScreen';
+import LoadingScreen from './components/Start/LoadingScreen';
+import StartScreen from './components/Start/StartScreen';
+import Main1 from './components/Main/Main1';
+import LoginPopup from './components/Popup/LoginPopup';
+import Login from './components/Login/Login';
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    //errorElement: <NotFound />,
+    children: [
+      { index: true, element: <StartScreen /> },
+      { path: '/loadingscreen', element: <LoadingScreen /> },
+      { path: '/startscreen', element: <StartScreen /> },
+      { path: '/homescreen', element: <HomeScreen /> },
+      { path: '/mainscreen1', element: <Main1 /> },
+      { path: '/login_popup', element: <LoginPopup /> },
+      { path: '/loginscreen', element: <Login /> },
+    ],
+  },
+  {
+    path: '/loginscreen',
+    element: <Login />,
+    children: [{ index: true, element: <Login /> }],
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

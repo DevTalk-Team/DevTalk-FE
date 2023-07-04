@@ -3,36 +3,80 @@ import styles from './HomeScreen.module.css';
 import { FaRegBell, FaPen } from 'react-icons/fa';
 import { BsPersonCheck } from 'react-icons/bs';
 import { RiSettings3Line } from 'react-icons/ri';
+import { Link, useNavigate } from 'react-router-dom';
+import HomeReservation from './HomeReservation';
+import HomeLogin from './HomeLogin';
 
 export default function HomeScreen() {
+  const Navigate = useNavigate();
+
+  function gomain() {
+    Navigate('/mainscreen1');
+  }
+
+  function gomentor() {
+    Navigate('/');
+  }
+
+  function goreview() {
+    Navigate('/');
+  }
+
+  function gomypage() {
+    Navigate('/');
+  }
+
+  function goreservation() {
+    Navigate('/');
+  }
+
+  function gonotice() {
+    Navigate('/');
+  }
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1 className={styles.appname}>Devtalk</h1>
-        <button className={styles.bellicon}>
+        <Link to={'/homescreen'} className={styles.appname}>
+          Devtalk
+        </Link>
+        <button className={styles.bellicon} onClick={gonotice}>
           <FaRegBell size={25} />
         </button>
       </header>
       <div className={styles.middle}>
         <div className={styles.top}>
           <h3 className={styles.h3}>내 상담 예약 현황</h3>
-          <button className={styles.btn1}>전체보기</button>
+          <button className={styles.btn1} onClick={goreservation}>
+            전체보기
+          </button>
         </div>
-        <div className={styles.reservation}>예약현황</div>
+        <div className={styles.reservation_box}>
+          <HomeReservation />
+          <HomeReservation />
+          {/* <HomeLogin /> */}
+        </div>
       </div>
       <div className={styles.homemenu}>
-        <button className={styles.btn2}>개발 상담 요청하기</button>
-        <button className={styles.btn3}>
+        <button className={styles.btn2} onClick={gomain}>
+          개발 상담 요청하기
+        </button>
+        <button className={styles.btn3} onClick={gomentor}>
           <BsPersonCheck size={30} />
-          전문가 보러가기
+          <div className={styles.btndiv}>
+            <span>전문가 보러가기</span>
+          </div>
         </button>
-        <button className={styles.btn4}>
+        <button className={styles.btn4} onClick={goreview}>
           <FaPen size={25} />
-          후기 보러가기
+          <div className={styles.btndiv}>
+            <span>후기 보러가기</span>
+          </div>
         </button>
-        <button className={styles.btn5}>
+        <button className={styles.btn5} onClick={gomypage}>
           <RiSettings3Line size={30} />
-          마이페이지
+          <div className={styles.btndiv}>
+            <span>마이페이지</span>
+          </div>
         </button>
       </div>
     </div>

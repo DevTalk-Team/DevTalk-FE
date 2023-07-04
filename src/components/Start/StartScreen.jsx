@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './StartScreen.module.css';
 import { useNavigate } from 'react-router-dom';
+import LoginPopup from '../Popup/LoginPopup';
 
 export default function StartScreen() {
   const Navigate = useNavigate();
+
+  const [modal, setModal] = useState(false);
 
   function gohome() {
     Navigate('/homescreen');
   }
 
   function godev() {
-    Navigate('/homescreen');
+    Navigate('/login_popup');
   }
 
   return (
@@ -20,9 +23,12 @@ export default function StartScreen() {
         <button className={styles.btn1} onClick={godev}>
           개발 상담 바로가기
         </button>
-        <button className={styles.btn2} onClick={gohome}>
-          홈으로 바로가기
-        </button>
+        <div>
+          <button className={styles.btn2} onClick={() => setModal(true)}>
+            홈으로 바로가기
+          </button>
+          {modal === true ? <LoginPopup /> : null}
+        </div>
       </div>
     </div>
   );
