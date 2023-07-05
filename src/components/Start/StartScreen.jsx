@@ -4,16 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import LoginPopup from '../Popup/LoginPopup';
 
 export default function StartScreen() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [modal, setModal] = useState(false);
 
   function gohome() {
-    Navigate('/homescreen');
+    navigate('/homescreen');
   }
 
   function godev() {
-    Navigate('/login_popup');
+    navigate('/login');
   }
 
   return (

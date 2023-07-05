@@ -3,13 +3,13 @@ import styles from './LoginPopup.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginPopup() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   function gohome() {
-    Navigate('/homescreen');
+    navigate('/homescreen');
   }
   function gologin() {
-    Navigate('/loginscreen');
+    navigate('/loginscreen');
   }
 
   return (

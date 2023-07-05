@@ -8,8 +8,9 @@ import HomeScreen from './components/Home/HomeScreen';
 import LoadingScreen from './components/Start/LoadingScreen';
 import StartScreen from './components/Start/StartScreen';
 import Main1 from './components/Main/Main1';
-import LoginPopup from './components/Popup/LoginPopup';
 import Login from './components/Login/Login';
+import LoginForm from './components/Login/LoginForm';
+import LoginPopup from './components/Popup/LoginPopup';
 
 const router = createBrowserRouter([
   {

@@ -8,30 +8,30 @@ import HomeReservation from './HomeReservation';
 import HomeLogin from './HomeLogin';
 
 export default function HomeScreen() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   function gomain() {
-    Navigate('/mainscreen1');
+    navigate('/mainscreen1');
   }
 
   function gomentor() {
-    Navigate('/');
+    navigate('/');
   }
 
   function goreview() {
-    Navigate('/');
+    navigate('/');
   }
 
   function gomypage() {
-    Navigate('/');
+    navigate('/');
   }
 
   function goreservation() {
-    Navigate('/');
+    navigate('/');
   }
 
   function gonotice() {
-    Navigate('/');
+    navigate('/');
   }
   return (
     <div className={styles.container}>
