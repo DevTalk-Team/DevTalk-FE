@@ -2,10 +2,16 @@
   width: 100%;
   padding: 1rem 0.5rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  position: fixed;
+  left: 0.1rem;
 }
 .backicon {
   all: unset;
-  /* width: fit-content; */
+  width: fit-content;
 }
 .titleplace {
   width: 80%;

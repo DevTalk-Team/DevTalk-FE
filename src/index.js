@@ -9,8 +9,8 @@ import LoadingScreen from './components/Start/LoadingScreen';
 import StartScreen from './components/Start/StartScreen';
 import Main1 from './components/Main/Main1';
 import Login from './components/Login/Login';
-import LoginForm from './components/Login/LoginForm';
 import LoginPopup from './components/Popup/LoginPopup';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const router = createBrowserRouter([
   {
@@ -34,9 +34,12 @@ const router = createBrowserRouter([
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const id = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GoogleOAuthProvider clientId={id}>
+      <RouterProvider router={router} />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
 

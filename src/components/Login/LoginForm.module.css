@@ -7,10 +7,10 @@
   all: unset;
   border: 0.1rem solid var(--color-bg);
   border-radius: 0.4rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
+  padding: 0.9rem;
+  margin-bottom: 1.3rem;
 }
 .btn {
   all: unset;
@@ -19,7 +19,8 @@
   border-radius: 0.4rem;
   color: var(--color-white);
   background-color: var(--color-bg);
-  font-size: 0.8rem;
+  font-size: 1em;
   font-weight: 600;
-  padding: 0.8rem;
+  padding: 1rem;
+  margin-bottom: 0.7rem;
 }

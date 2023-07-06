@@ -11,12 +11,12 @@ export default function Header({ title }) {
   return (
     <div>
       <header className={styles.header}>
-        <button className={styles.backicon} onClick={goback}>
-          <IoIosArrowBack size={35} />
-        </button>
-        <div className={styles.titleplace}>
-          <p className={styles.title}>{title}</p>
+        <div className={styles.button}>
+          <button className={styles.backicon} onClick={goback}>
+            <IoIosArrowBack size={35} />
+          </button>
         </div>
+        <h3 className={styles.title}>{title}</h3>
       </header>
     </div>
   );
