@@ -1,6 +1,6 @@
 .container {
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
   padding: 1rem;
 }
 .header {

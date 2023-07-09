@@ -9,7 +9,7 @@ export default function StartScreen() {
   const [modal, setModal] = useState(false);
 
   function gohome() {
-    navigate('/homescreen');
+    navigate('/loginscreen');
   }
 
   function godev() {
@@ -20,7 +20,7 @@ export default function StartScreen() {
     <div className={styles.container}>
       <h1 className={styles.h1}>Devtalk</h1>
       <div className={styles.btns}>
-        <button className={styles.btn1} onClick={godev}>
+        <button className={styles.btn1} onClick={gohome}>
           개발 상담 바로가기
         </button>
         <div>

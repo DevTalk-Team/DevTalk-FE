@@ -3,9 +3,15 @@ import LoginForm from './LoginForm';
 import styles from './Login.module.css';
 import Header from '../Header/Header';
 import FindIdPwBtn from './FindIdPwBtn';
-import { GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  function gojoin() {
+    navigate('/mainscreen1');
+  }
+
   return (
     <div className={styles.container}>
       <Header title="로그인" />
@@ -17,8 +23,11 @@ export default function Login() {
       <div className={styles.line}>
         <span className={styles.linetext}>회원가입 하러가기</span>
       </div>
-      <div className={styles.socialbtn}>
-        <GoogleLogin />
+      <div className={styles.socialbtnarea}>소셜로그인</div>
+      <div className={styles.joinbtnarea}>
+        <button className={styles.joinbtn} onClick={gojoin}>
+          일반 회원 가입
+        </button>
       </div>
     </div>
   );
