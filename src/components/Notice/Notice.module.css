@@ -1,0 +1,64 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+.noticecontainer {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--color-light-gray);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header {
+  margin: 0;
+  position: fixed;
+  top: 0;
+}
+.noticearea {
+  padding-top: 5rem;
+}
+.ul {
+  all: unset;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none; */
+}
+/* ul::-webkit-scrollbar {
+  display: none;
+} */
+.li {
+  all: unset;
+}
+
+/* 알림창 부분 */
+.container {
+  width: 100%;
+}
+.notice {
+  margin: 0;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.3rem solid var(--color-light-gray);
+  background-color: #fff;
+  align-items: center;
+}
+
+.notice:hover {
+  background-color: var(--color-bg-light);
+}
+.icon {
+  width: 15%;
+  margin-left: 1rem;
+}
+.word {
+  width: 60%;
+  font-weight: 600;
+}
+.time {
+  width: 16%;
+  font-size: 0.7rem;
+  text-align: end;
+  margin-bottom: 3rem;
+}

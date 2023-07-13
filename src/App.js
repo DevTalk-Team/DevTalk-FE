@@ -1,9 +1,10 @@
-import './App.css';
-import LoadingScreen from './components/Loading/LoadingScreen';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <LoadingScreen/>
+    <>
+      <Outlet />
+    </>
   );
 }
 
