@@ -1,9 +1,12 @@
 .header {
-  width: 100%;
-  padding: 1rem 0.5rem;
+  width: 100vw;
+  height: 5rem;
+  padding: 0 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-bg);
+  background-color: var(--color-white);
 }
 .button {
   position: fixed;

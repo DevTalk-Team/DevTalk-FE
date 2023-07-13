@@ -31,7 +31,7 @@ export default function HomeScreen() {
   }
 
   function gonotice() {
-    navigate('/');
+    navigate('/noticescreen');
   }
   return (
     <div className={styles.container}>

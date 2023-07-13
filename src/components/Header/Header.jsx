@@ -9,15 +9,13 @@ export default function Header({ title }) {
     navigate(-1);
   };
   return (
-    <div>
-      <header className={styles.header}>
-        <div className={styles.button}>
-          <button className={styles.backicon} onClick={goback}>
-            <IoIosArrowBack size={35} />
-          </button>
-        </div>
-        <h3 className={styles.title}>{title}</h3>
-      </header>
-    </div>
+    <header className={styles.header}>
+      <div className={styles.button}>
+        <button className={styles.backicon} onClick={goback}>
+          <IoIosArrowBack size={35} />
+        </button>
+      </div>
+      <h3 className={styles.title}>{title}</h3>
+    </header>
   );
 }

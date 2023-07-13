@@ -1,10 +1,14 @@
 .container {
   width: 100vw;
   height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
-
+.header {
+  position: sticky;
+  top: 0;
+}
 .h1 {
   all: unset;
   color: var(--color-bg);

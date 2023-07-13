@@ -10,6 +10,7 @@ import StartScreen from './components/Start/StartScreen';
 import Main1 from './components/Main/Main1';
 import Login from './components/Login/Login';
 import LoginPopup from './components/Popup/LoginPopup';
+import Notice from './components/Notice/Notice';
 
 const router = createBrowserRouter([
   {
@@ -24,12 +25,8 @@ const router = createBrowserRouter([
       { path: '/mainscreen1', element: <Main1 /> },
       { path: '/login_popup', element: <LoginPopup /> },
       { path: '/loginscreen', element: <Login /> },
+      { path: '/noticescreen', element: <Notice /> },
     ],
-  },
-  {
-    path: '/loginscreen',
-    element: <Login />,
-    children: [{ index: true, element: <Login /> }],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
