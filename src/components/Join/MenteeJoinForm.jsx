@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import styles from './LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginForm() {
+//멘티 회원가입 폼
+export default function MenteeJoinForm() {
   const Navigate = useNavigate();
 
   function gohome() {
@@ -42,6 +43,23 @@ export default function LoginForm() {
         placeholder="비밀번호"
         {...register('password', {
           required: '비밀번호를 입력해주세요.',
+          minLength: {
+            value: 8,
+            message: '8자리 이상 비밀번호를 사용하세요.',
+          },
+          maxLengthLength: {
+            value: 20,
+            message: '비밀번호는 20자리 이하입니다.',
+          },
+        })}
+      />
+      <input
+        className={styles.input}
+        id="pwconfirm"
+        type="pwconfirm"
+        placeholder="비밀번호 확인"
+        {...register('pwconfirm', {
+          required: '비밀번호를 한번 더 입력해주세요.',
           minLength: {
             value: 8,
             message: '8자리 이상 비밀번호를 사용하세요.',
