@@ -11,6 +11,8 @@ import Main1 from './components/Main/Main1';
 import Login from './components/Login/Login';
 import LoginPopup from './components/Popup/LoginPopup';
 import Notice from './components/Notice/Notice';
+import Join from './components/Join/Join';
+import JoinEmail from './components/Join/JoinEmail';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,17 @@ const router = createBrowserRouter([
       { path: '/mainscreen1', element: <Main1 /> },
       { path: '/login_popup', element: <LoginPopup /> },
       { path: '/loginscreen', element: <Login /> },
+      { path: '/joinscreen', element: <Join /> },
       { path: '/noticescreen', element: <Notice /> },
+    ],
+  },
+  {
+    path: '/',
+    element: <App />,
+    //errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Join /> },
+      { path: '/joinemail', element: <JoinEmail /> },
     ],
   },
 ]);

@@ -1,24 +1,29 @@
 import React from 'react';
-import LoginForm from './LoginForm';
-import styles from './Login.module.css';
+import styles from './Join.module.css';
 import Header from '../Header/Header';
-import FindIdPwBtn from './FindIdPwBtn';
 import { useNavigate } from 'react-router-dom';
 
 export default function Join() {
   const navigate = useNavigate();
 
-  function gojoin() {
-    navigate('/mainscreen1');
+  function gojoinmenti() {
+    navigate('/joinemail');
   }
-
+  function gojoinmento() {
+    navigate('/joinemail');
+  }
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Header title="회원가입" />
       </div>
-      <div>
-        <button>멘티 회원가입</button>
+      <div className={styles.btns}>
+        <button onClick={gojoinmenti} className={styles.btn1}>
+          멘티 회원가입
+        </button>
+        <button onClick={gojoinmento} className={styles.btn2}>
+          전문가 회원가입
+        </button>
       </div>
     </div>
   );
