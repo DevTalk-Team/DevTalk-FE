@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Header from '../Header/Header';
-import styles from './JoinEmail.module.css';
-import PwForm from './PwForm';
+import styles from './Joins.module.css';
+import Header from '../../Header/Header';
+import NameForm from '../JoinForms/NameForm';
 
-export default function JoinPw() {
+export default function JoinName() {
   const location = useLocation();
+  const id = location.state.id;
   const title = location.state.value;
 
   return (
@@ -13,8 +14,8 @@ export default function JoinPw() {
       <div className={styles.header}>
         <Header title={title} />
       </div>
-      <div className={styles.emailform}>
-        <PwForm />
+      <div className={styles.form}>
+        <NameForm id={id} title={title} />
       </div>
     </div>
   );

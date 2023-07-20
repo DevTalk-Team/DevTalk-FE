@@ -7,10 +7,10 @@ export default function Join() {
   const navigate = useNavigate();
 
   function gojoinmenti() {
-    navigate('/joinemail', { state: { value: '멘티 회원가입' } });
+    navigate('/joinemail', { state: { id: 0, value: '멘티 회원가입' } });
   }
   function gojoinmento() {
-    navigate('/joinemail', { state: { value: '전문가 회원가입' } });
+    navigate('/joinemail', { state: { id: 1, value: '전문가 회원가입' } });
   }
   return (
     <div className={styles.container}>

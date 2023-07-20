@@ -6,5 +6,6 @@
   position: fixed;
   top: 0;
 }
-.emailform {
+.form {
+  margin: 7rem 0;
 }
