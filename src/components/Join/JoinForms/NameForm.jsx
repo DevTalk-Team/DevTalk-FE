@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
 import styles from './NameForm.module.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function NameForm() {
+export default function NameForm({ id, title }) {
   const [nameMessage, setNameMessage] = useState('');
   const [name, setName] = useState('');
   const [isname, setIsName] = useState(false);
@@ -10,14 +11,23 @@ export default function NameForm() {
     const currentName = e.target.value;
     setName(currentName);
 
-    if (currentName.length < 1) {
-      setNameMessage('한글자 이상 입력해주세요');
+    if (currentName.length < 2 || currentName.length > 7) {
+      setNameMessage('두글자 이상 입력해주세요');
       setIsName(false);
     } else {
       setNameMessage('');
       setIsName(true);
     }
   };
+
+  const navigate = useNavigate();
+
+  function goname() {
+    navigate('/joinemail', { state: { id: id, value: title } });
+    console.log(id);
+    console.log(name);
+    console.log(isname);
+  }
 
   return (
     <div>
@@ -28,14 +38,15 @@ export default function NameForm() {
             id="name"
             name="name"
             value={name}
+            maxLength={7}
             className={styles.input}
-            placeholder="이름 ( 한글자 이상 )"
+            placeholder="실명을 입력해주세요."
             onChange={onChangeName}
           />
           <p className={styles.message}>{nameMessage}</p>
           <button
             className={isname ? `${styles.yesbtn}` : `${styles.disbtn}`}
-            onClick={name}
+            onClick={goname}
             disabled={isname === false}
           >
             다음

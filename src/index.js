@@ -15,6 +15,8 @@ import Join from './components/Join/Join';
 import JoinEmail from './components/Join/Joins/JoinEmail';
 import JoinPw from './components/Join/Joins/JoinPw';
 import JoinName from './components/Join/Joins/JoinName';
+import JoinPhone from './components/Join/Joins/JoinPhone';
+import JoinSkill from './components/Join/Joins/JoinSkill';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,8 @@ const router = createBrowserRouter([
       { path: '/joinemail', element: <JoinEmail /> },
       { path: '/joinpw', element: <JoinPw /> },
       { path: '/joinname', element: <JoinName /> },
+      { path: '/joinphone', element: <JoinPhone /> },
+      { path: '/joinskill', element: <JoinSkill /> },
     ],
   },
 ]);

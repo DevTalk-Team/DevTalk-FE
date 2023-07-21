@@ -40,7 +40,7 @@ export default function PwForm({ id, title }) {
   const navigate = useNavigate();
 
   function pw() {
-    navigate('/joinname', { state: { id: id, value: title } });
+    navigate('/joinphone', { state: { id: id, value: title } });
     console.log(id);
     console.log(password);
     console.log(isPasswordConfirm);
