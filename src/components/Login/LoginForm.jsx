@@ -1,63 +1,86 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [login, setLogin] = useState(0);
+
+  const [emailMessage, setEmailMessage] = useState('');
+  const [passwordMessage, setPasswordMessage] = useState('');
+
+  const [isEmail, setIsEmail] = useState(false);
+  const [isPassword, setIsPassword] = useState(false);
+
+  const onChangeEmail = (e) => {
+    const currentEmail = e.target.value;
+    setEmail(currentEmail);
+    const emailRegExp =
+      /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+    if (!emailRegExp.test(currentEmail)) {
+      setEmailMessage('이메일의 형식이 올바르지 않습니다.');
+      setIsEmail(false);
+    } else {
+      setEmailMessage('');
+      setIsEmail(true);
+    }
+  };
+
+  const onChangePassword = (e) => {
+    const currentPassword = e.target.value;
+    setPassword(currentPassword);
+    const passwordRegExp =
+      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
+    if (!passwordRegExp.test(currentPassword)) {
+      setPasswordMessage(
+        '8자 이상의 영문자,숫자,특수문자 조합으로 입력해주세요.'
+      );
+      setIsPassword(false);
+    } else {
+      setPasswordMessage('사용 가능한 비밀번호 입니다.');
+      setIsPassword(true);
+    }
+  };
+
   const Navigate = useNavigate();
 
   function gohome() {
     Navigate('/homescreen');
+    setLogin(1);
   }
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-  } = useForm();
+
   return (
-    <form
-      className={styles.form}
-      onSubmit={handleSubmit(
-        (data) => console.log(data)
-        // alert(JSON.stringify(data)),
-      )}
-    >
+    <form className={styles.form}>
       <input
-        className={styles.input}
         id="email"
-        type="email"
+        name="name"
+        value={email}
         placeholder="이메일"
-        {...register('email', {
-          required: '이메일은 필수 입력입니다.',
-          pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: '이메일 형식에 맞지 않습니다.',
-          },
-        })}
-      />
-      <input
         className={styles.input}
-        id="password"
-        type="password"
-        placeholder="비밀번호"
-        {...register('password', {
-          required: '비밀번호를 입력해주세요.',
-          minLength: {
-            value: 8,
-            message: '8자리 이상 비밀번호를 사용하세요.',
-          },
-          maxLengthLength: {
-            value: 20,
-            message: '비밀번호는 20자리 이하입니다.',
-          },
-        })}
+        onChange={onChangeEmail}
       />
-      {/* {errors.password && <small role="alert">{errors.password.message}</small>} */}
+      <p className={styles.message}>{emailMessage}</p>
+
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="비밀번호 입력"
+        className={styles.input}
+        value={password}
+        onChange={onChangePassword}
+      />
+      <p className={styles.message}>{passwordMessage}</p>
       <button
-        // onClick={gohome}
         type="submit"
-        className={styles.btn}
-        disabled={isSubmitting}
+        className={
+          isEmail === false || isPassword === false
+            ? `${styles.disbtn}`
+            : `${styles.yesbtn}`
+        }
+        onClick={gohome}
+        disabled={isEmail === false || isPassword === false}
       >
         로그인
       </button>

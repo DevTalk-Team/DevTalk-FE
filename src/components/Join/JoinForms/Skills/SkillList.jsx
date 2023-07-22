@@ -4,8 +4,9 @@ import styles from './SkillForm.module.css';
 export default function SkillList({ skilllist, onUpdate, onDelete, onSkill }) {
   const { id, skill } = skilllist;
   const [check, setCheck] = useState(false);
+
   const handleChange = (e) => {
-    setCheck(!check);
+    setCheck(() => !check);
     if (check === false) {
       onUpdate({ id, skill });
     } else {

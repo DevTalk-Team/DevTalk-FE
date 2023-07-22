@@ -29,6 +29,10 @@ export default function SkillForm({ id, title }) {
       id: 5,
       skill: '핀테크',
     },
+    {
+      id: 6,
+      skill: 'UX/UI',
+    },
   ]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
@@ -59,7 +63,11 @@ export default function SkillForm({ id, title }) {
   const navigate = useNavigate();
 
   function skill() {
-    navigate('/joinphone', { state: { id: id, value: title } });
+    if (id == 1) {
+      navigate('/jointerms', { state: { id: id, value: title } });
+    } else {
+      navigate('/joincomplete', { state: { id: id, value: title } });
+    }
     console.log(choose);
     console.log(isSkillConfirm);
   }
@@ -68,7 +76,7 @@ export default function SkillForm({ id, title }) {
     <div className={styles.container}>
       <div className={styles.skillform}>
         <p className={styles.skill}>
-          관심분야를 선택해주세요. <br />
+          {id == 0 ? '관심분야' : '전문분야'}를 선택해주세요. <br />
           (최대 5개)
         </p>
         <p className={styles.message}>{skillConfirmMessage}</p>
@@ -80,7 +88,7 @@ export default function SkillForm({ id, title }) {
           disabled={isSkillConfirm === false}
         >
           가입하기
-        </button>{' '}
+        </button>
         <div className={styles.list}>
           {skills.map((item) => (
             <SkillList

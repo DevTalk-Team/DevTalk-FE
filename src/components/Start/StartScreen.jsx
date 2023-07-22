@@ -9,10 +9,6 @@ export default function StartScreen() {
   const [modal, setModal] = useState(false);
 
   function gohome() {
-    navigate('/loginscreen');
-  }
-
-  function godev() {
     navigate('/login');
   }
 
@@ -20,11 +16,11 @@ export default function StartScreen() {
     <div className={styles.container}>
       <h1 className={styles.h1}>Devtalk</h1>
       <div className={styles.btns}>
-        <button className={styles.btn1} onClick={gohome}>
+        <button className={styles.btn1} onClick={() => setModal(true)}>
           개발 상담 바로가기
         </button>
         <div>
-          <button className={styles.btn2} onClick={() => setModal(true)}>
+          <button className={styles.btn2} onClick={gohome}>
             홈으로 바로가기
           </button>
           {modal === true ? <LoginPopup /> : null}

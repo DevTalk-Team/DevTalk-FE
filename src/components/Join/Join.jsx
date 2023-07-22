@@ -10,7 +10,7 @@ export default function Join() {
     navigate('/joinname', { state: { id: 0, value: '멘티 회원가입' } });
   }
   function gojoinmento() {
-    navigate('/joinemail', { state: { id: 1, value: '전문가 회원가입' } });
+    navigate('/joinphoto', { state: { id: 1, value: '전문가 회원가입' } });
   }
   return (
     <div className={styles.container}>

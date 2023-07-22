@@ -17,6 +17,9 @@ import JoinPw from './components/Join/Joins/JoinPw';
 import JoinName from './components/Join/Joins/JoinName';
 import JoinPhone from './components/Join/Joins/JoinPhone';
 import JoinSkill from './components/Join/Joins/JoinSkill';
+import JoinPhoto from './components/Join/Joins/JoinPhoto';
+import JoinTerms from './components/Join/Joins/JoinTerms';
+import JoinComplete from './components/Join/Joins/JoinComplete';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,9 @@ const router = createBrowserRouter([
       { path: '/joinname', element: <JoinName /> },
       { path: '/joinphone', element: <JoinPhone /> },
       { path: '/joinskill', element: <JoinSkill /> },
+      { path: '/joinphoto', element: <JoinPhoto /> },
+      { path: '/jointerms', element: <JoinTerms /> },
+      { path: '/joincomplete', element: <JoinComplete /> },
     ],
   },
 ]);
