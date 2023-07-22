@@ -43,11 +43,11 @@
   font-size: 0.7rem;
   font-weight: 800;
 }
-.btn1:hover {
+/* .btn1:hover {
   background-color: var(--color-bg);
   transition: 0.3s;
   color: var(--color-white);
-}
+} */
 
 .homemenu {
   display: flex;
@@ -70,24 +70,24 @@
   border: 1px solid black;
   font-weight: 700;
 }
-
+/* 
 .btn3:hover,
 .btn4:hover,
 .btn5:hover {
   border: none;
   background-color: var(--color-bg-light);
   transition: 0.3s;
-}
+} */
 .btn2 {
   background-color: var(--color-bg);
   border: 0.4rem solid var(--color-bg);
   color: var(--color-white);
   justify-content: center;
 }
-.btn2:hover {
+/* .btn2:hover {
   border: none;
   transition: 0.3s;
-}
+} */
 .btn3,
 .btn4,
 .btn5 {

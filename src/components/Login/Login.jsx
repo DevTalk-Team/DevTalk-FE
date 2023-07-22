@@ -9,7 +9,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   function gojoin() {
-    navigate('/mainscreen1');
+    navigate('/joinscreen');
   }
 
   return (
