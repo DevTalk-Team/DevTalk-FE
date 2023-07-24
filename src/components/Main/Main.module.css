@@ -1,0 +1,22 @@
+.container {
+  width: 100vw;
+  height: fit-content;
+}
+.header {
+  margin: 0;
+  position: fixed;
+  top: 0;
+}
+
+.mainheader {
+  width: 100%;
+  padding-top: 6rem;
+}
+
+.mainheader::after {
+  content: '';
+  display: block;
+  width: 5rem;
+  border-bottom: 0.3rem solid var(--color-bg-light);
+  margin: 0 auto;
+}

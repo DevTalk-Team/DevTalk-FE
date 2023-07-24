@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './SkillForm.module.css';
 
-export default function SkillList({ skilllist, onUpdate, onDelete, onSkill }) {
+export default function SkillList({ skilllist, onUpdate, onDelete }) {
   const { id, skill } = skilllist;
   const [check, setCheck] = useState(false);
 
-  const handleChange = (e) => {
-    setCheck(() => !check);
-    if (check === false) {
+  useEffect(() => {
+    if (check === true) {
       onUpdate({ id, skill });
     } else {
       onDelete(skilllist);
     }
-    onSkill();
+  }, [check]);
+
+  const handleChange = (e) => {
+    setCheck(() => !check);
   };
 
   return (
