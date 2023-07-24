@@ -7,7 +7,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import HomeScreen from './components/Home/HomeScreen';
 import LoadingScreen from './components/Start/LoadingScreen';
 import StartScreen from './components/Start/StartScreen';
-import Main1 from './components/Main/Main1';
 import Login from './components/Login/Login';
 import LoginPopup from './components/Popup/LoginPopup';
 import Notice from './components/Notice/Notice';
@@ -20,6 +19,14 @@ import JoinSkill from './components/Join/Joins/JoinSkill';
 import JoinPhoto from './components/Join/Joins/JoinPhoto';
 import JoinTerms from './components/Join/Joins/JoinTerms';
 import JoinComplete from './components/Join/Joins/JoinComplete';
+import Main1 from './components/Main/Main1';
+import Main2 from './components/Main/Main2';
+import Main3 from './components/Main/Main3';
+import Main4 from './components/Main/Main4';
+import Main5 from './components/Main/Main5';
+import Main6 from './components/Main/Main6';
+import Main7 from './components/Main/Main7';
+import Main8 from './components/Main/Main8';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +59,22 @@ const router = createBrowserRouter([
       { path: '/joinphoto', element: <JoinPhoto /> },
       { path: '/jointerms', element: <JoinTerms /> },
       { path: '/joincomplete', element: <JoinComplete /> },
+    ],
+  },
+  {
+    path: '/',
+    element: <App />,
+    //errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Main1 /> },
+      { path: '/main1', element: <Main1 /> },
+      { path: '/main2', element: <Main2 /> },
+      { path: '/main3', element: <Main3 /> },
+      { path: '/main4', element: <Main4 /> },
+      { path: '/main5', element: <Main5 /> },
+      { path: '/main6', element: <Main6 /> },
+      { path: '/main7', element: <Main7 /> },
+      { path: '/main8', element: <Main8 /> },
     ],
   },
 ]);

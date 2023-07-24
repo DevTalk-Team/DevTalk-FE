@@ -38,18 +38,19 @@ export default function SkillForm({ id, title }) {
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
   const [skillConfirmMessage, setSkillConfirmMessage] = useState('');
 
-  const onUpdate = (picked) => {
-    setChoose([...choose, picked]);
+  useEffect(() => {
     console.log(choose);
     console.log(choose.length);
+  }, [choose]);
+
+  const onUpdate = (picked) => {
+    setChoose([...choose, picked]);
   };
   const onDelete = (deleted) => {
     setChoose(choose.filter((t) => t.id !== deleted.id));
-    console.log(choose);
-    console.log(choose.length);
   };
 
-  const onChangeSkillConfirm = (e) => {
+  useEffect(() => {
     if (choose.length > 5) {
       setSkillConfirmMessage('최대 5개만 선택 가능합니다.');
       setIsSkillConfirm(false);
@@ -59,7 +60,8 @@ export default function SkillForm({ id, title }) {
       setSkillConfirmMessage('');
       setIsSkillConfirm(true);
     }
-  };
+  }, [choose]);
+
   const navigate = useNavigate();
 
   function skill() {
@@ -68,8 +70,6 @@ export default function SkillForm({ id, title }) {
     } else {
       navigate('/joincomplete', { state: { id: id, value: title } });
     }
-    console.log(choose);
-    console.log(isSkillConfirm);
   }
 
   return (
@@ -96,7 +96,6 @@ export default function SkillForm({ id, title }) {
               skilllist={item}
               onUpdate={onUpdate}
               onDelete={onDelete}
-              onSkill={onChangeSkillConfirm}
             />
           ))}
         </div>

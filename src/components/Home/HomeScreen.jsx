@@ -11,7 +11,7 @@ export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
-    navigate('/mainscreen1');
+    navigate('/mainscreen1'); //로그인 되었을 경우
   }
 
   function gomentor() {
@@ -31,7 +31,7 @@ export default function HomeScreen() {
   }
 
   function gonotice() {
-    navigate('/noticescreen');
+    navigate('/noticescreen'); //알림창
   }
   return (
     <div className={styles.container}>

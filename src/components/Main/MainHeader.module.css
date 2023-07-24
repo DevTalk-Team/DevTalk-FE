@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+}
+
+.title {
+  width: 70%;
+}
+.p1,
+.p2 {
+  margin: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+.btndiv {
+  display: flex;
+  align-items: end;
+}
+.btn {
+  all: unset;
+  width: 4rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+}
