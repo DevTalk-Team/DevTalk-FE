@@ -16,7 +16,7 @@
 }
 .btndiv {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 .btn {
   all: unset;

@@ -27,6 +27,10 @@ import Main5 from './components/Main/Main5';
 import Main6 from './components/Main/Main6';
 import Main7 from './components/Main/Main7';
 import Main8 from './components/Main/Main8';
+import FindId from './components/Login/FindIdPw/FindId';
+import FindPw from './components/Login/FindIdPw/FindPw';
+import ShowId from './components/Login/FindIdPw/ShowId';
+import ShowPw from './components/Login/FindIdPw/ShowPw';
 
 const router = createBrowserRouter([
   {
@@ -75,6 +79,18 @@ const router = createBrowserRouter([
       { path: '/main6', element: <Main6 /> },
       { path: '/main7', element: <Main7 /> },
       { path: '/main8', element: <Main8 /> },
+    ],
+  },
+  {
+    path: '/',
+    element: <App />,
+    //errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Login /> },
+      { path: '/findid', element: <FindId /> },
+      { path: '/findpw', element: <FindPw /> },
+      { path: '/showid', element: <ShowId /> },
+      { path: '/showpw', element: <ShowPw /> },
     ],
   },
 ]);
