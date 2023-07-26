@@ -22,7 +22,7 @@ import JoinComplete from './components/Join/Joins/JoinComplete';
 import Main1 from './components/Main/Main1';
 import Main2 from './components/Main/Main2';
 import Main3 from './components/Main/Main3';
-import Main4 from './components/Main/Main4';
+import Main4 from './components/Main/Main4/Main4';
 import Main5 from './components/Main/Main5';
 import Main6 from './components/Main/Main6';
 import Main7 from './components/Main/Main7';
