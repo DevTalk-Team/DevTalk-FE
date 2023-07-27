@@ -10,7 +10,13 @@
   font-weight: 800;
   line-height: 150%;
   margin-left: 7%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+.message {
+  margin-left: 7%;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--color-red);
 }
 .listbox {
   width: 100%;

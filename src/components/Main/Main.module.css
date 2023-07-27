@@ -11,15 +11,6 @@
 .mainheader {
   width: 100%;
   padding-top: 6rem;
-  margin-bottom: 4rem;
-}
-
-.mainheader::after {
-  content: '';
-  display: block;
-  width: 5rem;
-  border-bottom: 0.3rem solid var(--color-bg-light);
-  margin: 0 auto;
 }
 
 .choose1 {
@@ -27,6 +18,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
+}
+.choose {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 9rem;
 }
 .btn1 {
   all: unset;

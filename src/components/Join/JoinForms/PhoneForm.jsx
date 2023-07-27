@@ -40,18 +40,17 @@ export default function PhoneForm({ id, title }) {
         </p>
         <div className={styles.form}>
           <div className={styles.code}>
-            <div>
-              <input
-                id="phone"
-                name="phone"
-                value={phone}
-                maxLength={11}
-                placeholder="휴대폰번호 입력"
-                className={styles.input1}
-                onChange={onChangePhone}
-              />
-              <p className={styles.message}>{phoneMessage}</p>
-            </div>
+            <input
+              id="phone"
+              name="phone"
+              value={phone}
+              maxLength={11}
+              placeholder="휴대폰번호 입력"
+              className={styles.input1}
+              onChange={onChangePhone}
+            />
+            <p className={styles.message}>{phoneMessage}</p>
+
             <button
               type="submit"
               className={isPhone ? `${styles.yesbtn2}` : `${styles.disbtn2}`}

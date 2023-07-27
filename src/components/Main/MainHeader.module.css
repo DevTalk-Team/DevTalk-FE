@@ -1,12 +1,27 @@
 .container {
-  width: 100%;
+  width: 90%;
   padding: 1rem;
-  padding-bottom: 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 5rem;
+  background-color: var(--color-white);
 }
-
+.container::after {
+  content: '';
+  display: block;
+  width: 5rem;
+  border-bottom: 0.3rem solid var(--color-bg-light);
+  margin: 0 auto;
+}
+.display {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
 .title {
-  width: 70%;
+  width: 80%;
 }
 .p1,
 .p2 {

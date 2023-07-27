@@ -65,7 +65,7 @@ export default function Main3() {
       </div>
       <div className={styles.choose3}>
         {hows.map((item) => (
-          <button className={styles.btn3} id={item.id}>
+          <button className={styles.btn3} key={item.id}>
             {item.how}
           </button>
         ))}

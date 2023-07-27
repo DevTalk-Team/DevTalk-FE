@@ -44,7 +44,7 @@ export default function Main4() {
       <div className={styles.mainheader}>
         <MainHeader topic="원하는 전문가를" where="main5" />
       </div>
-      <div className={styles.choose1}>
+      <div className={styles.choose}>
         {mentors.map((item) => (
           <MainMentor key={item.id} mentor={item} />
         ))}
