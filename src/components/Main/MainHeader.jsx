@@ -9,14 +9,16 @@ export default function MainHeader({ topic, where }) {
   };
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        <p className={styles.p1}>{topic}</p>
-        <p className={styles.p2}>선택해 주세요</p>
-      </div>
-      <div className={styles.btndiv}>
-        <button className={styles.btn} onClick={gonext}>
-          다음
-        </button>
+      <div className={styles.display}>
+        <div className={styles.title}>
+          <p className={styles.p1}>{topic}</p>
+          <p className={styles.p2}>선택해 주세요</p>
+        </div>
+        <div className={styles.btndiv}>
+          <button className={styles.btn} onClick={gonext}>
+            다음
+          </button>
+        </div>
       </div>
     </div>
   );

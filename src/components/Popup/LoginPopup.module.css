@@ -16,7 +16,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  border: 0.1rem solid var(--color-bg);
+  /* border: 0.1rem solid var(--color-bg); */
   background-color: var(--color-white);
   padding: 2rem;
 }
