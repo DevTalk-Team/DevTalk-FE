@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './MainHeader.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function MainHeader({ topic, where }) {
+export default function MainHeader({ topic, where, check }) {
   const navigate = useNavigate();
+
   const gonext = () => {
     navigate(`/${where}`);
   };
@@ -15,7 +16,11 @@ export default function MainHeader({ topic, where }) {
           <p className={styles.p2}>선택해 주세요</p>
         </div>
         <div className={styles.btndiv}>
-          <button className={styles.btn} onClick={gonext}>
+          <button
+            className={check ? `${styles.btn}` : `${styles.disbtn}`}
+            disabled={check === false}
+            onClick={gonext}
+          >
             다음
           </button>
         </div>

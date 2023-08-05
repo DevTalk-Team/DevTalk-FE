@@ -44,3 +44,14 @@
   color: var(--color-white);
   border-radius: 0.5rem;
 }
+.disbtn {
+  all: unset;
+  width: 4rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  background-color: var(--color-gray);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+}

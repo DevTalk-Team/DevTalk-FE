@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Main.module.css';
 import MainHeader from './MainHeader';
 import Header from '../Header/Header';
+import MainFormList from './MainFormList';
 
 export default function Main3() {
   const [hows, setHows] = useState([
@@ -54,6 +55,33 @@ export default function Main3() {
       how: 'DB',
     },
   ]);
+  const [choose, setChoose] = useState([]);
+  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+  const [skillConfirmMessage, setSkillConfirmMessage] = useState('');
+
+  useEffect(() => {
+    console.log(choose);
+    console.log(choose.length);
+  }, [choose]);
+
+  const onUpdate = (picked) => {
+    setChoose([...choose, picked]);
+  };
+  const onDelete = (deleted) => {
+    setChoose(choose.filter((t) => t.id !== deleted.id));
+  };
+
+  useEffect(() => {
+    if (choose.length > 5) {
+      setSkillConfirmMessage('최대 5개만 선택 가능합니다.');
+      setIsSkillConfirm(false);
+    } else if (choose.length < 1) {
+      setIsSkillConfirm(false);
+    } else {
+      setSkillConfirmMessage('');
+      setIsSkillConfirm(true);
+    }
+  }, [choose]);
   //기술분야
   return (
     <div className={styles.container}>
@@ -61,13 +89,16 @@ export default function Main3() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="기술 분야를" where="main4" />
+        <MainHeader topic="기술 분야를" where="main4" check={isSkillConfirm} />
       </div>
       <div className={styles.choose3}>
         {hows.map((item) => (
-          <button className={styles.btn3} key={item.id}>
-            {item.how}
-          </button>
+          <MainFormList
+            key={item.id}
+            itemlist={item}
+            onUpdate={onUpdate}
+            onDelete={onDelete}
+          />
         ))}
       </div>
     </div>
