@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
 import MainHeader from '../MainHeader';
 import Header from '../../Header/Header';
@@ -35,6 +35,30 @@ export default function Main4() {
       rank: '4.7',
     },
   ]);
+  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+  const [isSelect, setIsSelect] = useState([]);
+  const [choose, setChoose] = useState('');
+
+  const handleClick = (i) => {
+    const newArr = Array(mentors.length).fill(false);
+    newArr[i] = true;
+    setIsSelect(newArr);
+    setIsSkillConfirm(true);
+  };
+
+  useEffect(() => {
+    console.log(isSelect);
+    pick();
+  }, [isSelect]);
+
+  const pick = () => {
+    isSelect.map((item, i) => (item === true ? setChoose(mentors[i]) : null));
+  };
+
+  useEffect(() => {
+    console.log(choose);
+  }, [choose]);
+
   //전문가 선택
   return (
     <div className={styles.container}>
@@ -42,11 +66,21 @@ export default function Main4() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="원하는 전문가를" where="main5" />
+        <MainHeader
+          topic="원하는 전문가를"
+          where="main5"
+          check={isSkillConfirm}
+        />
       </div>
       <div className={styles.choose}>
-        {mentors.map((item) => (
-          <MainMentor key={item.id} mentor={item} />
+        {mentors.map((item, i) => (
+          <MainMentor
+            key={i}
+            mentor={item}
+            isSelect={isSelect[i]}
+            handleClick={handleClick}
+            elementIndex={i}
+          />
         ))}
       </div>
     </div>

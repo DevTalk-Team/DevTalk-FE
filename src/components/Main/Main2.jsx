@@ -31,33 +31,30 @@ export default function Main2() {
       how: '개발 팀 구성',
     },
   ]);
+  const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
-  const [skillConfirmMessage, setSkillConfirmMessage] = useState('');
+
+  const handleClick = (i) => {
+    const newArr = Array(hows.length).fill(false);
+    newArr[i] = true;
+    setIsSelect(newArr);
+    setIsSkillConfirm(true);
+  };
+
+  useEffect(() => {
+    console.log(isSelect);
+    pick();
+  }, [isSelect]);
+
+  const pick = () => {
+    isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
+  };
 
   useEffect(() => {
     console.log(choose);
-    console.log(choose.length);
   }, [choose]);
 
-  const onUpdate = (picked) => {
-    setChoose([...choose, picked]);
-  };
-  const onDelete = (deleted) => {
-    setChoose(choose.filter((t) => t.id !== deleted.id));
-  };
-
-  useEffect(() => {
-    if (choose.length > 5) {
-      setSkillConfirmMessage('최대 5개만 선택 가능합니다.');
-      setIsSkillConfirm(false);
-    } else if (choose.length < 1) {
-      setIsSkillConfirm(false);
-    } else {
-      setSkillConfirmMessage('');
-      setIsSkillConfirm(true);
-    }
-  }, [choose]);
   //상담분야
   return (
     <div className={styles.container}>
@@ -68,12 +65,13 @@ export default function Main2() {
         <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />
       </div>
       <div className={styles.choose2}>
-        {hows.map((item) => (
+        {hows.map((item, i) => (
           <MainFormList
-            key={item.id}
+            key={i}
+            isSelect={isSelect[i]}
+            handleClick={handleClick}
+            elementIndex={i}
             itemlist={item}
-            onUpdate={onUpdate}
-            onDelete={onDelete}
           />
         ))}
       </div>

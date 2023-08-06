@@ -24,7 +24,7 @@ export default function EmailForm({ id, title }) {
   const navigate = useNavigate();
 
   function goemail() {
-    navigate('/joinpw', { state: { id: id, value: title } });
+    navigate('/joincheckemail', { state: { id: id, value: title } });
     console.log(id);
     console.log(email);
     console.log(isEmail);

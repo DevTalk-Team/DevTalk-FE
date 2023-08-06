@@ -39,19 +39,18 @@ export default function PhoneForm({ id, title }) {
           휴대폰 본인인증을 위해 <br /> 인증번호를 입력해주세요.
         </p>
         <div className={styles.form}>
-          <div className={styles.code}>
-            <input
-              id="phone"
-              name="phone"
-              value={phone}
-              maxLength={11}
-              placeholder="휴대폰번호 입력"
-              className={styles.input1}
-              onChange={onChangePhone}
-            />
-            <p className={styles.message}>{phoneMessage}</p>
+          <input
+            id="phone"
+            name="phone"
+            value={phone}
+            maxLength={11}
+            placeholder="휴대폰번호 입력"
+            className={styles.input1}
+            onChange={onChangePhone}
+          />
+          <p className={styles.message}>{phoneMessage}</p>
 
-            <button
+          {/* <button
               type="submit"
               className={isPhone ? `${styles.yesbtn2}` : `${styles.disbtn2}`}
               onClick={gophone}
@@ -67,7 +66,7 @@ export default function PhoneForm({ id, title }) {
             placeholder="인증번호 입력"
             onChange={onChangePhone}
             className={styles.input2}
-          />
+          /> */}
           <button
             type="submit"
             className={isPhone ? `${styles.yesbtn}` : `${styles.disbtn}`}

@@ -6,12 +6,19 @@
   width: 90%;
   margin-bottom: 1.5rem;
 }
-.carddisplay {
-  border: 0.1rem solid var(--color-gray);
+.carddisplay,
+.thiscarddisplay {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   display: flex;
   flex-direction: row;
+}
+.carddisplay {
+  border: 0.1rem solid var(--color-gray);
+}
+.thiscarddisplay {
+  border: 0.2rem solid var(--color-bg);
+  background-color: var(--color-bg-light);
 }
 .nameimg {
   display: flex;

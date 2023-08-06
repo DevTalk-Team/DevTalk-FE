@@ -23,7 +23,7 @@
 
 .input1 {
   all: unset;
-  width: 100%;
+  width: 85%;
   padding: 0 1rem;
   height: 2.5rem;
   border: 0.1rem solid var(--color-bg);
@@ -66,7 +66,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--color-bg);
+  color: var(--color-red);
 }
 
 .yesbtn,

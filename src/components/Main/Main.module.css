@@ -55,6 +55,7 @@
   display: grid;
   place-items: center;
   grid-template-columns: 48% 48%;
+  justify-items: center;
   row-gap: 1rem;
   column-gap: 1rem;
   margin-top: 10rem;
@@ -76,10 +77,11 @@
   width: 100%;
   padding: 0;
   display: grid;
-  grid-template-columns: 27% 27% 27%;
+  grid-template-columns: 30% 30% 30%;
   row-gap: 1rem;
   column-gap: 1rem;
   place-content: center;
+  justify-items: center;
   margin-top: 10rem;
 }
 
