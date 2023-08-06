@@ -12,6 +12,7 @@ import LoginPopup from './components/Popup/LoginPopup';
 import Notice from './components/Notice/Notice';
 import Join from './components/Join/Join';
 import JoinEmail from './components/Join/Joins/JoinEmail';
+import JoinCheckEmail from './components/Join/Joins/JoinCheckEmail';
 import JoinPw from './components/Join/Joins/JoinPw';
 import JoinName from './components/Join/Joins/JoinName';
 import JoinPhone from './components/Join/Joins/JoinPhone';
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Join /> },
       { path: '/joinemail', element: <JoinEmail /> },
+      { path: '/joincheckemail', element: <JoinCheckEmail /> },
       { path: '/joinpw', element: <JoinPw /> },
       { path: '/joinname', element: <JoinName /> },
       { path: '/joinphone', element: <JoinPhone /> },

@@ -1,13 +1,32 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import styles from './MainMentor.module.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function MainMentor({ mentor }) {
+export default function MainMentor({
+  mentor,
+  handleClick,
+  elementIndex,
+  isSelect,
+}) {
   const { id, img, name, info, skill, price, rank } = mentor;
+
+  const navigate = useNavigate();
+
+  const gomentor = () => {
+    navigate('/');
+    // `mentor/${id}`
+  };
+
   //전문가 카드
   return (
     <div className={styles.card}>
-      <div className={styles.carddisplay}>
+      <div
+        c
+        className={
+          isSelect ? `${styles.thiscarddisplay}` : `${styles.carddisplay}`
+        }
+      >
         <div className={styles.nameimg}>
           <div className={styles.img}>
             <img
@@ -29,8 +48,15 @@ export default function MainMentor({ mentor }) {
         </div>
       </div>
       <div className={styles.btns}>
-        <button className={styles.btn1}> 상세 보기</button>
-        <button className={styles.btn2}>선택</button>
+        <button className={styles.btn1} onClick={gomentor}>
+          상세 보기
+        </button>
+        <button
+          onClick={() => handleClick(elementIndex)}
+          className={styles.btn2}
+        >
+          선택
+        </button>
       </div>
     </div>
   );

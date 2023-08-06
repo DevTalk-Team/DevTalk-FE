@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Main.module.css';
 import MainHeader from './MainHeader';
 import Header from '../Header/Header';
+import MainFormList from './MainFormList';
 
 export default function Main2() {
   const [hows, setHows] = useState([
@@ -30,6 +31,30 @@ export default function Main2() {
       how: '개발 팀 구성',
     },
   ]);
+  const [isSelect, setIsSelect] = useState([]);
+  const [choose, setChoose] = useState([]);
+  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+
+  const handleClick = (i) => {
+    const newArr = Array(hows.length).fill(false);
+    newArr[i] = true;
+    setIsSelect(newArr);
+    setIsSkillConfirm(true);
+  };
+
+  useEffect(() => {
+    console.log(isSelect);
+    pick();
+  }, [isSelect]);
+
+  const pick = () => {
+    isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
+  };
+
+  useEffect(() => {
+    console.log(choose);
+  }, [choose]);
+
   //상담분야
   return (
     <div className={styles.container}>
@@ -37,11 +62,17 @@ export default function Main2() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="상담 분야를" where="main3" />
+        <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />
       </div>
       <div className={styles.choose2}>
-        {hows.map((item) => (
-          <button className={styles.btn2}>{item.how}</button>
+        {hows.map((item, i) => (
+          <MainFormList
+            key={i}
+            isSelect={isSelect[i]}
+            handleClick={handleClick}
+            elementIndex={i}
+            itemlist={item}
+          />
         ))}
       </div>
     </div>
