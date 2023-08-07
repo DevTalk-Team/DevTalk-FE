@@ -49,6 +49,8 @@
 .disbtn1 {
   background-color: var(--color-bg-light);
 }
+
+/* Main2 */
 .choose2 {
   width: 100%;
   padding: 0;
@@ -73,6 +75,7 @@
   margin: 1rem 0;
 }
 
+/* Main3 */
 .choose3 {
   width: 100%;
   padding: 0;
@@ -95,4 +98,35 @@
   background-color: var(--color-bg-light);
   border-radius: 1rem;
   margin: 1rem 0;
+}
+
+/* Main5 */
+.pickarea {
+  width: 100%;
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.datepick {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.txt {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 2rem;
+}
+
+.choose5 {
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  place-content: center;
+  justify-items: center;
 }

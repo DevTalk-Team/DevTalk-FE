@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './Main.module.css';
-import MainHeader from './MainHeader';
-import Header from '../Header/Header';
+import styles from '../Main.module.css';
+import MainHeader from '../MainHeader';
+import Header from '../../Header/Header';
+import AskForm from './AskForm';
 
 export default function Main6() {
   //상담내용
@@ -12,6 +13,9 @@ export default function Main6() {
       </div>
       <div className={styles.mainheader}>
         <MainHeader topic="상담 받을 내용을" where="main7" />
+      </div>
+      <div className={styles.pickarea}>
+        <AskForm />
       </div>
     </div>
   );
