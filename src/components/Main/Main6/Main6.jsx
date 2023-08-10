@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../Main.module.css';
 import MainHeader from '../MainHeader';
 import Header from '../../Header/Header';
 import AskForm from './AskForm';
 
 export default function Main6() {
+  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+
+  const checkTxt = (i) => {
+    setIsSkillConfirm(i);
+  };
   //상담내용
   return (
     <div className={styles.container}>
@@ -12,10 +17,14 @@ export default function Main6() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="상담 받을 내용을" where="main7" />
+        <MainHeader
+          topic="상담 받을 내용을"
+          where="main7"
+          check={isSkillConfirm}
+        />
       </div>
       <div className={styles.pickarea}>
-        <AskForm />
+        <AskForm checkTxt={checkTxt} />
       </div>
     </div>
   );

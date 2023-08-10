@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './AskForm.module.css';
 
-export default function AskForm() {
-  let [inputCount, setInputCount] = useState(0);
+export default function AskForm({ checkTxt }) {
+  const [inputCount, setInputCount] = useState(0);
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
   };
+  useEffect(() => {
+    if (inputCount > 0) {
+      checkTxt(true);
+    } else if (inputCount == 0) {
+      checkTxt(false);
+    } else {
+      checkTxt(false);
+    }
+  }, [inputCount]);
+
   return (
     <div>
       <p className={styles.txt}>상담 내용</p>
       <div className={styles.ask}>
-        <p>
+        <div className={styles.count}>
           <span>{inputCount}</span>
           <span>/1000 자</span>
-        </p>
+        </div>
         <textarea
+          className={styles.askta}
           onChange={onInputHandler}
           maxLength={999}
-          cols="30"
-          rows="10"
           placeholder="내용을 작성해주세요."
         ></textarea>
       </div>

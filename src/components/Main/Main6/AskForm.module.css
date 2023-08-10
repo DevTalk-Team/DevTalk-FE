@@ -3,3 +3,29 @@
   font-weight: 800;
   margin: 2rem;
 }
+.ask {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.count {
+  width: 100%;
+  text-align: right;
+  margin: 0 20% 0.5rem 0;
+  color: var(--color-bg);
+  font-weight: 500;
+}
+.askta {
+  all: unset;
+  width: 80%;
+  height: 10rem;
+  padding: 0.5rem;
+  border: 0.2rem solid var(--color-bg);
+  border-radius: 1rem;
+}
+.askta:focus {
+  border: 0.2rem solid var(--color-bg-light);
+}
+.addfile {
+  margin-left: 2rem;
+}
