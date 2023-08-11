@@ -8,18 +8,6 @@ export default function MainFormList({
   isSelect,
 }) {
   const { id, how } = itemlist;
-  //   const [check, setCheck] = useState(false);
-  //   useEffect(() => {
-  //     if (check === true) {
-  //       onUpdate({ id, how });
-  //     } else {
-  //       onDelete(itemlist);
-  //     }
-  //   }, [check]);
-
-  //   const handleChange = (e) => {
-  //     setCheck(() => !check);
-  //   };
 
   return (
     <button

@@ -20,14 +20,15 @@ import JoinSkill from './components/Join/Joins/JoinSkill';
 import JoinPhoto from './components/Join/Joins/JoinPhoto';
 import JoinTerms from './components/Join/Joins/JoinTerms';
 import JoinComplete from './components/Join/Joins/JoinComplete';
-import Main1 from './components/Main/Main1';
+import Main1 from './components/Main/Main1/Main1';
 import Main2 from './components/Main/Main2';
 import Main3 from './components/Main/Main3';
 import Main4 from './components/Main/Main4/Main4';
 import Main5 from './components/Main/Main5/Main5';
 import Main6 from './components/Main/Main6/Main6';
-import Main7 from './components/Main/Main7';
-import Main8 from './components/Main/Main8';
+import Main7 from './components/Main/Main7/Main7';
+import Main8 from './components/Main/Main8/Main8';
+import Main9 from './components/Main/Main9';
 import FindId from './components/Login/FindIdPw/FindId';
 import FindPw from './components/Login/FindIdPw/FindPw';
 import ShowId from './components/Login/FindIdPw/ShowId';
@@ -81,6 +82,7 @@ const router = createBrowserRouter([
       { path: '/main6', element: <Main6 /> },
       { path: '/main7', element: <Main7 /> },
       { path: '/main8', element: <Main8 /> },
+      { path: '/main9', element: <Main9 /> },
     ],
   },
   {
