@@ -1,0 +1,78 @@
+.counselDetail {
+  height: 100%;
+  margin: 5%;
+}
+
+.contentGroup {
+  margin: 4% 0;
+}
+
+.mainText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.subText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 2%;
+}
+
+.normalBoldText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.normalText {
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#counselContent {
+  width: 95%;
+  height: 20vh;
+}
+
+.contentBox {
+  min-height: 5rem;
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+  padding: 1% 2%;
+}
+
+.button {
+  color: #ffffff;
+  background: #0a3779;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.insertButton {
+  padding: 2%;
+  font-size: 0.9rem;
+}
+
+.changeButton {
+  width: 100%;
+  height: 8%;
+  font-size: 1.2rem;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileList {
+  display: flex;
+}

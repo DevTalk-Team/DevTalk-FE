@@ -1,0 +1,56 @@
+.userInfo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  position: sticky;
+  height: 10%;
+  top: 0;
+}
+
+.professorInfoContent {
+  height: 90%;
+}
+
+.infoHeader {
+  min-height: 30%;
+  background-color: #dceaff;
+  padding: 3% 5%;
+}
+
+.profileImg {
+  height: 80%;
+}
+
+.mainText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.content {
+  width: 100%;
+  height: 90%;
+}
+
+.contentHeader {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  align-self: center;
+}
+
+.headerTag {
+  width: 50%;
+  color: rgba(0, 0, 0, 0.51);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.activeHeaderTag {
+  color: black;
+  border-bottom: 3px solid #0a3779;
+}

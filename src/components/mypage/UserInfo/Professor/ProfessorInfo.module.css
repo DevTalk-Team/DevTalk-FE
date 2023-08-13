@@ -1,0 +1,40 @@
+.userInfo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  position: sticky;
+  height: 10%;
+  top: 0;
+}
+
+.professorInfoContent {
+  height: 90%;
+}
+
+.mainText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.infoBox {
+  margin: 0 4%;
+}
+
+.contentBox {
+  width: 90%;
+  min-height: 5rem;
+  border: 1cap solid #000;
+  border-radius: 10px;
+  padding: 1% 2%;
+}
+
+.normalText {
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 500;
+  font-size: 0.9rem;
+}

@@ -49,6 +49,18 @@ export default function SkillForm({ id, title }) {
     console.log(choose.length);
   };
 
+  useEffect(() => {
+    if (choose.length > 5) {
+      setSkillConfirmMessage('최대 5개만 선택 가능합니다.');
+      setIsSkillConfirm(false);
+    } else if (choose.length < 1) {
+      setIsSkillConfirm(false);
+    } else {
+      setSkillConfirmMessage('');
+      setIsSkillConfirm(true);
+    }
+  }, [choose]);
+
   const onChangeSkillConfirm = (e) => {
     if (choose.length > 5) {
       setSkillConfirmMessage('최대 5개만 선택 가능합니다.');

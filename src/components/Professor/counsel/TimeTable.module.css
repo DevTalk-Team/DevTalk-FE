@@ -1,0 +1,12 @@
+.tableBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.timeTableBox {
+  width: 18%;
+  height: 5%;
+  margin: 1% 1%;
+  background: #dceaff;
+  text-align: center;
+}
