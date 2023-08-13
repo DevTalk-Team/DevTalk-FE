@@ -1,5 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styles from './MainHeader.module.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function MainHeader() {
-  return <div>헤더</div>;
+export default function MainHeader({ topic, where, check }) {
+  const navigate = useNavigate();
+
+  const gonext = () => {
+    navigate(`/${where}`);
+  };
+  return (
+    <div className={styles.container}>
+      <div className={styles.display}>
+        <div className={styles.title}>
+          <p className={styles.p1}>{topic}</p>
+          <p className={styles.p2}>선택해 주세요</p>
+        </div>
+        <div className={styles.btndiv}>
+          <button
+            className={check ? `${styles.btn}` : `${styles.disbtn}`}
+            disabled={check === false}
+            onClick={gonext}
+          >
+            다음
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }

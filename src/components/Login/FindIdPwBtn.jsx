@@ -6,10 +6,10 @@ export default function FindIdPwBtn() {
   const Navigate = useNavigate();
 
   function findId() {
-    Navigate('/homescreen');
+    Navigate('/findid');
   }
   function findPw() {
-    Navigate('/homescreen');
+    Navigate('/findpw');
   }
   return (
     <div className={styles.findbtn}>

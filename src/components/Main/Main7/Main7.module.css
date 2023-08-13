@@ -1,0 +1,63 @@
+.container {
+  width: 100vw;
+  height: fit-content;
+}
+.header {
+  margin: 0;
+  position: fixed;
+  top: 0;
+}
+
+.btnarea {
+  margin: 10rem 0 5rem 0;
+  text-align: center;
+}
+.btn {
+  all: unset;
+  width: 60%;
+  height: 4.5rem;
+  border: 0.1rem solid var(--color-bg);
+  border-radius: 0.5rem;
+  color: var(--color-white);
+  background-color: var(--color-bg);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.block {
+  margin: 0 1rem;
+}
+.topic {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+.moneyarea {
+  padding: 0 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--color-bg-light);
+  margin-bottom: 1rem;
+}
+.money {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-bg);
+}
+.txtarea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.txt {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-bg);
+}
+.txt2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-bg);
+}

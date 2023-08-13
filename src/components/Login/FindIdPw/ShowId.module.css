@@ -1,0 +1,36 @@
+.container {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+.showid {
+  margin-top: 9rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.p {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.btndiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  all: unset;
+  text-align: center;
+  width: 70%;
+  padding: 1.2rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  color: var(--color-white);
+  background-color: var(--color-bg);
+}

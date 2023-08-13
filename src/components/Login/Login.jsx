@@ -25,10 +25,10 @@ export default function Login() {
       <div className={styles.line}>
         <span className={styles.linetext}>회원가입 하러가기</span>
       </div>
-      <div className={styles.socialbtnarea}>소셜로그인</div>
+      {/* <div className={styles.socialbtnarea}>소셜로그인</div> */}
       <div className={styles.joinbtnarea}>
         <button className={styles.joinbtn} onClick={gojoin}>
-          일반 회원 가입
+          회원 가입
         </button>
       </div>
     </div>
