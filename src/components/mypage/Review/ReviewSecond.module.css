@@ -1,0 +1,80 @@
+.userInfo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  position: sticky;
+  height: 10%;
+  top: 0;
+}
+
+.text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.normalText {
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.78);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.reviewContent {
+  height: 90%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  color: #f0ce4a;
+}
+
+.nonActive {
+  color: #efefef;
+}
+
+.button {
+  color: #ffffff;
+  background-color: #0a3779;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.insertButton {
+  margin: 5% 0;
+  width: 100%;
+  border: 2px solid rgba(10, 55, 121, 0.7);
+  color: #0a3779;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 2% 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.changeButton {
+  width: 100%;
+  margin: 10% 0;
+  height: 8%;
+  font-size: 1.2rem;
+}
+
+.fileInput {
+  display: none;
+}
+
+.contentBox {
+  width: 92%;
+  min-height: 5rem;
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+  padding: 2% 4%;
+}

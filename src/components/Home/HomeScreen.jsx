@@ -1,42 +1,43 @@
-import React from 'react';
-import styles from './HomeScreen.module.css';
-import { FaRegBell, FaPen } from 'react-icons/fa';
-import { BsPersonCheck } from 'react-icons/bs';
-import { RiSettings3Line } from 'react-icons/ri';
-import { Link, useNavigate } from 'react-router-dom';
-import HomeReservation from './HomeReservation';
-import HomeLogin from './HomeLogin';
+import React from "react";
+import styles from "./HomeScreen.module.css";
+import { FaRegBell, FaPen } from "react-icons/fa";
+import { BsPersonCheck } from "react-icons/bs";
+import { RiSettings3Line } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
+import HomeReservation from "./HomeReservation";
+import HomeLogin from "./HomeLogin";
 
 export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
     navigate('/mainscreen1'); //로그인 되었을 경우
+
   }
 
   function gomentor() {
-    navigate('/');
+    navigate("/");
   }
 
   function goreview() {
-    navigate('/');
+    navigate("/");
   }
 
   function gomypage() {
-    navigate('/');
+    navigate("/mypagescreen");
   }
 
   function goreservation() {
-    navigate('/');
+    navigate("/");
   }
 
   function gonotice() {
-    navigate('/noticescreen'); //알림창
+    navigate("/noticescreen");
   }
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to={'/homescreen'} className={styles.appname}>
+        <Link to={"/homescreen"} className={styles.appname}>
           Devtalk
         </Link>
         <button className={styles.bellicon} onClick={gonotice}>

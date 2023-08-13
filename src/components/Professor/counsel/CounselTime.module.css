@@ -1,0 +1,51 @@
+.userInfo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  position: sticky;
+  height: 10%;
+  top: 0;
+}
+
+.timeTableContent {
+  height: 90%;
+  margin: 0 6%;
+}
+
+.timeTableHeader {
+  margin: 4% 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.subText {
+  font-weight: 700;
+  padding: 2% 0;
+  font-size: 1.2rem;
+}
+
+.button {
+  margin: 5% 0;
+  width: 20%;
+  border: 2px solid rgba(10, 55, 121, 0.7);
+  border-radius: 10px;
+}
+
+.typeBox {
+  display: flex;
+  justify-content: center;
+}
+
+.counselType {
+  min-width: 10%;
+  border-bottom: 5px solid #dceaff;
+}

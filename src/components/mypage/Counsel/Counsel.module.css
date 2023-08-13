@@ -1,0 +1,83 @@
+.userInfo {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  position: sticky;
+  height: 10%;
+  top: 0;
+}
+
+.line {
+  border-top: 1px solid #0a3779;
+}
+
+.content {
+  width: 100%;
+  height: 90%;
+}
+
+.contentHeader {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  align-self: center;
+}
+
+.headerTag {
+  width: 25%;
+  color: rgba(0, 0, 0, 0.51);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.activeHeaderTag {
+  color: black;
+  border-bottom: 3px solid #0a3779;
+}
+
+.text {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0a3779;
+}
+
+.input {
+  width: 75%;
+  height: 5vh;
+  margin-bottom: 10%;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid #0a3779;
+  border-radius: 10px;
+  padding: 1% 2%;
+}
+
+.button {
+  width: 20%;
+  height: 5vh;
+  background: white;
+  color: white;
+  background: #0a3779;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+.counselContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

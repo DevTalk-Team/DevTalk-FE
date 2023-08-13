@@ -1,0 +1,65 @@
+.counselCard {
+  width: 85%;
+  height: 20%;
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 2% 4%;
+  margin: 2% 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p {
+  margin: 2% 0;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.status {
+  color: #0a3779;
+}
+
+.cancelStatus {
+  color: rgba(255, 0, 0, 0.87);
+}
+
+.content {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.87em;
+  color: rgba(0, 0, 0, 0.67);
+}
+
+.buttonBox {
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counselStatusButton {
+  width: 25%;
+  height: 100%;
+  background: #0a3779;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #ffffff;
+  margin: 0 0.5rem;
+}
+
+.counselCancel {
+  background: rgba(10, 55, 121, 0.77);
+}
