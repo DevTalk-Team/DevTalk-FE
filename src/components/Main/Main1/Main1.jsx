@@ -1,47 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Main.module.css';
-import MainHeader from './MainHeader';
-import Header from '../Header/Header';
-import MainFormList from './MainFormList';
+import styles from '../Main.module.css';
+import MainHeader from '../MainHeader';
+import Header from '../../Header/Header';
+import Main1FormList from './Main1FormList';
 
-export default function Main2() {
-  //상담분야선택페이지
-
+export default function Main1() {
+  //원하는 진행방식 선택 페이지
   const [hows, setHows] = useState([
     {
       id: 0,
-      how: '커리어',
+      how: '1시간 비대면 상담',
     },
     {
       id: 1,
-      how: '개발 장애',
+      how: '1시간 대면 상담',
     },
     {
       id: 2,
-      how: '멘토 섭외',
-    },
-    {
-      id: 3,
-      how: '개발 외주',
-    },
-    {
-      id: 4,
-      how: '개발 컨설팅',
-    },
-    {
-      id: 5,
-      how: '개발 팀 구성',
+      how: '게시판 상담',
     },
   ]);
-  const [isSelect, setIsSelect] = useState([]);
-  const [choose, setChoose] = useState([]);
-  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
 
-  const handleClick = (i) => {
+  const [isSelect, setIsSelect] = useState([]);
+  const [choose, setChoose] = useState('');
+  const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+  const [how, setHow] = useState(0);
+  const [where, setWhere] = useState('');
+
+  const handleClick = (i, id) => {
     const newArr = Array(hows.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
+    setHow(id);
   };
 
   useEffect(() => {
@@ -51,8 +42,12 @@ export default function Main2() {
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
+    if (how == 1) {
+      setWhere('main9');
+    } else {
+      setWhere('main2');
+    }
   };
-
   useEffect(() => {
     console.log(choose);
   }, [choose]);
@@ -63,11 +58,15 @@ export default function Main2() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />
+        <MainHeader
+          topic="원하는 진행방식을"
+          where={where}
+          check={isSkillConfirm}
+        />
       </div>
-      <div className={styles.choose2}>
+      <div className={styles.choose1}>
         {hows.map((item, i) => (
-          <MainFormList
+          <Main1FormList
             key={i}
             isSelect={isSelect[i]}
             handleClick={handleClick}

@@ -22,7 +22,6 @@ export default function MainMentor({
   return (
     <div className={styles.card}>
       <div
-        c
         className={
           isSelect ? `${styles.thiscarddisplay}` : `${styles.carddisplay}`
         }
