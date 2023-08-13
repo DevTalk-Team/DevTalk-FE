@@ -5,6 +5,7 @@ import Header from '../../Header/Header';
 import Main1FormList from './Main1FormList';
 
 export default function Main1() {
+  //원하는 진행방식 선택 페이지
   const [hows, setHows] = useState([
     {
       id: 0,
@@ -51,7 +52,6 @@ export default function Main1() {
     console.log(choose);
   }, [choose]);
 
-  // //진행방식
   return (
     <div className={styles.container}>
       <div className={styles.header}>

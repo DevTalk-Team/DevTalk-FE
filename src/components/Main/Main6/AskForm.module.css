@@ -3,6 +3,12 @@
   font-weight: 800;
   margin: 2rem;
 }
+.txtspan {
+  color: var(--color-dark-gray);
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
 .ask {
   display: flex;
   flex-direction: column;
@@ -28,4 +34,39 @@
 }
 .addfile {
   margin-left: 2rem;
+}
+.input {
+  display: none;
+}
+.inputlabel {
+  font-weight: 500;
+  background-color: var(--color-bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.showfile {
+  border: 0.2rem solid var(--color-bg);
+  border-radius: 1rem;
+  width: 80%;
+  height: 6rem;
+  margin: 1rem auto;
+  padding: 0.5rem;
+}
+.filelist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filename {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0.5rem;
+  color: var(--color-dark-gray);
+}
+.deletebtn {
+  all: unset;
+}
+.btn {
+  color: var(--color-dark-gray);
 }

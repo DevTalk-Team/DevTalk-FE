@@ -5,6 +5,8 @@ import Header from '../Header/Header';
 import MainFormList from './MainFormList';
 
 export default function Main2() {
+  //상담분야선택페이지
+
   const [hows, setHows] = useState([
     {
       id: 0,
@@ -55,7 +57,6 @@ export default function Main2() {
     console.log(choose);
   }, [choose]);
 
-  //상담분야
   return (
     <div className={styles.container}>
       <div className={styles.header}>

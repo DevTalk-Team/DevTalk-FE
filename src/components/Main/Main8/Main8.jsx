@@ -5,6 +5,7 @@ import styles from './Main8.module.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Main8() {
+  //예약완료페이지
   const navigate = useNavigate();
 
   const gohome = () => {

@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import MainFormList from './MainFormList';
 
 export default function Main3() {
+  //원하는 기술분야 선택 페이지
   const [hows, setHows] = useState([
     {
       id: 0,
@@ -79,7 +80,6 @@ export default function Main3() {
     console.log(choose);
   }, [choose]);
 
-  //기술분야
   return (
     <div className={styles.container}>
       <div className={styles.header}>

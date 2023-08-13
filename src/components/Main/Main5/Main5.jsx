@@ -7,12 +7,12 @@ import DatePick from './DatePick';
 import TimePickList from './TimePickList';
 
 export default function Main5() {
+  // 원하는 예약 시간 및 날짜 선택 페이지
   const [isConfirm, setIsConfirm] = useState(false);
   const checkTime = (i) => {
     setIsConfirm(i);
   };
 
-  //예약 시간
   return (
     <div className={styles.container}>
       <div className={styles.header}>

@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import MainFormList from './MainFormList';
 
 export default function Main3() {
-  //지역
+  //비대면 상담 시 원하는 지역 선택 페이지
   const [hows, setHows] = useState([
     {
       id: 0,

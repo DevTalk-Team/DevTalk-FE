@@ -5,6 +5,7 @@ import Header from '../../Header/Header';
 import MainMentor from './MainMentor';
 
 export default function Main4() {
+  //전문가 선택 페이지
   const [mentors, setMentors] = useState([
     {
       id: 0,
@@ -59,7 +60,6 @@ export default function Main4() {
     console.log(choose);
   }, [choose]);
 
-  //전문가 선택
   return (
     <div className={styles.container}>
       <div className={styles.header}>
