@@ -35,9 +35,7 @@ export default function PhoneForm({ id, title }) {
   return (
     <div>
       <div className={styles.phoneform}>
-        <p className={styles.phone}>
-          휴대폰 본인인증을 위해 <br /> 인증번호를 입력해주세요.
-        </p>
+        <p className={styles.phone}>휴대폰 번호를 입력해주세요.</p>
         <div className={styles.form}>
           <input
             id="phone"

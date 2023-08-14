@@ -3,9 +3,13 @@ import styles from './Main.module.css';
 import MainHeader from './MainHeader';
 import Header from '../Header/Header';
 import MainFormList from './MainFormList';
+import { useLocation } from 'react-router-dom';
 
 export default function Main3() {
   //원하는 기술분야 선택 페이지
+  const location = useLocation();
+  const pageid = location.state.id;
+
   const [hows, setHows] = useState([
     {
       id: 0,
@@ -60,6 +64,7 @@ export default function Main3() {
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+  const [where, setWhere] = useState('');
 
   const handleClick = (i) => {
     const newArr = Array(hows.length).fill(false);
@@ -71,10 +76,16 @@ export default function Main3() {
   useEffect(() => {
     console.log(isSelect);
     pick();
+    console.log(pageid);
   }, [isSelect]);
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
+    if (pageid == 2) {
+      setWhere('main10');
+    } else {
+      setWhere('main4');
+    }
   };
   useEffect(() => {
     console.log(choose);
@@ -86,7 +97,7 @@ export default function Main3() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="기술 분야를" where="main4" check={isSkillConfirm} />
+        <MainHeader topic="기술 분야를" where={where} check={isSkillConfirm} />
       </div>
       <div className={styles.choose3}>
         {hows.map((item, i) => (

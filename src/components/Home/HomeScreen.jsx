@@ -1,43 +1,47 @@
-import React from "react";
-import styles from "./HomeScreen.module.css";
-import { FaRegBell, FaPen } from "react-icons/fa";
-import { BsPersonCheck } from "react-icons/bs";
-import { RiSettings3Line } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
-import HomeReservation from "./HomeReservation";
-import HomeLogin from "./HomeLogin";
+import React from 'react';
+import styles from './HomeScreen.module.css';
+import { FaRegBell, FaPen } from 'react-icons/fa';
+import { BsPersonCheck } from 'react-icons/bs';
+import { RiSettings3Line } from 'react-icons/ri';
+import { TbNotes } from 'react-icons/tb';
+import { Link, useNavigate } from 'react-router-dom';
+import HomeReservation from './HomeReservation';
+import HomeLogin from './HomeLogin';
 
 export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
     navigate('/mainscreen1'); //로그인 되었을 경우
+  }
 
+  function goboard() {
+    navigate('/');
   }
 
   function gomentor() {
-    navigate("/");
+    navigate('/');
   }
 
   function goreview() {
-    navigate("/");
+    navigate('/');
   }
 
   function gomypage() {
-    navigate("/mypagescreen");
+    navigate('/mypagescreen');
   }
 
   function goreservation() {
-    navigate("/");
+    navigate('/');
   }
 
   function gonotice() {
-    navigate("/noticescreen");
+    navigate('/noticescreen');
   }
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to={"/homescreen"} className={styles.appname}>
+        <Link to={'/homescreen'} className={styles.appname}>
           Devtalk
         </Link>
         <button className={styles.bellicon} onClick={gonotice}>
@@ -60,6 +64,12 @@ export default function HomeScreen() {
       <div className={styles.homemenu}>
         <button className={styles.btn2} onClick={gomain}>
           개발 상담 요청하기
+        </button>
+        <button className={styles.btn3} onClick={goboard}>
+          <TbNotes size={30} />
+          <div className={styles.btndiv}>
+            <span>상담 게시판</span>
+          </div>
         </button>
         <button className={styles.btn3} onClick={gomentor}>
           <BsPersonCheck size={30} />

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import styles from './MainHeader.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function MainHeader({ topic, where, check }) {
+export default function MainHeader({ topic, where, check, id }) {
   const navigate = useNavigate();
 
   const gonext = () => {
-    navigate(`/${where}`);
+    navigate(`/${where}`, { state: { id: id, value: id } });
   };
   return (
     <div className={styles.container}>

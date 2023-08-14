@@ -44,8 +44,10 @@ export default function Main1() {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
     if (how == 1) {
       setWhere('main9');
-    } else {
+    } else if (how == 0) {
       setWhere('main2');
+    } else {
+      setWhere('main3');
     }
   };
   useEffect(() => {
@@ -61,6 +63,7 @@ export default function Main1() {
         <MainHeader
           topic="원하는 진행방식을"
           where={where}
+          id={how}
           check={isSkillConfirm}
         />
       </div>

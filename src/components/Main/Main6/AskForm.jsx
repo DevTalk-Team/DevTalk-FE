@@ -7,7 +7,8 @@ export default function AskForm({ checkTxt }) {
   //상담내용 및 파일 업로드 페이지
 
   const [inputCount, setInputCount] = useState(0);
-  const [fileCount, setFileCount] = useState(0);
+
+  // const [fileCount, setFileCount] = useState(0);
   const [files, setFiles] = useState([]);
   const onInputHandler = (e) => {
     setInputCount(e.target.value.length);
@@ -25,6 +26,14 @@ export default function AskForm({ checkTxt }) {
   const handleFileChange = (e) => {
     const fileData = e.target.files && e.target.files[0].name;
     setFiles([...files, fileData]);
+
+    // const size = Math.floor(e.target.files[0].size / 1024);
+    // console.log('사이즈' + size);
+  };
+
+  const onDelete = (i) => {
+    const a = files.filter((t) => t !== i);
+    setFiles(a);
   };
 
   useEffect(() => {
@@ -71,7 +80,12 @@ export default function AskForm({ checkTxt }) {
           <div className={styles.filelist}>
             <p className={styles.filename}>{item}</p>
             <button className={styles.deletebtn}>
-              <TiDelete size={20} className={styles.btn} />
+              <TiDelete
+                key={i}
+                size={20}
+                className={styles.btn}
+                onClick={() => onDelete(item)}
+              />
             </button>
           </div>
         ))}

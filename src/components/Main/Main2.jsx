@@ -4,7 +4,7 @@ import MainHeader from './MainHeader';
 import Header from '../Header/Header';
 import MainFormList from './MainFormList';
 
-export default function Main2() {
+export default function Main2({ pageid }) {
   //상담분야선택페이지
 
   const [hows, setHows] = useState([
