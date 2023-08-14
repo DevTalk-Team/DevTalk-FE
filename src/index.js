@@ -39,6 +39,7 @@ import Main6 from './components/Main/Main6/Main6';
 import Main7 from './components/Main/Main7/Main7';
 import Main8 from './components/Main/Main8/Main8';
 import Main9 from './components/Main/Main9';
+import Main10 from './components/Main/Main10/Main10';
 import FindId from './components/Login/FindIdPw/FindId';
 import FindPw from './components/Login/FindIdPw/FindPw';
 import ShowId from './components/Login/FindIdPw/ShowId';
@@ -93,7 +94,7 @@ const router = createBrowserRouter([
       { path: '/joincomplete', element: <JoinComplete /> },
     ],
   },
-\
+
   {
     path: '/',
     element: <App />,
@@ -109,6 +110,7 @@ const router = createBrowserRouter([
       { path: '/main7', element: <Main7 /> },
       { path: '/main8', element: <Main8 /> },
       { path: '/main9', element: <Main9 /> },
+      { path: '/main10', element: <Main10 /> },
     ],
   },
   {

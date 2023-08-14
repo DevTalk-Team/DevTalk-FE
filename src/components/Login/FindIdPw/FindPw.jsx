@@ -5,26 +5,26 @@ import { useNavigate } from 'react-router-dom';
 
 export default function FindPw() {
   const [name, setName] = useState('');
-  const [isPhone, setIsPhone] = useState(false);
-  const [phoneMessage, setPhoneMessage] = useState('');
-  const [phone, setPhone] = useState('');
+  const [isEmail, setIsEmail] = useState(false);
+  const [emailMessage, setEmailMessage] = useState('');
+  const [email, setEmail] = useState('');
 
   const onChangeName = (e) => {
     const currentName = e.target.value;
     setName(currentName);
   };
 
-  const onChangePhone = (e) => {
-    const currentNumber = e.target.value;
-    setPhone(currentNumber);
-    const phoneRegExp = /^010-?([0-9]{4})-?([0-9]{4})$/;
-
-    if (!phoneRegExp.test(currentNumber)) {
-      setPhoneMessage('올바른 형식이 아닙니다.');
-      setIsPhone(false);
+  const onChangeEmail = (e) => {
+    const currentEmail = e.target.value;
+    setEmail(currentEmail);
+    const emailRegExp =
+      /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+    if (!emailRegExp.test(currentEmail)) {
+      setEmailMessage('이메일의 형식이 올바르지 않습니다.');
+      setIsEmail(false);
     } else {
-      setPhoneMessage('');
-      setIsPhone(true);
+      setEmailMessage('');
+      setIsEmail(true);
     }
   };
 
@@ -67,21 +67,20 @@ export default function FindPw() {
         <div className={styles.code}>
           <div className={styles.inputdiv}>
             <input
-              id="phone"
-              name="phone"
-              value={phone}
-              maxLength={11}
-              placeholder="휴대폰번호 입력"
+              id="email"
+              name="name"
+              value={email}
+              placeholder="이메일"
               className={styles.input}
-              onChange={onChangePhone}
+              onChange={onChangeEmail}
             />
-            <p className={styles.message}>{phoneMessage}</p>
+            <p className={styles.message}>{emailMessage}</p>
           </div>
           <button
             type="submit"
-            className={isPhone ? `${styles.yesbtn2}` : `${styles.disbtn2}`}
+            className={isEmail ? `${styles.yesbtn2}` : `${styles.disbtn2}`}
             onClick={gopw}
-            disabled={isPhone === false}
+            disabled={isEmail === false}
           >
             임시비밀번호 발급
           </button>

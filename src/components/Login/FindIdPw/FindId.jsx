@@ -67,39 +67,39 @@ export default function FindId() {
           onChange={onChangeName}
         />
         <div className={styles.pdiv}>
-          <p className={styles.p}>휴대폰 인증</p>
+          <p className={styles.p}>휴대폰 번호</p>
         </div>
-        <div className={styles.code}>
-          <div>
-            <input
-              id="phone"
-              name="phone"
-              value={phone}
-              maxLength={11}
-              placeholder="휴대폰번호 입력"
-              className={styles.input1}
-              onChange={onChangePhone}
-            />
-            <p className={styles.message}>{phoneMessage}</p>
-          </div>
-          <button
+        {/* <div className={styles.code}>
+          <div> */}
+        <input
+          id="phone"
+          name="phone"
+          value={phone}
+          maxLength={11}
+          placeholder="휴대폰번호 입력"
+          className={styles.input1}
+          onChange={onChangePhone}
+        />
+        <p className={styles.message}>{phoneMessage}</p>
+        {/* </div> */}
+        {/* <button
             type="submit"
             className={isPhone ? `${styles.yesbtn2}` : `${styles.disbtn2}`}
             // onClick={gophone}
             disabled={isPhone === false}
           >
             인증
-          </button>
-          <p className={styles.message}>{phoneMessage}</p>
-        </div>
-        <input
+          </button> */}
+        {/* <p className={styles.message}>{phoneMessage}</p> */}
+        {/* </div> */}
+        {/* <input
           id="code"
           name="code"
           value={code}
           placeholder="인증번호 입력"
           onChange={onCodeChange}
           className={styles.input2}
-        />
+        /> */}
         <button
           type="submit"
           className={isCode ? `${styles.yesbtn}` : `${styles.disbtn}`}

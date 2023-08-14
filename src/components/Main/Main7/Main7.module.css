@@ -50,6 +50,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 .txt {
   font-size: 1.1rem;
