@@ -14,8 +14,6 @@ const CounselContent = () => {
   const [counselData, setCounselData] = useRecoilState(counselListState);
 
   useEffect(() => {
-    if (counselData.length !== 0) return;
-
     switch (pageIndex) {
       case 1:
         setCounselData(waitData);
