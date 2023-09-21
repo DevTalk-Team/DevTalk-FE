@@ -1,8 +1,14 @@
 import React from 'react';
-import Header from '../../Header/Header';
+import Header from '../../../Header/Header';
 import styles from './UserInfo.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const UserInfo = () => {
+  const navigate = useNavigate();
+
+  const nextPage = () => {
+    navigate('/userInfo/detail');
+  };
   return (
     <div className={styles.userInfo}>
       <div className={styles.header}>
@@ -13,7 +19,9 @@ const UserInfo = () => {
           본인 확인을 위해 비밀번호를 <br /> 입력해 주세요
         </p>
         <input className={styles.input} placeholder="비밀번호 입력" />
-        <button className={styles.button}>확인</button>
+        <button className={styles.button} onClick={nextPage}>
+          확인
+        </button>
       </div>
     </div>
   );
