@@ -1,12 +1,78 @@
 .tableBox {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  place-content: center;
+  justify-items: center;
 }
 
 .timeTableBox {
-  width: 18%;
-  height: 5%;
-  margin: 1% 1%;
+  all: unset;
+  width: 90%;
+  height: 4rem;
   background: #dceaff;
+  margin: 0.5rem 0;
   text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.modal {
+  width: 70%;
+  height: 15rem;
+  background: #dceaff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.modalContent {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  height: 100%;
+}
+
+.btnBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 84%;
+}
+
+.btn {
+  width: 40%;
+  height: 60%;
+  margin: 0 1%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-align: center;
+  color: black;
+}
+
+.insertBtn {
+  width: 100%;
+  height: 15%;
+  background-color: #0a3779;
+  color: white;
+  border: 3px solid #0a3779;
+  border-radius: 10px;
+}
+
+.contact {
+  background-color: #5281c8;
+}
+
+.nonContact {
+  background-color: #ff8181;
+}
+
+.selected {
+  opacity: 0.8;
 }

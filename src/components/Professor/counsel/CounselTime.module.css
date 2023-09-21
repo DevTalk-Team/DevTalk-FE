@@ -40,6 +40,17 @@
   border-radius: 10px;
 }
 
+.changeButton {
+  width: 100%;
+  height: 8%;
+  margin: 5% 0;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: #0a3779;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
 .typeBox {
   display: flex;
   justify-content: center;
@@ -48,4 +59,9 @@
 .counselType {
   min-width: 10%;
   border-bottom: 5px solid #dceaff;
+}
+
+.timeBox {
+  display: flex;
+  justify-content: center;
 }
