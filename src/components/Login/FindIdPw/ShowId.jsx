@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './ShowId.module.css';
 import Header from '../../Header/Header';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function ShowId() {
-  const id = 'devtallk0808@naver.com';
+  const location = useLocation();
+  const email = location.state.email;
   const navigate = useNavigate();
 
   function gologin() {
@@ -17,7 +18,7 @@ export default function ShowId() {
       </div>
       <div className={styles.showid}>
         <p className={styles.p}>회원님의 아이디는</p>
-        <p className={styles.p}>{id} 입니다.</p>
+        <p className={styles.p}>{email} 입니다.</p>
       </div>
       <div className={styles.btndiv}>
         <button className={styles.btn} onClick={gologin}>

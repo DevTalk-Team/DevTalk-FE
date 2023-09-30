@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -12,6 +13,22 @@ export default function LoginForm() {
 
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
+
+  function loginDB() {
+    axios
+      .post('/member/login', {
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        console.log('200', response.data);
+
+        if (response.status === 200) {
+          console.log('로그인 성공');
+        }
+      })
+      .catch((error) => console.log(error.response));
+  }
 
   const onChangeEmail = (e) => {
     const currentEmail = e.target.value;
@@ -69,17 +86,18 @@ export default function LoginForm() {
         placeholder="비밀번호 입력"
         className={styles.input}
         value={password}
+        autoComplete="on"
         onChange={onChangePassword}
       />
       <p className={styles.message}>{passwordMessage}</p>
       <button
-        type="submit"
+        type="button"
+        onClick={loginDB}
         className={
           isEmail === false || isPassword === false
             ? `${styles.disbtn}`
             : `${styles.yesbtn}`
         }
-        onClick={gohome}
         disabled={isEmail === false || isPassword === false}
       >
         로그인

@@ -23,8 +23,7 @@ export default function NameForm({ id, title }) {
   const navigate = useNavigate();
 
   function goname() {
-    navigate('/joinemail', { state: { id: id, value: title } });
-    console.log(id);
+    navigate('/joinemail', { state: { id: id, value: title, name: name } });
     console.log(name);
     console.log(isname);
   }

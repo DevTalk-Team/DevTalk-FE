@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import styles from './PwForm.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function PwForm({ id, title }) {
   const [password, setPassword] = useState('');
@@ -9,6 +9,10 @@ export default function PwForm({ id, title }) {
   const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('');
   const [isPassword, setIsPassword] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
+
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
 
   const onChangePassword = (e) => {
     const currentPassword = e.target.value;
@@ -37,10 +41,19 @@ export default function PwForm({ id, title }) {
       setIsPasswordConfirm(true);
     }
   };
+
   const navigate = useNavigate();
 
-  function pw() {
-    navigate('/joinphone', { state: { id: id, value: title } });
+  function gophone() {
+    navigate('/joinphone', {
+      state: {
+        id: id,
+        value: title,
+        name: name,
+        email: email,
+        password: password,
+      },
+    });
     console.log(id);
     console.log(password);
     console.log(isPasswordConfirm);
@@ -78,7 +91,7 @@ export default function PwForm({ id, title }) {
             className={
               isPasswordConfirm ? `${styles.yesbtn}` : `${styles.disbtn}`
             }
-            onClick={pw}
+            onClick={gophone}
             disabled={isPasswordConfirm === false}
           >
             다음

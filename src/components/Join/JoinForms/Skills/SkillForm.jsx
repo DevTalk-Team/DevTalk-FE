@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import styles from './SkillForm.module.css';
 import SkillList from './SkillList';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SkillForm({ id, title }) {
   const [skills, setSkills] = useState([
@@ -34,14 +35,37 @@ export default function SkillForm({ id, title }) {
       skill: 'UX/UI',
     },
   ]);
+
+  function postinfo() {
+    console.log('실행중', id);
+    console.log(name, email, password, phone);
+    axios
+      .post('/member/signup/consulter', {
+        name: name,
+        email: email,
+        password: password,
+        checkPassword: password,
+        phoneNumber: phone,
+        category: choose,
+      })
+      .then((response) => {
+        console.log('201', response.data);
+
+        if (response.status === 201) {
+          console.log('회원가입 완료');
+        }
+      })
+      .catch((error) => console.log(error.response));
+  }
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
   const [skillConfirmMessage, setSkillConfirmMessage] = useState('');
 
-  useEffect(() => {
-    console.log(choose);
-    console.log(choose.length);
-  }, [choose]);
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
+  const password = location.state.password;
+  const phone = location.state.phone;
 
   const onUpdate = (picked) => {
     setChoose([...choose, picked]);
@@ -66,9 +90,24 @@ export default function SkillForm({ id, title }) {
 
   function skill() {
     if (id == 1) {
-      navigate('/jointerms', { state: { id: id, value: title } });
+      navigate('/jointerms', {
+        state: {
+          id: id,
+          value: title,
+          name: name,
+          email: email,
+          password: password,
+          phone: phone,
+          choose: choose,
+        },
+      });
     } else {
-      navigate('/joincomplete', { state: { id: id, value: title } });
+      navigate('/joincomplete', {
+        state: {
+          name: name,
+        },
+      });
+      postinfo();
     }
   }
 

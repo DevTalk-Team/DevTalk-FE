@@ -1,12 +1,17 @@
 import { React, useState } from 'react';
 import styles from './PhoneForm.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function PhoneForm({ id, title }) {
   const [isPhone, setIsPhone] = useState(false);
   const [phoneMessage, setPhoneMessage] = useState('');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
+
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
+  const password = location.state.password;
 
   const onChangePhone = (e) => {
     const currentNumber = e.target.value;
@@ -25,7 +30,16 @@ export default function PhoneForm({ id, title }) {
   const navigate = useNavigate();
 
   function gophone() {
-    navigate('/joinskill', { state: { id: id, value: title } });
+    navigate('/joinskill', {
+      state: {
+        id: id,
+        value: title,
+        name: name,
+        email: email,
+        password: password,
+        phone: phone,
+      },
+    });
     console.log(id);
     console.log(phone);
     console.log(code);
