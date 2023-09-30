@@ -21,7 +21,7 @@ import JoinPhoto from './components/Join/Joins/JoinPhoto';
 import JoinTerms from './components/Join/Joins/JoinTerms';
 import JoinComplete from './components/Join/Joins/JoinComplete';
 import Mypage from './components/mypage/Mypage';
-import UserInfo from './components/mypage/UserInfo/UserInfo';
+import UserInfo from './components/mypage/UserInfo/mypage/UserInfo';
 import Counsel from './components/mypage/Counsel/Counsel';
 import CounselDetail from './components/mypage/Counsel/CounselDetail';
 import CounselContent from './components/mypage/Counsel/CounselContent';
@@ -44,6 +44,9 @@ import FindId from './components/Login/FindIdPw/FindId';
 import FindPw from './components/Login/FindIdPw/FindPw';
 import ShowId from './components/Login/FindIdPw/ShowId';
 import ShowPw from './components/Login/FindIdPw/ShowPw';
+import Location from './components/mypage/UserInfo/Professor/Location';
+import Category from './components/mypage/UserInfo/Professor/Category';
+import Field from './components/mypage/UserInfo/Professor/Field';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +69,9 @@ const router = createBrowserRouter([
       { path: '/review', element: <Review /> },
       { path: '/professorInfo', element: <ProfessorProfile /> },
       { path: '/professor/counsel', element: <CounselTime /> },
+      { path: '/professor/category', element: <Category /> },
+      { path: '/professor/field', element: <Field /> },
+      { path: '/professor/location', element: <Location /> },
       {
         path: '/counsel',
         element: <Counsel />,
