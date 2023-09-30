@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import styles from './FindId.module.css';
 import Header from '../../Header/Header';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,28 @@ export default function FindId() {
   const [codeMessage, setCodeMessage] = useState('');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
+  const navigate = useNavigate();
+
+  const goid = () => {
+    axios
+      .post('/member/profile/find-email', {
+        name: name,
+        phoneNumber: phone,
+      })
+      .then((result) => {
+        console.log('요청성공');
+        console.log(result);
+        navigate('/showid', {
+          state: {
+            email: result.data.result.email,
+          },
+        });
+      })
+      .catch((error) => {
+        console.log('요청실패');
+        console.log(error);
+      });
+  };
 
   const onChangeName = (e) => {
     const currentName = e.target.value;
@@ -31,23 +54,6 @@ export default function FindId() {
     }
   };
 
-  const onCodeChange = (e) => {
-    const currentCode = e.target.value;
-    setCode(currentCode);
-
-    if (0) {
-      //인증번호와 같지 않으면
-      setCodeMessage('옳지 않은 인증번호입니다.');
-      setIsCode(false);
-    } else {
-      setCodeMessage('');
-      setIsCode(true);
-    }
-  };
-  const navigate = useNavigate();
-  function goid() {
-    navigate('/showid');
-  }
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -69,8 +75,7 @@ export default function FindId() {
         <div className={styles.pdiv}>
           <p className={styles.p}>휴대폰 번호</p>
         </div>
-        {/* <div className={styles.code}>
-          <div> */}
+
         <input
           id="phone"
           name="phone"
@@ -81,25 +86,7 @@ export default function FindId() {
           onChange={onChangePhone}
         />
         <p className={styles.message}>{phoneMessage}</p>
-        {/* </div> */}
-        {/* <button
-            type="submit"
-            className={isPhone ? `${styles.yesbtn2}` : `${styles.disbtn2}`}
-            // onClick={gophone}
-            disabled={isPhone === false}
-          >
-            인증
-          </button> */}
-        {/* <p className={styles.message}>{phoneMessage}</p> */}
-        {/* </div> */}
-        {/* <input
-          id="code"
-          name="code"
-          value={code}
-          placeholder="인증번호 입력"
-          onChange={onCodeChange}
-          className={styles.input2}
-        /> */}
+
         <button
           type="submit"
           className={isCode ? `${styles.yesbtn}` : `${styles.disbtn}`}

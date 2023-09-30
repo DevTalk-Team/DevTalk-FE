@@ -1,16 +1,21 @@
 import { React, useState } from 'react';
 import styles from './EmailForm.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function EmailCheckForm({ id, title }) {
   const [code, setCode] = useState('');
   const [codeMessage, setCodeMessage] = useState('');
   const [isCode, setIsCode] = useState(false);
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
 
   const navigate = useNavigate();
 
-  function goemail() {
-    navigate('/joinpw', { state: { id: id, value: title } });
+  function gopw() {
+    navigate('/joinpw', {
+      state: { id: id, value: title, name: name, email: email },
+    });
   }
 
   const onCheckCode = (e) => {
@@ -47,7 +52,7 @@ export default function EmailCheckForm({ id, title }) {
           <button
             type="submit"
             className={isCode ? `${styles.yesbtn}` : `${styles.disbtn}`}
-            onClick={goemail}
+            onClick={gopw}
             disabled={isCode === false}
           >
             다음

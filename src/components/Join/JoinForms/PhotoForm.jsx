@@ -12,6 +12,7 @@ export default function PhotoForm({ id, title }) {
     reader.onloadend = () => {
       setImgFile(reader.result);
     };
+    console.log(reader.result);
   };
 
   const navigate = useNavigate();

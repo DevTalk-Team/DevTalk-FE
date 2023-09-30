@@ -1,12 +1,47 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './TermsForm.module.css';
+import axios from 'axios';
 
 export default function TermsForm({ id, title }) {
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
+  const password = location.state.password;
+  const phone = location.state.phone;
+  const choose = location.state.choose;
+
+  function postinfo() {
+    console.log('실행중', id);
+    console.log(name, email, password, phone);
+    axios
+      .post('/member/signup/consultant', {
+        name: name,
+        email: email,
+        password: password,
+        checkPassword: password,
+        phoneNumber: phone,
+        category: choose,
+      })
+      .then((response) => {
+        console.log('201', response.data);
+
+        if (response.status === 201) {
+          console.log('회원가입 완료');
+        }
+      })
+      .catch((error) => console.log(error.response));
+  }
+
   const navigate = useNavigate();
 
   function goterms() {
-    navigate('/joincomplete', { state: { id: id, value: title } });
+    navigate('/joincomplete', {
+      state: {
+        name: name,
+      },
+    });
+    postinfo();
   }
   return (
     <div className={styles.container}>

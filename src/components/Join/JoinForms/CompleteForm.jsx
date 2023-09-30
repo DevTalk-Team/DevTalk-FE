@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './CompleteForm.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function CompleteForm({ id, title }) {
+export default function CompleteForm() {
+  const location = useLocation();
+  const name = location.state.name;
+
   const navigate = useNavigate();
-  const name = '데브톡';
   function gologin() {
     navigate('/loginscreen');
   }

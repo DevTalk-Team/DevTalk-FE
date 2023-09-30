@@ -7,7 +7,7 @@ export default function SkillList({ skilllist, onUpdate, onDelete }) {
 
   useEffect(() => {
     if (check === true) {
-      onUpdate({ id, skill });
+      onUpdate(skill);
     } else {
       onDelete(skilllist);
     }
