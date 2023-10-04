@@ -47,6 +47,8 @@ import ShowPw from './components/Login/FindIdPw/ShowPw';
 import Location from './components/mypage/UserInfo/Professor/Location';
 import Category from './components/mypage/UserInfo/Professor/Category';
 import Field from './components/mypage/UserInfo/Professor/Field';
+import Board from './components/board/Board';
+import BoardDetail from './components/board/BoardDetail';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,8 @@ const router = createBrowserRouter([
       { path: '/professor/category', element: <Category /> },
       { path: '/professor/field', element: <Field /> },
       { path: '/professor/location', element: <Location /> },
+      { path: '/board', element: <Board /> },
+      { path: '/board/detail/:id', element: <BoardDetail /> },
       {
         path: '/counsel',
         element: <Counsel />,
