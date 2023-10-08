@@ -47,12 +47,13 @@ import ShowPw from './components/Login/FindIdPw/ShowPw';
 import Location from './components/mypage/UserInfo/Professor/Location';
 import Category from './components/mypage/UserInfo/Professor/Category';
 import Field from './components/mypage/UserInfo/Professor/Field';
+import NotFound from './NotFound';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <StartScreen /> },
       { path: '/loadingscreen', element: <LoadingScreen /> },
@@ -86,7 +87,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Join /> },
       { path: '/joinemail', element: <JoinEmail /> },
@@ -122,7 +123,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Login /> },
       { path: '/findid', element: <FindId /> },
