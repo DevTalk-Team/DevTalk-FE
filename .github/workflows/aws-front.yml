@@ -1,10 +1,17 @@
 name: Frontend Deploy
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - master
 
 env:
   service-name: devtalk-front
-  
+
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,8 +33,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-action/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+          # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} 
+          # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }} 
+          role-to-assume: arn:aws:iam::690270937735:role/github-action-role
           aws-region: ap-northeast-2
           
       - name: Upload to S3
