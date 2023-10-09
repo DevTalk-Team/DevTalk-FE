@@ -23,6 +23,19 @@ export default function LoginForm() {
       .then((response) => {
         console.log('200', response.data);
 
+        if (response.data.result.accessToken) {
+          localStorage.setItem('accessToken', response.data.result.accessToken);
+          localStorage.setItem(
+            'refreshToken',
+            response.data.result.refreshToken
+          );
+
+          // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
+          axios.defaults.headers.common[
+            'Authorization'
+          ] = `Bearer ${response.data.result.accessToken}`;
+        }
+
         if (response.status === 200) {
           console.log('로그인 성공');
         }

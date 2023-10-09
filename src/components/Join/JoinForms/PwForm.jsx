@@ -65,38 +65,43 @@ export default function PwForm({ id, title }) {
           로그인에 사용할 <br />
           비밀번호를 입력해 주세요.
         </p>
-        <div className={styles.form}>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="비밀번호 입력"
-            className={styles.input}
-            value={password}
-            onChange={onChangePassword}
-          />
-          <p className={styles.message}>{passwordMessage}</p>
-          <input
-            id="passwordConfirm"
-            name="passwordConfirm"
-            type="password"
-            placeholder="비밀번호 확인"
-            className={styles.input}
-            disabled={isPassword === false}
-            value={passwordConfirm}
-            onChange={onChangePasswordConfirm}
-          />
-          <p className={styles.message}>{passwordConfirmMessage}</p>
-          <button
-            className={
-              isPasswordConfirm ? `${styles.yesbtn}` : `${styles.disbtn}`
-            }
-            onClick={gophone}
-            disabled={isPasswordConfirm === false}
-          >
-            다음
-          </button>
-        </div>
+        <form action="">
+          <div className={styles.form}>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호 입력"
+              className={styles.input}
+              value={password}
+              onChange={onChangePassword}
+              autoComplete="off"
+            />
+            <p className={styles.message}>{passwordMessage}</p>
+            <input
+              id="passwordConfirm"
+              name="passwordConfirm"
+              type="password"
+              placeholder="비밀번호 확인"
+              className={styles.input}
+              disabled={isPassword === false}
+              value={passwordConfirm}
+              onChange={onChangePasswordConfirm}
+              autoComplete="off"
+            />
+            <p className={styles.message}>{passwordConfirmMessage}</p>
+            <button
+              className={
+                isPasswordConfirm ? `${styles.yesbtn}` : `${styles.disbtn}`
+              }
+              onClick={gophone}
+              disabled={isPasswordConfirm === false}
+              type="submit"
+            >
+              다음
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

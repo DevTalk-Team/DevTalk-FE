@@ -2,12 +2,30 @@ import React, { useState } from 'react';
 import styles from './FindPw.module.css';
 import Header from '../../Header/Header';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function FindPw() {
   const [name, setName] = useState('');
   const [isEmail, setIsEmail] = useState(false);
   const [emailMessage, setEmailMessage] = useState('');
   const [email, setEmail] = useState('');
+
+  const gopw = () => {
+    axios
+      .post('/member/profile/send-password', {
+        name: name,
+        email: email,
+      })
+      .then((result) => {
+        console.log('요청성공');
+        console.log(result);
+        navigate('/showpw');
+      })
+      .catch((error) => {
+        console.log('요청실패');
+        console.log(error);
+      });
+  };
 
   const onChangeName = (e) => {
     const currentName = e.target.value;
@@ -29,9 +47,7 @@ export default function FindPw() {
   };
 
   const navigate = useNavigate();
-  function gopw() {
-    navigate('/showpw');
-  }
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
