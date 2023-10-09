@@ -37,6 +37,7 @@ export default function SkillForm({ id, title }) {
   ]);
 
   function postinfo() {
+    //멘티 회원가입
     console.log('실행중', id);
     console.log(name, email, password, phone);
     axios
