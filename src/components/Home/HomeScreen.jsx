@@ -12,7 +12,7 @@ export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
-    navigate('/mainscreen1'); //로그인 되었을 경우
+    navigate('/matching'); //로그인 되었을 경우
   }
 
   function goboard() {

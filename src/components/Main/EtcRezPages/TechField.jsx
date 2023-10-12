@@ -1,103 +1,97 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Main.module.css';
-import MainHeader from './MainHeader';
-import Header from '../Header/Header';
+import styles from '../Main.module.css';
+import MainHeader from '../MainHeader/MainHeader';
+import Header from '../../Header/Header';
+import { useRecoilState } from 'recoil';
+import { techState } from '../../recoil/MatchingAtom';
 import MainFormList from './MainFormList';
+import { useLocation } from 'react-router-dom';
 
-export default function Main3() {
-  //비대면 상담 시 원하는 지역 선택 페이지
+export default function TechField() {
+  //원하는 기술분야 선택 페이지
+  const location = useLocation();
+  const pageid = location.state.id;
+
   const [hows, setHows] = useState([
     {
       id: 0,
-      how: '서울',
+      how: '웹',
     },
     {
       id: 1,
-      how: '경기',
+      how: '서버',
     },
     {
       id: 2,
-      how: '인천',
+      how: '디자인',
     },
     {
       id: 3,
-      how: '부산',
+      how: '데브옵스',
     },
     {
       id: 4,
-      how: '대구',
+      how: '빅데이터',
     },
     {
       id: 5,
-      how: '광주',
+      how: '클라우드',
     },
     {
       id: 6,
-      how: '대전',
+      how: '핀테크',
     },
     {
       id: 7,
-      how: '울산',
+      how: '보안',
     },
     {
       id: 8,
-      how: '세종',
+      how: '모바일앱',
     },
     {
       id: 9,
-      how: '강원',
+      how: '게임',
     },
     {
       id: 10,
-      how: '충북',
+      how: '임베디드',
     },
     {
       id: 11,
-      how: '충남',
-    },
-    {
-      id: 12,
-      how: '전북',
-    },
-    {
-      id: 13,
-      how: '전남',
-    },
-    {
-      id: 14,
-      how: '경북',
-    },
-    {
-      id: 15,
-      how: '경남',
-    },
-    {
-      id: 16,
-      how: '제주',
+      how: 'DB',
     },
   ]);
-
+  const [techField, setTechField] = useRecoilState(techState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
+  const [where, setWhere] = useState('');
 
   const handleClick = (i) => {
     const newArr = Array(hows.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
+    setTechField(hows[i]);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
+
+    if (pageid == 2) {
+      setWhere('main10');
+    } else {
+      setWhere('main4');
+    }
   };
+
   useEffect(() => {
-    console.log(choose);
+    console.log(techField);
   }, [choose]);
 
   return (
@@ -106,11 +100,7 @@ export default function Main3() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader
-          topic="원하는 지역을"
-          where="main3"
-          check={isSkillConfirm}
-        />
+        <MainHeader topic="기술 분야를" where={where} check={isSkillConfirm} />
       </div>
       <div className={styles.choose3}>
         {hows.map((item, i) => (

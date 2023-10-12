@@ -1,10 +1,10 @@
 import React from 'react';
 import { MdDoneOutline } from 'react-icons/md';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
-import styles from './Main8.module.css';
+import styles from './RezDone.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function Main8() {
+export default function RezDone() {
   //예약완료페이지
   const navigate = useNavigate();
 
