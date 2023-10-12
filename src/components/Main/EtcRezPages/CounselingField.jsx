@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Main.module.css';
-import MainHeader from './MainHeader';
-import Header from '../Header/Header';
+import Header from '../../Header/Header';
+import styles from '../Main.module.css';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { fieldState } from '../../recoil/MatchingAtom';
+import MainHeader from '../MainHeader/MainHeader';
 import MainFormList from './MainFormList';
 
-export default function Main2({ pageid }) {
+export default function CounselingField({ pageid }) {
   //상담분야선택페이지
 
   const [hows, setHows] = useState([
@@ -33,6 +35,7 @@ export default function Main2({ pageid }) {
       how: '개발 팀 구성',
     },
   ]);
+  const [counselingField, setCounselingField] = useRecoilState(fieldState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
@@ -42,10 +45,10 @@ export default function Main2({ pageid }) {
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
+    setCounselingField(hows[i]);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
@@ -54,13 +57,13 @@ export default function Main2({ pageid }) {
   };
 
   useEffect(() => {
-    console.log(choose);
+    console.log(counselingField);
   }, [choose]);
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Header title="상담 예약" />
+        <Header title={'상담 예약'} />
       </div>
       <div className={styles.mainheader}>
         <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />

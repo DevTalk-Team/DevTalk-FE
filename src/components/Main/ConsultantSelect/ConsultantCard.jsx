@@ -3,7 +3,7 @@ import { FaStar } from 'react-icons/fa';
 import styles from './MainMentor.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function MainMentor({
+export default function ConsultantCard({
   mentor,
   handleClick,
   elementIndex,

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function MainHeader({ topic, where, check, id }) {
   const navigate = useNavigate();
-
+  //recoil 활용
   const gonext = () => {
     navigate(`/${where}`, { state: { id: id, value: id } });
   };
