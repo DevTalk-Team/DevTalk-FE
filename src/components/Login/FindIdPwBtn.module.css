@@ -1,0 +1,16 @@
+.findbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.bar {
+  color: var(--color-bg);
+}
+.btn {
+  all: unset;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 1.3rem 1rem 1rem 1rem;
+  color: var(--color-bg);
+}

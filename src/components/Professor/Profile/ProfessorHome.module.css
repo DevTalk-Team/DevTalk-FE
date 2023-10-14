@@ -1,0 +1,36 @@
+.homeContent {
+  margin-left: 5%;
+}
+
+.profileName {
+  text-align: center;
+}
+
+.mainText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.subText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-left: 5%;
+}
+
+.normalText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.profileCategory {
+  width: 20%;
+}
+
+.contentBox {
+  display: flex;
+}

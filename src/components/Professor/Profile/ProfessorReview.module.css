@@ -1,0 +1,58 @@
+.reviewHeader {
+  display: flex;
+  margin: 2% 5%;
+}
+
+.filter {
+  margin-left: 5%;
+  padding: 1% 2%;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+  color: black;
+}
+
+.mainText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.subText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.normalText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 0.9rem;
+  color: #8d8585;
+}
+
+.nameText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.reviewContent {
+  padding-left: 5%;
+  border-width: 2px 0px 2px 0px;
+  border-style: solid;
+  border-color: rgba(10, 55, 121, 0.29);
+}
+
+.category {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 2%;
+  color: rgba(0, 0, 0, 0.59);
+}

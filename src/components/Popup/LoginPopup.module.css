@@ -1,0 +1,44 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  /* border: 0.1rem solid var(--color-bg); */
+  background-color: var(--color-white);
+  padding: 2rem;
+}
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+.btn1,
+.btn2 {
+  all: unset;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  border: 0.2rem solid var(--color-white);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+/* .btn1:hover,
+.btn2:hover {
+  border: none;
+  transition: 0.3s;
+} */

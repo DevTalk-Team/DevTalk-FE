@@ -3,17 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-oauth/google": "0.11.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "1.5.0",
+    "date-fns": "2.30.0",
+    "env-cmd": "10.1.0",
+    "moment": "2.29.4",
     "react": "^18.2.0",
+    "react-calendar": "4.6.0",
+    "react-datepicker": "4.16.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "7.45.1",
+    "react-icons": "4.10.1",
+    "react-modal": "3.16.1",
+    "react-router-dom": "6.14.0",
     "react-scripts": "5.0.1",
+    "recoil": "0.7.7",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@types/react-datepicker": "4.15.0"
+  },
+  "proxy": "http://ec2-13-125-223-244.ap-northeast-2.compute.amazonaws.com:2172/"
 }

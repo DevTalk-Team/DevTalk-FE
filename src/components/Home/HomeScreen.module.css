@@ -1,0 +1,122 @@
+.container {
+  width: 100vw;
+  height: fit-content;
+  padding: 1rem;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+}
+.appname {
+  all: unset;
+  color: var(--color-bg);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.bellicon {
+  all: unset;
+  color: var(--color-bg);
+}
+
+.middle {
+  padding: 1rem 1.2rem;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.h3 {
+  color: var(--color-bg);
+}
+.btn1 {
+  all: unset;
+  height: fit-content;
+  padding: 0.3rem;
+  color: var(--color-bg);
+  border: 0.15rem solid var(--color-bg);
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+/* .btn1:hover {
+  background-color: var(--color-bg);
+  transition: 0.3s;
+  color: var(--color-white);
+} */
+
+.homemenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+.btn2,
+.btn3,
+.btn4,
+.btn5 {
+  all: unset;
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+  font-weight: 700;
+}
+/* 
+.btn3:hover,
+.btn4:hover,
+.btn5:hover {
+  border: none;
+  background-color: var(--color-bg-light);
+  transition: 0.3s;
+} */
+.btn2 {
+  background-color: var(--color-bg);
+  border: 0.4rem solid var(--color-bg);
+  color: var(--color-white);
+  justify-content: center;
+}
+/* .btn2:hover {
+  border: none;
+  transition: 0.3s;
+} */
+.btn3,
+.btn4,
+.btn5 {
+  border: 0.4rem solid var(--color-bg-light);
+  color: var(--color-bg);
+}
+.btndiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reservation_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-light);
+  height: fit-content;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.reservation_box_nologin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-grey);
+  height: 20vh;
+  border-radius: 1rem;
+  padding: 1rem;
+}

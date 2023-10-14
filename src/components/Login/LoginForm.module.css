@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+}
+.input {
+  all: unset;
+  border: 0.1rem solid var(--color-bg);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.9rem;
+}
+
+.message {
+  margin: 0;
+  margin: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  color: var(--color-red);
+}
+.yesbtn,
+.disbtn {
+  all: unset;
+  padding: 0 0.5rem;
+  height: 3.5rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  color: var(--color-white);
+  font-weight: 800;
+}
+
+.yesbtn {
+  border: 0.1rem solid var(--color-bg);
+  background-color: var(--color-bg);
+}
+.disbtn {
+  border: 0.1rem solid var(--color-gray);
+  background-color: var(--color-gray);
+}

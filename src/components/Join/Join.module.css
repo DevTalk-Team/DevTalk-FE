@@ -1,0 +1,32 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+.btns {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+.btn1,
+.btn2 {
+  border: none;
+  background-color: var(--color-bg);
+  border-radius: 0.5rem;
+  width: 75%;
+  height: 4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.btn1 {
+  margin-bottom: 5rem;
+}

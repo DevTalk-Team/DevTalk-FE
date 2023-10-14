@@ -1,0 +1,13 @@
+.login {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-weight: 700;
+  border: 0.2rem solid var(--color-bg);
+  border-radius: 1rem;
+  width: fit-content;
+  padding: 1rem;
+}

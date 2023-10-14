@@ -1,0 +1,82 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+.notion {
+  margin-top: 5rem;
+}
+.li {
+  margin-bottom: 0.6rem;
+  color: var(--color-bg);
+  font-weight: 700;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  all: unset;
+  width: 85%;
+  padding-left: 1rem;
+  height: 3rem;
+  border: 0.1rem solid var(--color-bg);
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+.code {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputdiv {
+  width: 100%;
+  text-align: center;
+}
+.yesbtn2,
+.disbtn2 {
+  all: unset;
+  width: 85%;
+  padding: 0 0.5rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  color: var(--color-white);
+  font-weight: 800;
+}
+.yesbtn2 {
+  border: 0.1rem solid var(--color-bg);
+  background-color: var(--color-bg);
+}
+.disbtn2 {
+  border: 0.1rem solid var(--color-gray);
+  background-color: var(--color-gray);
+}
+
+.input2 {
+  all: unset;
+  width: 85%;
+  padding-left: 1rem;
+  height: 3rem;
+  border: 0.1rem solid var(--color-bg);
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+}
+.message {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 1rem 6%;
+  color: var(--color-red);
+}
