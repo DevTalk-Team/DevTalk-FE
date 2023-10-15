@@ -94,7 +94,7 @@ const router = createBrowserRouter([
       { path: '/joinname', element: <JoinName /> },
       { path: '/joinphone', element: <JoinPhone /> },
       { path: '/joinskill', element: <JoinSkill /> },
-      { path: '/joinphoto', element: <JoinPhoto /> },
+      // { path: '/joinphoto', element: <JoinPhoto /> },
       { path: '/jointerms', element: <JoinTerms /> },
       { path: '/joincomplete', element: <JoinComplete /> },
     ],

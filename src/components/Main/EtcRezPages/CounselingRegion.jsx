@@ -8,7 +8,7 @@ import MainFormList from './MainFormList';
 
 export default function CounselingRegion() {
   //비대면 상담 시 원하는 지역 선택 페이지
-  const [hows, setHows] = useState([
+  const hows = useState([
     {
       id: 0,
       how: '서울',

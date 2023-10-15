@@ -6,13 +6,12 @@ import axios from 'axios';
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [login, setLogin] = useState(0);
 
   const [emailMessage, setEmailMessage] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
-
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
+  const Navigate = useNavigate();
 
   function loginDB() {
     axios
@@ -30,15 +29,21 @@ export default function LoginForm() {
             response.data.result.refreshToken
           );
 
-          // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
-          axios.defaults.headers.common[
-            'Authorization'
-          ] = `Bearer ${response.data.result.accessToken}`;
+          // // API 요청하는 콜마다 헤더에 accessToken 담아 보내도록 설정
+          // axios.defaults.headers.common[
+          //   'Authorization'
+          // ] = `Bearer ${response.data.result.accessToken}`;
         }
 
         if (response.status === 200) {
           console.log('로그인 성공');
         }
+
+        Navigate('/mypagescreen');
+        // setLogin(1);
+      })
+      .catch((ex) => {
+        console.log('login requset fail:' + ex);
       })
       .catch((error) => console.log(error.response));
   }
@@ -72,13 +77,6 @@ export default function LoginForm() {
       setIsPassword(true);
     }
   };
-
-  const Navigate = useNavigate();
-
-  function gohome() {
-    Navigate('/homescreen');
-    setLogin(1);
-  }
 
   return (
     <form className={styles.form}>

@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Mypage.module.css';
 import Header from '../Header/Header';
 import { useNavigate } from 'react-router-dom';
+import { getHomePage } from '../../apis/homepage';
 
 const Mypage = () => {
+  useEffect(() => {
+    // axios.get('/member/mypage').then((res) => {
+    //   setData(res);
+    //   console.log(res.data);
+    // });
+    getHomePage()
+      .then((response) => {
+        console.log('잘 되고 있는거니', response);
+      })
+      .catch((err) => console.log('잘 안되고있단다', err));
+  }, []);
+
   const navigate = useNavigate();
 
   const movePage = (e) => {

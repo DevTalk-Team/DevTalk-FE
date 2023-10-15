@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import styles from './CounselingPrice.module.css';
 import Header from '../../Header/Header';
 import { useRecoilValue } from 'recoil';
