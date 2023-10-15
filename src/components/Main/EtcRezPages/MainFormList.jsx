@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from '../Main.module.css';
 
 export default function MainFormList({
@@ -7,7 +7,7 @@ export default function MainFormList({
   elementIndex,
   isSelect,
 }) {
-  const { id, how } = itemlist;
+  const { how } = itemlist;
 
   return (
     <button

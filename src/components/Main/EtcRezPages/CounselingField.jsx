@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../Header/Header';
 import styles from '../Main.module.css';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { fieldState } from '../../recoil/MatchingAtom';
 import MainHeader from '../MainHeader/MainHeader';
 import MainFormList from './MainFormList';
@@ -9,7 +9,7 @@ import MainFormList from './MainFormList';
 export default function CounselingField({ pageid }) {
   //상담분야선택페이지
 
-  const [hows, setHows] = useState([
+  const hows = useState([
     {
       id: 0,
       how: '커리어',

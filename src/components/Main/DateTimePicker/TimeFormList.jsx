@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from '../Main.module.css';
 
 export default function TimeFormList({
@@ -7,7 +7,7 @@ export default function TimeFormList({
   elementIndex,
   isSelect,
 }) {
-  const { id, time } = timelist;
+  const { time } = timelist;
 
   return (
     <button

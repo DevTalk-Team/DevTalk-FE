@@ -8,7 +8,7 @@ import ConsultantCard from './ConsultantCard';
 
 export default function ConsultantSelect() {
   //전문가 선택 페이지
-  const [mentors, setMentors] = useState([
+  const mentors = useState([
     {
       id: 0,
       img: './',

@@ -12,7 +12,7 @@ export default function TechField() {
   const location = useLocation();
   const pageid = location.state.id;
 
-  const [hows, setHows] = useState([
+  const hows = useState([
     {
       id: 0,
       how: '웹',
@@ -83,7 +83,7 @@ export default function TechField() {
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
 
-    if (pageid == 2) {
+    if (pageid === 2) {
       setWhere('main10');
     } else {
       setWhere('main4');

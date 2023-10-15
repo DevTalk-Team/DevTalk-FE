@@ -6,7 +6,7 @@ export default function PhoneForm({ id, title }) {
   const [isPhone, setIsPhone] = useState(false);
   const [phoneMessage, setPhoneMessage] = useState('');
   const [phone, setPhone] = useState('');
-  const [code, setCode] = useState('');
+  // const [code, setCode] = useState('');
 
   const location = useLocation();
   const name = location.state.name;
@@ -40,10 +40,6 @@ export default function PhoneForm({ id, title }) {
         phone: phone,
       },
     });
-    console.log(id);
-    console.log(phone);
-    console.log(code);
-    console.log(isPhone);
   }
 
   return (
