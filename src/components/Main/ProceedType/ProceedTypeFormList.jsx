@@ -12,7 +12,7 @@ export default function ProceedTypeFormList({
   return (
     <button
       onClick={() => handleClick(elementIndex, id)}
-      className={isSelect ? `${styles.btn1}` : `${styles.disbtn1}`}
+      className={isSelect ? `${styles.btnproceed}` : `${styles.disbtnproceed}`}
     >
       {how}
     </button>

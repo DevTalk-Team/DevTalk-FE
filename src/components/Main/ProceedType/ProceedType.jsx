@@ -17,10 +17,6 @@ export default function ProceedType() {
       id: 1,
       how: '1시간 대면 상담',
     },
-    {
-      id: 2,
-      how: '게시판 상담',
-    },
   ]);
   const [productProceedType, setProductProceedType] =
     useRecoilState(proceedState);
@@ -45,11 +41,9 @@ export default function ProceedType() {
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
     if (productProceedType.id == 1) {
-      setWhere('main9');
-    } else if (productProceedType.id == 0) {
-      setWhere('main2');
+      setWhere('matching_counselingregion');
     } else {
-      setWhere('main3');
+      setWhere('matching_consultantselect');
     }
   };
   useEffect(() => {

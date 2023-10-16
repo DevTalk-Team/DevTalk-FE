@@ -8,7 +8,7 @@ import ConsultantCard from './ConsultantCard';
 
 export default function ConsultantSelect() {
   //전문가 선택 페이지
-  const mentors = useState([
+  const [mentors, setMentors] = useState([
     {
       id: 0,
       img: './',
@@ -22,7 +22,7 @@ export default function ConsultantSelect() {
     {
       id: 1,
       img: './',
-      name: '데브톡',
+      name: '가나다',
       info: '2년차 백엔드개발자 ',
       skill: 'Java,Spring',
       price: '15000원',
@@ -31,7 +31,7 @@ export default function ConsultantSelect() {
     {
       id: 2,
       img: './',
-      name: '데브톡',
+      name: '비씨디',
       info: '3년차 백엔드개발자 ',
       skill: 'Java,Spring',
       price: '15000원',
@@ -40,7 +40,7 @@ export default function ConsultantSelect() {
     {
       id: 3,
       img: './',
-      name: '데브톡',
+      name: '삼성성',
       info: '4년차 백엔드개발자 ',
       skill: 'Java,Spring',
       price: '15000원',
@@ -81,7 +81,7 @@ export default function ConsultantSelect() {
       <div className={styles.mainheader}>
         <MainHeader
           topic="원하는 전문가를"
-          where="main5"
+          where="matching_datetime"
           check={isSkillConfirm}
         />
       </div>

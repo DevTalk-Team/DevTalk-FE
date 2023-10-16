@@ -34,12 +34,12 @@ export default function ConsultantCard({
               alt="mentor"
             />
           </div>
-          <p className={styles.p}>{name}</p>
+          <p className={styles.name}>{name}</p>
         </div>
         <div className={styles.mentorinfo}>
           <p className={styles.p}>{info}</p>
           <p className={styles.p}>{skill}</p>
-          <p className={styles.p}>{price}</p>
+          <p className={styles.price}>{price}</p>
           <div className={styles.mentorrank}>
             <FaStar color="#FFA500" />
             <p className={styles.prank}>{rank}</p>

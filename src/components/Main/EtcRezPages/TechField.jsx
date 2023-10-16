@@ -5,14 +5,13 @@ import Header from '../../Header/Header';
 import { useRecoilState } from 'recoil';
 import { techState } from '../../recoil/MatchingAtom';
 import MainFormList from './MainFormList';
-import { useLocation } from 'react-router-dom';
 
 export default function TechField() {
   //원하는 기술분야 선택 페이지
-  const location = useLocation();
-  const pageid = location.state.id;
+  // const location = useLocation();
+  // const pageid = location.state.id;
 
-  const hows = useState([
+  const [hows, setHows] = useState([
     {
       id: 0,
       how: '웹',
@@ -82,12 +81,12 @@ export default function TechField() {
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
-
-    if (pageid === 2) {
-      setWhere('main10');
-    } else {
-      setWhere('main4');
-    }
+    setWhere('matching_proceedtype');
+    // if (pageid === 2) {
+    //   setWhere('main10');
+    // } else {
+    //   setWhere('main4');
+    // }
   };
 
   useEffect(() => {

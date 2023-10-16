@@ -4,12 +4,12 @@ import styles from '../Main.module.css';
 import { useRecoilState } from 'recoil';
 import { fieldState } from '../../recoil/MatchingAtom';
 import MainHeader from '../MainHeader/MainHeader';
-import MainFormList from './MainFormList';
+import MainFormList from '../EtcRezPages/MainFormList';
 
-export default function CounselingField({ pageid }) {
+export default function CounselingField() {
   //상담분야선택페이지
 
-  const hows = useState([
+  const [hows, setHows] = useState([
     {
       id: 0,
       how: '커리어',
@@ -66,7 +66,11 @@ export default function CounselingField({ pageid }) {
         <Header title={'상담 예약'} />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />
+        <MainHeader
+          topic="상담 분야를"
+          where="matching_techfield" //기술분야
+          check={isSkillConfirm}
+        />
       </div>
       <div className={styles.choose2}>
         {hows.map((item, i) => (
