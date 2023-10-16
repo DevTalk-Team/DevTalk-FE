@@ -8,7 +8,7 @@ import MainFormList from './MainFormList';
 
 export default function CounselingRegion() {
   //비대면 상담 시 원하는 지역 선택 페이지
-  const hows = useState([
+  const [hows, setHows] = useState([
     {
       id: 0,
       how: '서울',
@@ -112,7 +112,7 @@ export default function CounselingRegion() {
       <div className={styles.mainheader}>
         <MainHeader
           topic="원하는 지역을"
-          where="main3"
+          where="matching_consultantselect"
           check={isSkillConfirm}
         />
       </div>

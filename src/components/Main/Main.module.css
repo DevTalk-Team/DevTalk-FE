@@ -15,6 +15,7 @@
 .choosearea {
   margin-top: 10rem;
 }
+
 .choose1 {
   width: 100%;
   display: flex;
@@ -38,9 +39,8 @@
   font-weight: 700;
   font-size: 1.3rem;
   text-align: center;
-
   border-radius: 1rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 .btn1 {
   background-color: var(--color-bg);
@@ -50,7 +50,27 @@
   background-color: var(--color-bg-light);
 }
 
-/* Main2 */
+/* 상담진행방식 버튼 */
+.btnproceed,
+.disbtnproceed {
+  all: unset;
+  width: 80%;
+  height: 5rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+
+  border-radius: 1rem;
+  margin: 2rem 0;
+}
+.btnproceed {
+  background-color: var(--color-bg);
+  color: var(--color-white);
+}
+.disbtnproceed {
+  background-color: var(--color-bg-light);
+}
+/* 상담분야 버튼 */
 .choose2 {
   width: 100%;
   padding: 0;
@@ -75,14 +95,14 @@
   margin: 1rem 0;
 }
 
-/* Main3 */
+/* 상담지역, 기술분야 */
 .choose3 {
   width: 100%;
   padding: 0;
   display: grid;
   grid-template-columns: 30% 30% 30%;
-  row-gap: 1rem;
-  column-gap: 1rem;
+  row-gap: 0.8rem;
+  column-gap: 0.5rem;
   place-content: center;
   justify-items: center;
   margin-top: 10rem;
@@ -100,7 +120,7 @@
   margin: 1rem 0;
 }
 
-/* Main5 */
+/* 상담내용, 상담일시*/
 .pickarea {
   width: 100%;
   padding-top: 8rem;

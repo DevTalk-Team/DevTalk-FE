@@ -20,7 +20,7 @@ export default function CounselingDetails() {
       <div className={styles.mainheader}>
         <MainHeader
           topic="상담 받을 내용을"
-          where="main7"
+          where="matching_price"
           check={isSkillConfirm}
         />
       </div>

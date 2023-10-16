@@ -11,7 +11,7 @@ export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
-    navigate('/matching'); //로그인 되었을 경우
+    navigate('/matching_counselingfield'); //로그인 되었을 경우
   }
 
   function goboard() {

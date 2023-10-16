@@ -19,7 +19,11 @@ export default function DateTimePicker() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="예약 시간을" where="main6" check={isConfirm} />
+        <MainHeader
+          topic="예약 시간을"
+          where="matching_details"
+          check={isConfirm}
+        />
       </div>
       <div className={styles.pickarea}>
         <p className={styles.txt}>상담 날짜</p>

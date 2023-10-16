@@ -17,7 +17,7 @@ import JoinPw from './components/Join/Joins/JoinPw';
 import JoinName from './components/Join/Joins/JoinName';
 import JoinPhone from './components/Join/Joins/JoinPhone';
 import JoinSkill from './components/Join/Joins/JoinSkill';
-import JoinPhoto from './components/Join/Joins/JoinPhoto';
+// import JoinPhoto from './components/Join/Joins/JoinPhoto';
 import JoinTerms from './components/Join/Joins/JoinTerms';
 import JoinComplete from './components/Join/Joins/JoinComplete';
 import Mypage from './components/mypage/Mypage';
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       { path: '/loadingscreen', element: <LoadingScreen /> },
       { path: '/startscreen', element: <StartScreen /> },
       { path: '/homescreen', element: <HomeScreen /> },
-      { path: '/matching', element: <ProceedType /> },
+      { path: '/matching_counselingfield', element: <CounselingField /> },
       { path: '/login_popup', element: <LoginPopup /> },
       { path: '/loginscreen', element: <Login /> },
       { path: '/joinscreen', element: <Join /> },
@@ -105,16 +105,16 @@ const router = createBrowserRouter([
     element: <App />,
     //errorElement: <NotFound />,
     children: [
-      { index: true, element: <ProceedType /> },
-      { path: '/main1', element: <ProceedType /> },
-      { path: '/main2', element: <CounselingField /> },
-      { path: '/main3', element: <TechField /> },
-      { path: '/main4', element: <ConsultantSelect /> },
-      { path: '/main5', element: <DateTimePicker /> },
-      { path: '/main6', element: <CounselingDetails /> },
-      { path: '/main7', element: <CounselingPrice /> },
-      { path: '/main8', element: <RezDone /> },
-      { path: '/main9', element: <CounselingRegion /> },
+      { index: true, element: <CounselingField /> },
+      { path: '/matching_counselingfield', element: <CounselingField /> },
+      { path: '/matching_techfield', element: <TechField /> },
+      { path: '/matching_proceedtype', element: <ProceedType /> },
+      { path: '/matching_counselingregion', element: <CounselingRegion /> },
+      { path: '/matching_consultantselect', element: <ConsultantSelect /> },
+      { path: '/matching_datetime', element: <DateTimePicker /> },
+      { path: '/matching_details', element: <CounselingDetails /> },
+      { path: '/matching_price', element: <CounselingPrice /> },
+      { path: '/matching_done', element: <RezDone /> },
     ],
   },
   {

@@ -5,7 +5,7 @@ import { timeState } from '../../recoil/MatchingAtom';
 import TimeFormList from './TimeFormList';
 
 export default function TimePickList({ checkTime }) {
-  const times = useState([
+  const [times, setTimes] = useState([
     {
       id: 1,
       time: '10:00',

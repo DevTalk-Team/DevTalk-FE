@@ -47,7 +47,7 @@ export default function CounselingPrice() {
     //   })
     //   .then((response) => {
     //     console.log('201', response.data);
-    //     navigate('/main8');
+    //     navigate('/matching_done');
     //     if (response.status === 201) {
     //       console.log('상담신청 완료');
     //     }
