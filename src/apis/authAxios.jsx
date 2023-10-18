@@ -15,15 +15,18 @@ export const getAuthAxios = (token) => {
       console.log('엑세스토큰 성공', res);
     },
     async (error) => {
-      if (error.response === 401) {
+      if (error.response.status === 401) {
         console.log('엑세스토큰 만료다');
 
-        // const { accessToken, refreshToken } = await getNewRefreshToken();
-        // error.config.headers.Authorization = accessToken;
-        // localStorage.setItem('accessToken', accessToken);
-        // localStorage.setItem('refreshToken', refreshToken);
-        // console.log('토큰들', accessToken, refreshToken);
-        // return (await axios.get(error.config.url, error.config)).data;
+        const { accessToken, refreshToken } = await getNewRefreshToken();
+        error.config.headers.Authorization = accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+        console.log('토큰들', accessToken, refreshToken);
+        return (await axios.get(error.config.url, error.config)).data;
+      }
+      if (error.response.status === 500) {
+        console.log('에러', error.response);
       }
     }
   );

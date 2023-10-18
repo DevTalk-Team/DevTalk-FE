@@ -10,11 +10,9 @@ const Mypage = () => {
     //   setData(res);
     //   console.log(res.data);
     // });
-    getHomePage()
-      .then((response) => {
-        console.log('잘 되고 있는거니', response);
-      })
-      .catch((err) => console.log('잘 안되고있단다', err));
+    getHomePage().then((res) => {
+      console.log('잘 되고 있는거니', res);
+    });
   }, []);
 
   const navigate = useNavigate();
