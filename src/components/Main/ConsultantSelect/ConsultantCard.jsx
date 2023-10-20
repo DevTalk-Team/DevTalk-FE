@@ -37,8 +37,8 @@ export default function ConsultantCard({
           <p className={styles.name}>{name}</p>
         </div>
         <div className={styles.mentorinfo}>
-          <p className={styles.p}>예: {year}년차 백엔드개발자</p>
-          <p className={styles.p}>예: JAVA</p>
+          <p className={styles.p}> {year}년차 </p>
+          <p className={styles.p}>예: 백엔드개발자</p>
           <p className={styles.price}>{cost}</p>
           <div className={styles.mentorrank}>
             <FaStar color="#FFA500" />
