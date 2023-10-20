@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './Mypage.module.css';
 import Header from '../Header/Header';
 import { useNavigate } from 'react-router-dom';
-import { getHomePage } from '../../apis/homepage';
+import { getMyPage } from '../../apis/pages';
 
 const Mypage = () => {
   useEffect(() => {
@@ -10,7 +10,7 @@ const Mypage = () => {
     //   setData(res);
     //   console.log(res.data);
     // });
-    getHomePage().then((res) => {
+    getMyPage().then((res) => {
       console.log('잘 되고 있는거니', res);
     });
   }, []);

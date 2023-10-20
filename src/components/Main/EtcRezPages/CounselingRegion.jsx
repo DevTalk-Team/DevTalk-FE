@@ -79,7 +79,7 @@ export default function CounselingRegion() {
     },
   ]);
 
-  const [where, setWhere] = useRecoilState(regionState);
+  const [region, setRegion] = useRecoilState(regionState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
@@ -89,7 +89,7 @@ export default function CounselingRegion() {
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
-    setWhere(hows[i].how);
+    setRegion(hows[i].how);
   };
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function CounselingRegion() {
   };
 
   useEffect(() => {
-    console.log(where);
+    console.log(region);
   }, [choose]);
 
   return (

@@ -16,23 +16,23 @@ export default function CounselingField() {
     },
     {
       id: 1,
-      how: '개발 장애',
+      how: '개발장애',
     },
     {
       id: 2,
-      how: '멘토 섭외',
+      how: '멘토섭외',
     },
     {
       id: 3,
-      how: '개발 외주',
+      how: '개발외주',
     },
     {
       id: 4,
-      how: '개발 컨설팅',
+      how: '개발컨설팅',
     },
     {
       id: 5,
-      how: '개발 팀 구성',
+      how: '개발팀구성',
     },
   ]);
   const [counselingField, setCounselingField] = useRecoilState(fieldState);
@@ -45,7 +45,7 @@ export default function CounselingField() {
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
-    setCounselingField(hows[i]);
+    setCounselingField(hows[i].how);
   };
 
   useEffect(() => {

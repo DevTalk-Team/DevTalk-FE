@@ -13,6 +13,7 @@ export const getAuthAxios = (token) => {
   authAxios.interceptors.response.use(
     (res) => {
       console.log('엑세스토큰 성공', res);
+      return res;
     },
     async (error) => {
       if (error.response.status === 401) {
