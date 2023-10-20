@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function SkillForm({ id, title }) {
-  const [skills, setSkills] = useState([
+  const skills = useState([
     {
       id: 0,
       skill: '웹',
@@ -37,6 +37,7 @@ export default function SkillForm({ id, title }) {
   ]);
 
   function postinfo() {
+    //멘티 회원가입
     console.log('실행중', id);
     console.log(name, email, password, phone);
     axios
@@ -71,25 +72,28 @@ export default function SkillForm({ id, title }) {
     setChoose([...choose, picked]);
   };
   const onDelete = (deleted) => {
-    setChoose(choose.filter((t) => t.id !== deleted.id));
+    setChoose(choose.filter((t) => t !== deleted));
   };
 
   useEffect(() => {
     if (choose.length > 5) {
       setSkillConfirmMessage('최대 5개만 선택 가능합니다.');
       setIsSkillConfirm(false);
+      console.log(choose);
     } else if (choose.length < 1) {
       setIsSkillConfirm(false);
+      console.log(choose);
     } else {
       setSkillConfirmMessage('');
       setIsSkillConfirm(true);
+      console.log(choose);
     }
   }, [choose]);
 
   const navigate = useNavigate();
 
   function skill() {
-    if (id == 1) {
+    if (id === 1) {
       navigate('/jointerms', {
         state: {
           id: id,
@@ -115,7 +119,7 @@ export default function SkillForm({ id, title }) {
     <div className={styles.container}>
       <div className={styles.skillform}>
         <p className={styles.skill}>
-          {id == 0 ? '관심분야' : '전문분야'}를 선택해주세요. <br />
+          {id === 0 ? '관심분야' : '전문분야'}를 선택해주세요. <br />
           (최대 5개)
         </p>
         <p className={styles.message}>{skillConfirmMessage}</p>

@@ -17,7 +17,7 @@ import JoinPw from './components/Join/Joins/JoinPw';
 import JoinName from './components/Join/Joins/JoinName';
 import JoinPhone from './components/Join/Joins/JoinPhone';
 import JoinSkill from './components/Join/Joins/JoinSkill';
-import JoinPhoto from './components/Join/Joins/JoinPhoto';
+// import JoinPhoto from './components/Join/Joins/JoinPhoto';
 import JoinTerms from './components/Join/Joins/JoinTerms';
 import JoinComplete from './components/Join/Joins/JoinComplete';
 import Mypage from './components/mypage/Mypage';
@@ -30,16 +30,15 @@ import Review from './components/mypage/Review/Review';
 import CounselTime from './components/Professor/counsel/CounselTime';
 import ProfessorProfile from './components/Professor/Profile/ProfessorProfile';
 import ProfessorInfo from './components/mypage/UserInfo/Professor/ProfessorInfo';
-import Main1 from './components/Main/Main1/Main1';
-import Main2 from './components/Main/Main2';
-import Main3 from './components/Main/Main3';
-import Main4 from './components/Main/Main4/Main4';
-import Main5 from './components/Main/Main5/Main5';
-import Main6 from './components/Main/Main6/Main6';
-import Main7 from './components/Main/Main7/Main7';
-import Main8 from './components/Main/Main8/Main8';
-import Main9 from './components/Main/Main9';
-import Main10 from './components/Main/Main10/Main10';
+import ProceedType from './components/Main/ProceedType/ProceedType';
+import CounselingField from './components/Main/EtcRezPages/CounselingField';
+import TechField from './components/Main/EtcRezPages/TechField';
+import ConsultantSelect from './components/Main/ConsultantSelect/ConsultantSelect';
+import DateTimePicker from './components/Main/DateTimePicker/DateTimePicker';
+import CounselingDetails from './components/Main/CounselingDetails/CounselingDetails';
+import CounselingPrice from './components/Main/CounselingPrice/CounselingPrice';
+import RezDone from './components/Main/RezDone/RezDone';
+import CounselingRegion from './components/Main/EtcRezPages/CounselingRegion';
 import FindId from './components/Login/FindIdPw/FindId';
 import FindPw from './components/Login/FindIdPw/FindPw';
 import ShowId from './components/Login/FindIdPw/ShowId';
@@ -59,7 +58,7 @@ const router = createBrowserRouter([
       { path: '/loadingscreen', element: <LoadingScreen /> },
       { path: '/startscreen', element: <StartScreen /> },
       { path: '/homescreen', element: <HomeScreen /> },
-      { path: '/mainscreen1', element: <Main1 /> },
+      { path: '/matching_counselingfield', element: <CounselingField /> },
       { path: '/login_popup', element: <LoginPopup /> },
       { path: '/loginscreen', element: <Login /> },
       { path: '/joinscreen', element: <Join /> },
@@ -96,7 +95,7 @@ const router = createBrowserRouter([
       { path: '/joinname', element: <JoinName /> },
       { path: '/joinphone', element: <JoinPhone /> },
       { path: '/joinskill', element: <JoinSkill /> },
-      { path: '/joinphoto', element: <JoinPhoto /> },
+      // { path: '/joinphoto', element: <JoinPhoto /> },
       { path: '/jointerms', element: <JoinTerms /> },
       { path: '/joincomplete', element: <JoinComplete /> },
     ],
@@ -107,17 +106,16 @@ const router = createBrowserRouter([
     element: <App />,
     //errorElement: <NotFound />,
     children: [
-      { index: true, element: <Main1 /> },
-      { path: '/main1', element: <Main1 /> },
-      { path: '/main2', element: <Main2 /> },
-      { path: '/main3', element: <Main3 /> },
-      { path: '/main4', element: <Main4 /> },
-      { path: '/main5', element: <Main5 /> },
-      { path: '/main6', element: <Main6 /> },
-      { path: '/main7', element: <Main7 /> },
-      { path: '/main8', element: <Main8 /> },
-      { path: '/main9', element: <Main9 /> },
-      { path: '/main10', element: <Main10 /> },
+      { index: true, element: <CounselingField /> },
+      { path: '/matching_counselingfield', element: <CounselingField /> },
+      { path: '/matching_techfield', element: <TechField /> },
+      { path: '/matching_proceedtype', element: <ProceedType /> },
+      { path: '/matching_counselingregion', element: <CounselingRegion /> },
+      { path: '/matching_consultantselect', element: <ConsultantSelect /> },
+      { path: '/matching_datetime', element: <DateTimePicker /> },
+      { path: '/matching_details', element: <CounselingDetails /> },
+      { path: '/matching_price', element: <CounselingPrice /> },
+      { path: '/matching_done', element: <RezDone /> },
     ],
   },
   {

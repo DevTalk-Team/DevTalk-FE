@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 import styles from './ShowPw.module.css';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../Header/Header';
+import axios from 'axios';
 
 export default function ShowPw() {
   const [password, setPassword] = useState('');
@@ -17,13 +18,6 @@ export default function ShowPw() {
     //임시비번을 확인하는 절차
     const secretPassword = e.target.value;
     setSecretPw(secretPassword);
-    if (lastpw !== secretPassword) {
-      setsecretPasswordMessage('임시비밀번호가 일치하지 않습니다.');
-      setIsPasswordConfirm(false);
-    } else {
-      setsecretPasswordMessage('');
-      setIsPasswordConfirm(true);
-    }
   };
 
   const onChangePassword = (e) => {
@@ -45,7 +39,24 @@ export default function ShowPw() {
   const navigate = useNavigate();
 
   function pw() {
-    navigate('/loginscreen');
+    axios
+      .post('/member/profile/change-password', {
+        password: secretpw,
+        newPassword: password,
+      })
+      .then((response) => {
+        console.log('200', response.data);
+
+        if (response.status === 200) {
+          console.log('비밀번호 찾기 인증 성공');
+        }
+
+        navigate('/loginscreen');
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setsecretPasswordMessage('임시비밀번호가 일치하지 않습니다.');
+      });
   }
   return (
     <div className={styles.container}>
@@ -60,6 +71,7 @@ export default function ShowPw() {
           <input
             id="password"
             name="password"
+            type="password"
             maxLength={16}
             placeholder="임시 비밀번호"
             className={styles.input}
@@ -69,10 +81,10 @@ export default function ShowPw() {
           <p className={styles.message}>{secretPasswordMessage}</p>
           <input
             id="newpassword"
+            type="password"
             name="newpassword"
             placeholder="새로운 비밀번호"
             className={styles.input}
-            disabled={isPasswordConfirm === false}
             value={password}
             onChange={onChangePassword}
           />

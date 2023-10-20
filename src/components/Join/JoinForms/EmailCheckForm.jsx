@@ -1,6 +1,7 @@
-import { React, useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import styles from './EmailForm.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function EmailCheckForm({ id, title }) {
   const [code, setCode] = useState('');
@@ -13,22 +14,29 @@ export default function EmailCheckForm({ id, title }) {
   const navigate = useNavigate();
 
   function gopw() {
-    navigate('/joinpw', {
-      state: { id: id, value: title, name: name, email: email },
-    });
+    axios
+      .post(`/member/signup/auth-code?email=${email}&authCode=${code}`)
+      .then((response) => {
+        console.log('200', response.data);
+
+        if (response.status === 200) {
+          console.log('회원가입 이메일 인증 성공');
+        }
+
+        navigate('/joinpw', {
+          state: { id: id, value: title, name: name, email: email },
+        });
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setCodeMessage('인증번호가 옳지 않습니다.');
+      });
   }
 
   const onCheckCode = (e) => {
     //인증번호 일치여부 확인
     const currentCode = e.target.value;
     setCode(currentCode);
-    if (currentCode !== '1234') {
-      setCodeMessage('인증번호가 옳지 않습니다.');
-      setIsCode(false);
-    } else {
-      setCodeMessage('인증되었습니다.');
-      setIsCode(true);
-    }
   };
 
   return (
@@ -51,9 +59,9 @@ export default function EmailCheckForm({ id, title }) {
 
           <button
             type="submit"
-            className={isCode ? `${styles.yesbtn}` : `${styles.disbtn}`}
+            // className={isCode ? `${styles.yesbtn}` : `${styles.disbtn}`}
             onClick={gopw}
-            disabled={isCode === false}
+            className={styles.yesbtn}
           >
             다음
           </button>

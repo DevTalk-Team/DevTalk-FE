@@ -6,13 +6,12 @@ import { RiSettings3Line } from 'react-icons/ri';
 import { TbNotes } from 'react-icons/tb';
 import { Link, useNavigate } from 'react-router-dom';
 import HomeReservation from './HomeReservation';
-import HomeLogin from './HomeLogin';
 
 export default function HomeScreen() {
   const navigate = useNavigate();
 
   function gomain() {
-    navigate('/mainscreen1'); //로그인 되었을 경우
+    navigate('/matching_counselingfield'); //로그인 되었을 경우
   }
 
   function goboard() {

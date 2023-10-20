@@ -12,6 +12,7 @@ export default function TermsForm({ id, title }) {
   const choose = location.state.choose;
 
   function postinfo() {
+    //전문가 회원가입
     console.log('실행중', id);
     console.log(name, email, password, phone);
     axios

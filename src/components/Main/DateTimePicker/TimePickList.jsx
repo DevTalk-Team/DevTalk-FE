@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
+import { useRecoilState } from 'recoil';
+import { timeState } from '../../recoil/MatchingAtom';
 import TimeFormList from './TimeFormList';
 
 export default function TimePickList({ checkTime }) {
@@ -54,6 +56,7 @@ export default function TimePickList({ checkTime }) {
     },
   ]);
 
+  const [counsellingTime, setCounsellingTime] = useRecoilState(timeState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
 
@@ -61,21 +64,22 @@ export default function TimePickList({ checkTime }) {
     const newArr = Array(times.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
-
     checkTime(true);
+    setCounsellingTime(times[i]);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(times[i]) : null));
   };
+
   useEffect(() => {
-    console.log(choose);
+    console.log(counsellingTime);
   }, [choose]);
+
   return (
     <div>
       <div className={styles.choose5}>
