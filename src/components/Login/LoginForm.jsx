@@ -39,7 +39,7 @@ export default function LoginForm() {
           console.log('로그인 성공');
         }
 
-        Navigate('/homescreen');
+        Navigate('/mypagescreen');
         // setLogin(1);
       })
       .catch((ex) => {

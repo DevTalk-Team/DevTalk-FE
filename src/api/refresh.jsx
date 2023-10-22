@@ -14,8 +14,8 @@ export const getNewRefreshToken = async () => {
         },
       }
     );
-
-    return result.data;
+    console.log('리프레시 결과', result.data.result.accessToken);
+    return result.data.result.accessToken;
   } catch (error) {
     console.error('리프레시 에러', error);
     throw error; // 예외 다시 던지기
