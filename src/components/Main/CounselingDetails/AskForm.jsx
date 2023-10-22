@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { detailsState } from '../../recoil/MatchingAtom';
 import { TiDelete } from 'react-icons/ti';
 import { FiDownload } from 'react-icons/fi';
+import axios from 'axios';
 
 export default function AskForm({ checkTxt }) {
   //상담내용 및 파일 업로드 페이지
@@ -33,6 +34,22 @@ export default function AskForm({ checkTxt }) {
 
     // const size = Math.floor(e.target.files[0].size / 1024);
     // console.log('사이즈' + size);
+
+    onUploadFiles(e);
+  };
+
+  const onUploadFiles = async (e) => {
+    const formData = new FormData();
+
+    [...e.target.files].forEach((file) => {
+      formData.append('file', file);
+    });
+
+    const res = await axios
+      .post(`url...`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      .then((res) => res.data);
   };
 
   const onDelete = (i) => {
@@ -63,7 +80,7 @@ export default function AskForm({ checkTxt }) {
         첨부파일<span className={styles.txtspan}>(최대 3개)</span>
       </p>
       <form
-        action="/uploadfiles"
+        // action="/uploadfiles"
         method="post"
         enctype="multipart/form-data"
         className={styles.addfile}
