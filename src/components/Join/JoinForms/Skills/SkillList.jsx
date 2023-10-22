@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styles from './SkillForm.module.css';
 
 export default function SkillList({ skilllist, onUpdate, onDelete }) {
-  const { id, skill } = skilllist;
+  const { skill } = skilllist;
   const [check, setCheck] = useState(false);
 
   useEffect(() => {
     if (check === true) {
       onUpdate(skill);
     } else {
-      onDelete(skilllist);
+      onDelete(skill);
     }
   }, [check]);
 

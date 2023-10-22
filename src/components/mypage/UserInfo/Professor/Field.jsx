@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import mainStyles from '../../../Main/Main.module.css';
 import styles from './ProfessorInfo.module.css';
 import Header from '../../../Header/Header';
-import MainFormList from '../../../Main/MainFormList';
+import MainFormList from '../../../Main/EtcRezPages/MainFormList';
 import { useNavigate } from 'react-router-dom';
 
 const Field = () => {

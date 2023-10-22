@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styles from './AskForm.module.css';
+import { useRecoilState } from 'recoil';
+import { detailsState } from '../../recoil/MatchingAtom';
 import { TiDelete } from 'react-icons/ti';
 import { FiDownload } from 'react-icons/fi';
 
 export default function AskForm({ checkTxt }) {
   //상담내용 및 파일 업로드 페이지
 
+  const [content, setContent] = useRecoilState(detailsState);
   const [inputCount, setInputCount] = useState(0);
-
   // const [fileCount, setFileCount] = useState(0);
   const [files, setFiles] = useState([]);
   const onInputHandler = (e) => {
+    setContent(e.target.value);
     setInputCount(e.target.value.length);
   };
+
   useEffect(() => {
     if (inputCount > 0) {
       checkTxt(true);

@@ -3,13 +3,13 @@ import { FaStar } from 'react-icons/fa';
 import styles from './MainMentor.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function MainMentor({
-  mentor,
+export default function ConsultantCard({
+  consultant,
   handleClick,
   elementIndex,
   isSelect,
 }) {
-  const { id, img, name, info, skill, price, rank } = mentor;
+  const { name, year, cost } = consultant;
 
   const navigate = useNavigate();
 
@@ -31,18 +31,18 @@ export default function MainMentor({
             <img
               className={styles.mentorphoto}
               src={'./logo192.png'}
-              alt="mentor"
+              alt="consultant"
             />
           </div>
-          <p className={styles.p}>{name}</p>
+          <p className={styles.name}>{name}</p>
         </div>
         <div className={styles.mentorinfo}>
-          <p className={styles.p}>{info}</p>
-          <p className={styles.p}>{skill}</p>
-          <p className={styles.p}>{price}</p>
+          <p className={styles.p}> {year}년차 </p>
+          <p className={styles.p}>예: 백엔드개발자</p>
+          <p className={styles.price}>{cost}</p>
           <div className={styles.mentorrank}>
             <FaStar color="#FFA500" />
-            <p className={styles.prank}>{rank}</p>
+            <p className={styles.prank}>예:3.8</p>
           </div>
         </div>
       </div>

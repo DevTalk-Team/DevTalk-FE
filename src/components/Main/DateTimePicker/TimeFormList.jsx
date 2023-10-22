@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import styles from './Main.module.css';
+import React from 'react';
+import styles from '../Main.module.css';
 
-export default function MainFormList({
-  itemlist,
+export default function TimeFormList({
+  timelist,
   handleClick,
   elementIndex,
   isSelect,
 }) {
-  const { id, how } = itemlist;
+  const { time } = timelist;
 
   return (
     <button
       onClick={() => handleClick(elementIndex)}
       className={isSelect ? `${styles.btn1}` : `${styles.disbtn1}`}
     >
-      {how}
+      {time}
     </button>
   );
 }

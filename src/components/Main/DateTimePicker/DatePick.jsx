@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import styles from './DatePick.module.css';
+import { useRecoilState } from 'recoil';
+import { dateState } from '../../recoil/MatchingAtom';
 import { ko } from 'date-fns/esm/locale';
 
 export default function DatePick() {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [counsellingDate, setCounsellingDate] = useRecoilState(dateState);
 
   useEffect(() => {
-    console.log(selectedDate);
-  }, []);
-  useEffect(() => {
-    let D = selectedDate.toISOString();
-    let d = selectedDate.toString();
+    // let D = selectedDate.toISOString();
+    // let d = selectedDate.toString();
 
-    let date = D.slice(0, 10);
-    console.log(date); //2023-08-08
-    let day = d.slice(0, 3);
-    console.log(day); //Wed
+    // let date = D.slice(0, 10);
+    // console.log(date); //2023-08-08
+    // let day = d.slice(0, 3);
+    // console.log(day); //Wed
+    pick();
   }, [selectedDate]);
+
+  const pick = () => {
+    setCounsellingDate(selectedDate);
+  };
+
+  useEffect(() => {
+    console.log(counsellingDate);
+  }, [counsellingDate]);
 
   return (
     <DatePicker

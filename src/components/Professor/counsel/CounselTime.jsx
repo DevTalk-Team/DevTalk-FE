@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../..//Header/Header';
 import styles from './CounselTime.module.css';
 import TimeTable from './TimeTable';
-import DatePick from '../../Main/Main5/DatePick';
+import DatePick from '../../Main/DateTimePicker/DatePick';
 import { useNavigate } from 'react-router-dom';
 
 const CounselTime = () => {

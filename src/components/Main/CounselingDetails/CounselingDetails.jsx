@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../Main.module.css';
-import MainHeader from '../MainHeader';
+import MainHeader from '../MainHeader/MainHeader';
 import Header from '../../Header/Header';
 import AskForm from './AskForm';
 
-export default function Main6() {
+export default function CounselingDetails() {
+  //원하는 상담 내용
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
 
   const checkTxt = (i) => {
@@ -19,7 +20,7 @@ export default function Main6() {
       <div className={styles.mainheader}>
         <MainHeader
           topic="상담 받을 내용을"
-          where="main7"
+          where="matching_price"
           check={isSkillConfirm}
         />
       </div>

@@ -6,12 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function FindId() {
   const [name, setName] = useState('');
-  const [isPhone, setIsPhone] = useState(false);
   const [isCode, setIsCode] = useState(true);
   const [phoneMessage, setPhoneMessage] = useState('');
-  const [codeMessage, setCodeMessage] = useState('');
   const [phone, setPhone] = useState('');
-  const [code, setCode] = useState('');
   const navigate = useNavigate();
 
   const goid = () => {
@@ -47,10 +44,10 @@ export default function FindId() {
 
     if (!phoneRegExp.test(currentNumber)) {
       setPhoneMessage('올바른 형식이 아닙니다.');
-      setIsPhone(false);
+      setIsCode(false);
     } else {
       setPhoneMessage('');
-      setIsPhone(true);
+      setIsCode(true);
     }
   };
 

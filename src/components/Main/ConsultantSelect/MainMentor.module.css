@@ -39,12 +39,23 @@
   background-color: var(--color-gray);
   border-radius: 100%;
 }
+.name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-top: 0.8rem;
+}
 .p {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
 .mentorinfo {
+  margin-top: 0.3rem;
   width: 50%;
 }
 .mentorrank {

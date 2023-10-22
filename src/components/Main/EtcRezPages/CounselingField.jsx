@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import styles from './Main.module.css';
-import MainHeader from './MainHeader';
-import Header from '../Header/Header';
-import MainFormList from './MainFormList';
+import Header from '../../Header/Header';
+import styles from '../Main.module.css';
+import { useRecoilState } from 'recoil';
+import { fieldState } from '../../recoil/MatchingAtom';
+import MainHeader from '../MainHeader/MainHeader';
+import MainFormList from '../EtcRezPages/MainFormList';
 
-export default function Main2({ pageid }) {
+export default function CounselingField() {
   //상담분야선택페이지
 
   const [hows, setHows] = useState([
@@ -14,25 +16,26 @@ export default function Main2({ pageid }) {
     },
     {
       id: 1,
-      how: '개발 장애',
+      how: '개발장애',
     },
     {
       id: 2,
-      how: '멘토 섭외',
+      how: '멘토섭외',
     },
     {
       id: 3,
-      how: '개발 외주',
+      how: '개발외주',
     },
     {
       id: 4,
-      how: '개발 컨설팅',
+      how: '개발컨설팅',
     },
     {
       id: 5,
-      how: '개발 팀 구성',
+      how: '개발팀구성',
     },
   ]);
+  const [counselingField, setCounselingField] = useRecoilState(fieldState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
@@ -42,10 +45,10 @@ export default function Main2({ pageid }) {
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
+    setCounselingField(hows[i].how);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
@@ -54,16 +57,20 @@ export default function Main2({ pageid }) {
   };
 
   useEffect(() => {
-    console.log(choose);
+    console.log(counselingField);
   }, [choose]);
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <Header title="상담 예약" />
+        <Header title={'상담 예약'} />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader topic="상담 분야를" where="main3" check={isSkillConfirm} />
+        <MainHeader
+          topic="상담 분야를"
+          where="matching_techfield" //기술분야
+          check={isSkillConfirm}
+        />
       </div>
       <div className={styles.choose2}>
         {hows.map((item, i) => (
