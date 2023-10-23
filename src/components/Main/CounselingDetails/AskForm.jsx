@@ -38,18 +38,17 @@ export default function AskForm({ checkTxt }) {
     onUploadFiles(e);
   };
 
-  const onUploadFiles = async (e) => {
+  // 파일 업로드 함수
+  const onUploadFiles = async () => {
     const formData = new FormData();
 
-    [...e.target.files].forEach((file) => {
-      formData.append('file', file);
-    });
+    if (files && files.length > 0) {
+      files.forEach((file, index) => {
+        formData.append(`files`, file);
+      });
+    }
 
-    const res = await axios
-      .post(`url...`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-      .then((res) => res.data);
+    // const res = await addPost(formData);
   };
 
   const onDelete = (i) => {
