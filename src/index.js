@@ -47,6 +47,9 @@ import Location from './components/mypage/UserInfo/Professor/Location';
 import Category from './components/mypage/UserInfo/Professor/Category';
 import Field from './components/mypage/UserInfo/Professor/Field';
 import NotFound from './NotFound';
+import Board from './components/board/Board';
+import BoardDetail from './components/board/BoardDetail';
+import Write from './components/board/Write';
 
 const router = createBrowserRouter([
   {
@@ -72,6 +75,9 @@ const router = createBrowserRouter([
       { path: '/professor/category', element: <Category /> },
       { path: '/professor/field', element: <Field /> },
       { path: '/professor/location', element: <Location /> },
+      { path: '/board', element: <Board /> },
+      { path: '/board/detail/:id', element: <BoardDetail /> },
+      { path: '/board/write', element: <Write /> },
       {
         path: '/counsel',
         element: <Counsel />,
