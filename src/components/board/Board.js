@@ -2,16 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import styles from './Board.module.css';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { boardDataList } from '../../recoil/BoardAtom';
+import { getBoardListAll } from '../../apis/services/boardServices';
+import boardInstance from '../../apis/config/board_interceptor';
 
 const Board = () => {
   const [searchText, setSearchText] = useState('');
-  const datas = useRecoilValue(boardDataList);
+  const [boardList, setBoardList] = useRecoilState(boardDataList);
   const navigate = useNavigate();
+  // boardInstance();
+
+  const getBoardList = async () => {
+    // const data = await getBoardListAll(); // 비동기 함수의 결과를 기다립니다.
+    const data = await getBoardListAll();
+    setBoardList(data); // Recoil 상태를 업데이트합니다.
+  };
 
   useEffect(() => {
-    const userEmail = 'mentee@gmail.com';
+    getBoardList();
   }, []);
 
   return (
@@ -33,7 +42,7 @@ const Board = () => {
           />
           <button className={`${styles.button} ${styles.text}`}>글 작성</button>
         </div>
-        {datas.map((data) => {
+        {boardList.map((data) => {
           return (
             <div
               key={data.id}
@@ -42,11 +51,15 @@ const Board = () => {
             >
               <p className={styles.mainText}>{data.title}</p>
               <p className={styles.normalText}>{data.content}</p>
-              <span className={styles.nameText}>{data.user}</span>
+              <span className={styles.nameText}>{data.userName}</span>
               <span className={styles.category}> | </span>
+              <span>comment: {data.commentCount}</span>
+              <span className={styles.category}> | </span>
+              <span>view: {data.views}</span>
+              {/* <span className={styles.category}> | </span>
               {data.categories.map((category) => (
                 <span className={styles.category}>#{category}</span>
-              ))}
+              ))} */}
             </div>
           );
         })}
