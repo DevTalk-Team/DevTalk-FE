@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
 import MainHeader from '../MainHeader/MainHeader';
 import Header from '../../Header/Header';
@@ -8,6 +8,7 @@ import TimePickList from './TimePickList';
 
 export default function DateTimePicker() {
   // 원하는 예약 시간 및 날짜 선택 페이지
+
   const [isConfirm, setIsConfirm] = useState(false);
   const checkTime = (i) => {
     setIsConfirm(i);

@@ -10,18 +10,18 @@ export default function DatePick() {
   const [counsellingDate, setCounsellingDate] = useRecoilState(dateState);
 
   useEffect(() => {
-    // let D = selectedDate.toISOString();
-    // let d = selectedDate.toString();
-
-    // let date = D.slice(0, 10);
-    // console.log(date); //2023-08-08
+    let D = selectedDate.toLocaleDateString('ko-KR');
+    let DD = D.replaceAll('.', '-').replace(/\s/g, '');
+    // let d = selectedDate.toLocaleDateString('ko-KR');
+    let date = DD.slice(0, 10);
+    //console.log(date); //2023-08-08
     // let day = d.slice(0, 3);
     // console.log(day); //Wed
-    pick();
+    pick(date);
   }, [selectedDate]);
 
-  const pick = () => {
-    setCounsellingDate(selectedDate);
+  const pick = (date) => {
+    setCounsellingDate(date);
   };
 
   useEffect(() => {
