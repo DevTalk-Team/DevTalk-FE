@@ -1,10 +1,10 @@
 .userInfo {
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   height: 10%;
   top: 0;
 }
@@ -14,7 +14,10 @@
 }
 
 .contentContainer {
-  margin: 5% 5%;
+  width: 90%;
+  margin-top: 25%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .contentHeader {
@@ -24,15 +27,21 @@
 }
 
 .tagButton {
+  width: 22%;
   background: rgba(255, 255, 255, 0.3);
   border: 2px solid #0a3779;
   border-radius: 10px;
-  width: 20%;
   color: black;
 }
 
+.searchBox {
+  width: 48%;
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+}
+
 .button {
-  width: 22%;
+  width: 20%;
   height: 5vh;
   background: white;
   color: white;
@@ -50,11 +59,6 @@
 .mainText {
   font-weight: 700;
   font-size: 1.1rem;
-}
-
-.text {
-  font-weight: 700;
-  font-size: 0.9rem;
 }
 
 .subText {
