@@ -4,15 +4,16 @@
 }
 
 .header {
-  position: sticky;
+  position: fixed;
   height: 10%;
   top: 0;
 }
 
-.mainText {
+.titleText {
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .subText {
@@ -25,7 +26,7 @@
 .normalBoldText {
   font-style: normal;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .normalText {
@@ -33,35 +34,67 @@
   color: rgba(0, 0, 0, 0.78);
   font-weight: 500;
   font-size: 0.9rem;
+  overflow: hidden;
 }
 
-.titleHeader {
+.line {
+  border-top: 1px solid #0a3779;
+}
+
+.borderLine {
+  margin: 1% 0;
+  padding: 1% 0;
+  border-top: 2px solid #0a3779;
+  border-bottom: 2px solid #0a3779;
+}
+
+.subTitleHeader {
+  display: flex;
+  align-items: baseline;
+}
+
+.subHeader {
+  display: flex;
+  align-items: center;
+  margin-right: 3vw;
 }
 
 .contentContainer {
-  margin: 0 5%;
-}
-
-.content {
-  height: 20%;
+  width: 90%;
+  margin-top: 20%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .contentBox {
   width: 100%;
-  border: 2px solid #0a3779;
-  border-radius: 10px;
-  padding: 1% 2%;
+  min-height: 30vh;
+  border: 1px solid black;
+  margin: 3% 0;
+}
+
+.buttonBox {
+  margin-bottom: 4%;
 }
 
 .button {
+  width: 20%;
+  height: 2rem;
   color: #ffffff;
   background: #0a3779;
   border-radius: 10px;
   font-weight: 700;
+  margin-right: 3%;
+  margin-bottom: 3%;
 }
 
-.insertBox {
+.inputBox {
+  width: 96%;
+  padding: 1% 2%;
   min-height: 5rem;
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+  margin-bottom: 1%;
 }
 
 .insertButton {
@@ -81,4 +114,19 @@
 
 .fileList {
   display: flex;
+}
+
+.commentListBox {
+  width: 100%;
+}
+
+.commentBox {
+  width: 100%;
+  padding: 2% 2% 1% 2%;
+  border-bottom: 2px solid black;
+}
+
+.editBox {
+  display: flex;
+  justify-content: space-between;
 }
