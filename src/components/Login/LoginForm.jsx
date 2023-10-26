@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { userEmailState, userNameState } from '../../recoil/userAtom';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -12,6 +14,9 @@ export default function LoginForm() {
   const [isEmail, setIsEmail] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
   const Navigate = useNavigate();
+
+  const [userEamil, setUserEmail] = useRecoilState(userEmailState);
+  const [userName, setUserName] = useRecoilState(userNameState);
 
   function loginDB() {
     axios
@@ -37,6 +42,15 @@ export default function LoginForm() {
 
         if (response.status === 200) {
           console.log('로그인 성공');
+          setUserEmail(email);
+
+          axios
+            .get(`/member/profile/email/${email}`)
+            .then((res) => {
+              console.log('유저 정보 가져오기 성공');
+              res.data.name && setUserName(res.data.name);
+            })
+            .catch((ex) => console.log('get user Info fail:' + ex));
         }
 
         Navigate('/homescreen');
