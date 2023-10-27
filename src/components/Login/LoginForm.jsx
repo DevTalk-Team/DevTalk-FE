@@ -3,7 +3,11 @@ import styles from './LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { userEmailState, userNameState } from '../../recoil/userAtom';
+import {
+  userEmailState,
+  userIdState,
+  userNameState,
+} from '../../recoil/userAtom';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -17,6 +21,7 @@ export default function LoginForm() {
 
   const [userEamil, setUserEmail] = useRecoilState(userEmailState);
   const [userName, setUserName] = useRecoilState(userNameState);
+  const [userId, setUserId] = useRecoilState(userIdState);
 
   function loginDB() {
     axios
@@ -49,6 +54,7 @@ export default function LoginForm() {
             .then((res) => {
               console.log('유저 정보 가져오기 성공');
               res.data.name && setUserName(res.data.name);
+              res.data.id && setUserId(res.data.id);
             })
             .catch((ex) => console.log('get user Info fail:' + ex));
         }
