@@ -15,7 +15,7 @@ export default function HomeScreen() {
   }
 
   function goboard() {
-    navigate('/');
+    navigate('/board');
   }
 
   function gomentor() {

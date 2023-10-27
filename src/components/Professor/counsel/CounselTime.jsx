@@ -43,7 +43,7 @@ const CounselTime = () => {
           <DatePick />
         </div>
         <p className={styles.subText}>상담 시간</p>
-        <TimeTable />
+        <TimeTable selectedDate={selectedDate} />
         <button className={`${styles.changeButton}`} onClick={onUpdateDate}>
           상담 내용 수정
         </button>

@@ -50,6 +50,7 @@ import NotFound from './NotFound';
 import Board from './components/board/Board';
 import BoardDetail from './components/board/BoardDetail';
 import Write from './components/board/Write';
+import EditPost from './components/board/EditPost';
 
 const router = createBrowserRouter([
   {
@@ -76,8 +77,9 @@ const router = createBrowserRouter([
       { path: '/professor/field', element: <Field /> },
       { path: '/professor/location', element: <Location /> },
       { path: '/board', element: <Board /> },
-      { path: '/board/detail/:id', element: <BoardDetail /> },
+      { path: '/board/detail/:postId', element: <BoardDetail /> },
       { path: '/board/write', element: <Write /> },
+      { path: '/board/edit/:postId', element: <EditPost /> },
       {
         path: '/counsel',
         element: <Counsel />,

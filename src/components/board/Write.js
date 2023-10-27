@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import styles from './Write.module.css';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { boardDataList } from '../../recoil/BoardAtom';
-import { useBoardAxios } from '../../apis/config/board_interceptor';
+import { useNavigate } from 'react-router-dom';
 import { addPost } from '../../apis/services/boardServices';
+import { useBoardAxios } from '../../apis/config/board_interceptor';
 
 const Write = () => {
   const [title, setTitle] = useState('');
@@ -14,12 +12,13 @@ const Write = () => {
   const [files, setFiles] = useState([]);
 
   const navigate = useNavigate();
-  const { postId } = useParams();
+
   useBoardAxios();
 
   const onChangeTitle = (e) => {
     setTitle(e.target.value);
   };
+
   const onChangeContent = (e) => {
     setContent(e.target.value);
   };
@@ -54,9 +53,6 @@ const Write = () => {
       });
     }
 
-    console.log(formData.getAll('title'));
-    console.log(formData.getAll('content'));
-    console.log(formData.getAll('files'));
     const res = await addPost(formData);
 
     if (res) navigate('/board');
