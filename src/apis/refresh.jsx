@@ -1,12 +1,14 @@
 import axios from 'axios';
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 export const getNewRefreshToken = async () => {
   const accessToken = localStorage.getItem('accessToken');
   const refreshToken = localStorage.getItem('refreshToken');
 
   try {
     const result = await axios.post(
-      '/member/reissue',
+      `${baseURL}/member/reissue`,
       {}, // 데이터 없이 빈 객체 전달
       {
         headers: {
