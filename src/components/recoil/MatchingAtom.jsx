@@ -43,8 +43,14 @@ export const timeState = atom({
   default: {},
 });
 
-//상담내용+파일
+//상담내용
 export const detailsState = atom({
   key: `detailsState/${uuid()}`,
   default: {},
+});
+
+//파일 첨부
+export const detailsFile = atom({
+  key: `detailsFile/${uuid()}`,
+  default: [],
 });
