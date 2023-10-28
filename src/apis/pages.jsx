@@ -1,11 +1,12 @@
 import { getAuthAxios } from './authAxios';
 
-//마이페이지
+const baseURL = process.env.REACT_APP_API_URL;
+
 export const getMyPage = async () => {
   const accessToken = localStorage.getItem('accessToken');
   console.log('엑세스토큰', accessToken);
   const authAxios = getAuthAxios(accessToken);
-  const result = await authAxios.get('/member/mypage', {});
+  const result = await authAxios.get(`${baseURL}/member/mypage`, {});
   console.log('결과물', result);
   return result;
 };
@@ -15,7 +16,7 @@ export const getMatchingPage = async ({ type, category, f2f, region }) => {
   const accessToken = localStorage.getItem('accessToken');
   console.log('엑세스토큰', accessToken);
   const authAxios = getAuthAxios(accessToken);
-  const result = await authAxios.post('/member/consultant', {
+  const result = await authAxios.post(`${baseURL}/member/consultant`, {
     type: type,
     category: category,
     f2f: f2f,
@@ -31,7 +32,7 @@ export const getConsultantTime = async (mentor, date) => {
   console.log('엑세스토큰', accessToken);
   const authAxios = getAuthAxios(accessToken);
   const result = await authAxios.get(
-    `/product/search/consultants/${mentor}/Date/${date}`,
+    `${baseURL}/product/search/consultants/${mentor}/Date/${date}`,
     {}
   );
   console.log('결과물', result);
