@@ -46,7 +46,7 @@ import ShowPw from './components/Login/FindIdPw/ShowPw';
 import Location from './components/mypage/UserInfo/Professor/Location';
 import Category from './components/mypage/UserInfo/Professor/Category';
 import Field from './components/mypage/UserInfo/Professor/Field';
-import NotFound from './NotFound';
+import NotFound from './components/Home/NotFound';
 import Board from './components/board/Board';
 import BoardDetail from './components/board/BoardDetail';
 import Write from './components/board/Write';

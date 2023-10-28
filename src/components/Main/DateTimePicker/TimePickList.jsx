@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
 import { useRecoilState } from 'recoil';
-import { timeState, consultantPickState } from '../../recoil/MatchingAtom';
+import {
+  timeState,
+  consultantPickState,
+  dateState,
+} from '../../recoil/MatchingAtom';
 import TimeFormList from './TimeFormList';
 import { getConsultantTime } from '../../../apis/pages';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function TimePickList({ checkTime }) {
   const consultant = useRecoilState(consultantPickState);
+  const date = useRecoilState(dateState);
   const [mentor, setMentor] = useState('');
   const [time, setTime] = useState([]);
   const [avtime, setAvTime] = useState([]);
@@ -18,12 +23,12 @@ export default function TimePickList({ checkTime }) {
 
   useEffect(() => {
     if (mentor) {
-      getConsultantTime(mentor)
+      getConsultantTime(mentor, date)
         .then((response) => {
           console.log(response);
           const available = response.data.result.map((item) => ({
             id: item.productId,
-            avtime: item.reservationAt.split('T')[1].slice(0, 5),
+            avtime: item.reservationTime.slice(0, 5),
           }));
           setTime(available);
           console.log('가능한 시간', available);

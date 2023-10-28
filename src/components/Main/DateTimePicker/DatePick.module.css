@@ -1,3 +1,11 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .datepick {
   display: flex;
   align-items: center;
@@ -14,4 +22,25 @@
 }
 .datepick:focus {
   border: 0.2rem solid var(--color-bg-light);
+}
+
+.timebtn {
+  width: 60%;
+  height: 2.5rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--color-bg-light);
+  margin-top: 1.5rem;
+}
+
+.distimebtn {
+  width: 60%;
+  height: 2.5rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: var(--color-light-gray);
+  color: var(--color-white);
+  margin-top: 1.5rem;
 }

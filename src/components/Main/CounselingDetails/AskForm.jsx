@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './AskForm.module.css';
 import { useRecoilState } from 'recoil';
-import { detailsState } from '../../recoil/MatchingAtom';
+import { detailsState, detailsFile } from '../../recoil/MatchingAtom';
 import { TiDelete } from 'react-icons/ti';
 import { FiDownload } from 'react-icons/fi';
 import axios from 'axios';
@@ -12,7 +12,7 @@ export default function AskForm({ checkTxt }) {
   const [content, setContent] = useRecoilState(detailsState);
   const [inputCount, setInputCount] = useState(0);
   // const [fileCount, setFileCount] = useState(0);
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useRecoilState(detailsFile);
   const onInputHandler = (e) => {
     setContent(e.target.value);
     setInputCount(e.target.value.length);
@@ -28,32 +28,27 @@ export default function AskForm({ checkTxt }) {
     }
   }, [inputCount]);
 
-  const handleFileChange = (e) => {
-    const fileData = e.target.files && e.target.files[0].name;
-    setFiles([...files, fileData]);
-
-    // const size = Math.floor(e.target.files[0].size / 1024);
-    // console.log('사이즈' + size);
-
-    onUploadFiles(e);
-  };
-
-  // 파일 업로드 함수
-  const onUploadFiles = async () => {
-    const formData = new FormData();
-
-    if (files && files.length > 0) {
-      files.forEach((file, index) => {
-        formData.append(`files`, file);
-      });
+  // 파일 업로드
+  const onUploadFile = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    if (selectedFiles.length + files.length > 3) {
+      alert('첨부파일의 개수는 최대 3개까지만 가능합니다!');
+      return;
     }
 
-    // const res = await addPost(formData);
+    // Recoil 상태에 파일 추가
+    const updatedFiles = [
+      ...files,
+      ...selectedFiles.slice(0, 3 - files.length),
+    ];
+    setFiles(updatedFiles);
+    console.log(files);
   };
 
-  const onDelete = (i) => {
-    const a = files.filter((t) => t !== i);
-    setFiles(a);
+  const onDeleteFile = (index) => {
+    const updatedFiles = [...files];
+    updatedFiles.splice(index, 1);
+    setFiles(updatedFiles);
   };
 
   useEffect(() => {
@@ -84,31 +79,31 @@ export default function AskForm({ checkTxt }) {
         enctype="multipart/form-data"
         className={styles.addfile}
       >
-        <label className={styles.inputlabel} htmlFor="file">
+        <label className={styles.inputlabel} htmlFor="fileInput">
           <FiDownload size={20} /> 참고자료 첨부
         </label>
         <input
-          id="file"
+          id="fileInput"
           type="file"
           multiple={true}
-          onChange={handleFileChange}
+          onChange={onUploadFile}
           className={styles.input}
         />
       </form>
       <div className={styles.showfile}>
-        {files.map((item, i) => (
-          <div className={styles.filelist}>
-            <p className={styles.filename}>{item}</p>
-            <button className={styles.deletebtn}>
-              <TiDelete
-                key={i}
-                size={20}
-                className={styles.btn}
-                onClick={() => onDelete(item)}
-              />
-            </button>
-          </div>
-        ))}
+        {files &&
+          files.map((item, i) => (
+            <div className={styles.filelist} key={i}>
+              <p className={styles.filename}>{item.name}</p>
+              <button className={styles.deletebtn}>
+                <TiDelete
+                  size={20}
+                  className={styles.btn}
+                  onClick={() => onDeleteFile(i)}
+                />
+              </button>
+            </div>
+          ))}
       </div>
     </div>
   );
