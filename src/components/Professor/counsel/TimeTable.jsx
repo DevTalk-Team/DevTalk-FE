@@ -123,6 +123,9 @@ const TimeTable = ({ selectedDate }) => {
 
     setTimeState(updatedTimeState);
 
+    // TODO:  상담 가능 시간 설정 및 업데이트
+    // TODO:  상담 가능 시간 설정 및 업데이트
+    // TODO:  나중에 해당 날짜 상품 목록 조회 API 연동 후 붙여야됨.
     /* const data = {
       reservationDate: changeTimeFormatDay(selectedDate),
       reservationTime: timeState[selectedIdx].time + ':00',

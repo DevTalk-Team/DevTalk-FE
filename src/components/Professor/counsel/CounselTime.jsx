@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../..//Header/Header';
 import styles from './CounselTime.module.css';
 import TimeTable from './TimeTable';
@@ -15,6 +15,8 @@ const CounselTime = () => {
     alert('상담 가능 시간이 변경되었습니다.');
     navigate('/homescreen');
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className={styles.userInfo}>
