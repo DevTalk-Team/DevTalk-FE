@@ -1,71 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
 import { useRecoilState } from 'recoil';
-import { timeState } from '../../recoil/MatchingAtom';
+import { timeState, consultantPickState } from '../../recoil/MatchingAtom';
 import TimeFormList from './TimeFormList';
+import { getConsultantTime } from '../../../apis/pages';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function TimePickList({ checkTime }) {
-  const [times, setTimes] = useState([
-    {
-      id: 1,
-      time: '10:00',
-    },
-    {
-      id: 2,
-      time: '10:30',
-    },
-    {
-      id: 3,
-      time: '11:00',
-    },
-    {
-      id: 4,
-      time: '11:30',
-    },
-    {
-      id: 5,
-      time: '12:00',
-    },
-    {
-      id: 6,
-      time: '12:30',
-    },
-    {
-      id: 7,
-      time: '13:00',
-    },
-    {
-      id: 8,
-      time: '13:30',
-    },
-    {
-      id: 9,
-      time: '14:00',
-    },
-    {
-      id: 10,
-      time: '14:30',
-    },
-    {
-      id: 11,
-      time: '15:00',
-    },
-    {
-      id: 12,
-      time: '15:30',
-    },
-  ]);
+  const consultant = useRecoilState(consultantPickState);
+  const [mentor, setMentor] = useState('');
+  const [time, setTime] = useState([]);
+  const [avtime, setAvTime] = useState([]);
+  // recoil 저장 값 배열에서 뺴내기
+  useEffect(() => {
+    setMentor(consultant[0].id);
+  }, [consultant]);
+
+  useEffect(() => {
+    if (mentor) {
+      getConsultantTime(mentor)
+        .then((response) => {
+          console.log(response);
+          const available = response.data.result.map((item) => ({
+            id: item.productId,
+            avtime: item.reservationAt.split('T')[1].slice(0, 5),
+          }));
+          setTime(available);
+          console.log('가능한 시간', available);
+
+          if (response && response.status === 200) {
+            console.log('가능한 시간 불러오기 성공');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log('시간 불러오기 오류!!');
+        });
+    }
+  }, [mentor]);
 
   const [counsellingTime, setCounsellingTime] = useRecoilState(timeState);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState([]);
 
   const handleClick = (i) => {
-    const newArr = Array(times.length).fill(false);
+    const newArr = Array(time.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
     checkTime(true);
-    setCounsellingTime(times[i]);
+    setCounsellingTime(time[i]);
   };
 
   useEffect(() => {
@@ -73,7 +56,7 @@ export default function TimePickList({ checkTime }) {
   }, [isSelect]);
 
   const pick = () => {
-    isSelect.map((item, i) => (item === true ? setChoose(times[i]) : null));
+    isSelect.map((item, i) => (item === true ? setChoose(time[i]) : null));
   };
 
   useEffect(() => {
@@ -83,13 +66,13 @@ export default function TimePickList({ checkTime }) {
   return (
     <div>
       <div className={styles.choose5}>
-        {times.map((item, i) => (
+        {time.map((item, i) => (
           <TimeFormList
             key={item.id}
             isSelect={isSelect[i]}
             handleClick={handleClick}
             elementIndex={i}
-            timelist={item}
+            timelist={item.avtime}
           />
         ))}
       </div>

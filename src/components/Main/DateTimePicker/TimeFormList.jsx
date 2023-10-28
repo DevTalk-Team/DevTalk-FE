@@ -7,7 +7,7 @@ export default function TimeFormList({
   elementIndex,
   isSelect,
 }) {
-  const { time } = timelist;
+  const time = timelist;
 
   return (
     <button

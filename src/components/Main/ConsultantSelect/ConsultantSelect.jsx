@@ -1,72 +1,76 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from '../../Header/Header';
 import styles from '../Main.module.css';
-import { useRecoilState } from 'recoil';
-import { consultantPickState } from '../../recoil/MatchingAtom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import {
+  fieldState,
+  techState,
+  proceedState,
+  regionState,
+  consultantPickState,
+} from '../../recoil/MatchingAtom';
 import MainHeader from '../MainHeader/MainHeader';
 import ConsultantCard from './ConsultantCard';
+import { getMatchingPage } from '../../../apis/pages';
 
 export default function ConsultantSelect() {
   //전문가 선택 페이지
-  const [mentors, setMentors] = useState([
-    {
-      id: 0,
-      img: './',
-      name: '데브톡',
-      info: '1년차 백엔드개발자 ',
+  const type = useRecoilValue(fieldState);
+  const category = useRecoilValue(techState);
+  const proceed = useRecoilState(proceedState);
+  const where = useRecoilState(regionState);
 
-      skill: 'Java,Spring',
-      price: '15000원',
-      rank: '4.7',
-    },
-    {
-      id: 1,
-      img: './',
-      name: '가나다',
-      info: '2년차 백엔드개발자 ',
-      skill: 'Java,Spring',
-      price: '15000원',
-      rank: '4.7',
-    },
-    {
-      id: 2,
-      img: './',
-      name: '비씨디',
-      info: '3년차 백엔드개발자 ',
-      skill: 'Java,Spring',
-      price: '15000원',
-      rank: '4.7',
-    },
-    {
-      id: 3,
-      img: './',
-      name: '삼성성',
-      info: '4년차 백엔드개발자 ',
-      skill: 'Java,Spring',
-      price: '15000원',
-      rank: '4.7',
-    },
-  ]);
+  const [f2f, setF2f] = useState('');
+  const [region, setRegion] = useState('');
+  const [consultant, setConsultant] = useState([]);
+
+  // recoil 저장 값 배열에서 뺴내기
+  useEffect(() => {
+    if (proceed[0] === 1) {
+      setF2f('true');
+      setRegion(where[0]);
+    }
+  }, [proceed, where]);
+
+  // 서버에서 조건에 맞는 전문가 리스트 불러오기
+  useEffect(() => {
+    getMatchingPage({ type, category, f2f, region })
+      .then((response) => {
+        setConsultant(response.data.result);
+
+        if (response && response.status === 200) {
+          // response 존재 여부를 추가로 검사합니다.
+          console.log('비대면 시 전문가 불러오기 성공');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log('오류!!');
+      });
+  }, [type, category, f2f, region]);
+
   const [consulter, setConsulter] = useRecoilState(consultantPickState);
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
   const [isSelect, setIsSelect] = useState([]);
   const [choose, setChoose] = useState('');
 
   const handleClick = (i) => {
-    const newArr = Array(mentors.length).fill(false);
+    const newArr = Array(consultant.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
-    setConsulter(mentors[i]);
+    setConsulter(consultant[i]);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
   const pick = () => {
-    isSelect.map((item, i) => (item === true ? setChoose(mentors[i]) : null));
+    isSelect.map((item, i) =>
+      item === true ? setChoose(consultant[i]) : null
+    );
   };
 
   useEffect(() => {
@@ -86,10 +90,10 @@ export default function ConsultantSelect() {
         />
       </div>
       <div className={styles.choose}>
-        {mentors.map((item, i) => (
+        {consultant.map((item, i) => (
           <ConsultantCard
             key={i}
-            mentor={item}
+            consultant={item}
             isSelect={isSelect[i]}
             handleClick={handleClick}
             elementIndex={i}

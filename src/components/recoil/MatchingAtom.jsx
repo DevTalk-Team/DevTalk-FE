@@ -4,25 +4,25 @@ import uuid from 'react-uuid';
 //상담 진행 방식
 export const proceedState = atom({
   key: `proceedState/${uuid()}`,
-  default: {},
+  default: 0,
 });
 
 //기술스택
 export const techState = atom({
   key: `techState/${uuid()}`,
-  default: {},
+  default: '',
 });
 
-//상담지역(비대면)
+//상담지역(대면)
 export const regionState = atom({
   key: `regionState/${uuid()}`,
-  default: {},
+  default: '',
 });
 
 //상담 분야
 export const fieldState = atom({
   key: `fieldState/${uuid()}`,
-  default: {},
+  default: '',
 });
 
 //전문가 선택

@@ -72,7 +72,7 @@ export default function TechField() {
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
-    setTechField(hows[i]);
+    setTechField(hows[i].how);
   };
 
   useEffect(() => {

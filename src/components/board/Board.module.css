@@ -1,0 +1,84 @@
+.userInfo {
+  width: 100vw;
+  height: fit-content;
+}
+
+.header {
+  position: fixed;
+  height: 10%;
+  top: 0;
+}
+
+.line {
+  border-top: 1px solid #0a3779;
+}
+
+.contentContainer {
+  width: 90%;
+  margin-top: 25%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 0;
+}
+
+.tagButton {
+  width: 22%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+  color: black;
+}
+
+.searchBox {
+  width: 48%;
+  border: 2px solid #0a3779;
+  border-radius: 10px;
+}
+
+.button {
+  width: 20%;
+  height: 5vh;
+  background: white;
+  color: white;
+  background: #0a3779;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.content {
+  padding: 2% 0;
+  border-top: 1px solid #0a3779;
+  border-bottom: 1px solid #0a3779;
+}
+
+.mainText {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.subText {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.normalText {
+  font-size: 0.9rem;
+  color: #8d8585;
+}
+
+.nameText {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.category {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 1%;
+  color: rgba(0, 0, 0, 0.59);
+}

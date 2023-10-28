@@ -25,27 +25,28 @@ export default function ProceedType() {
   const [isSkillConfirm, setIsSkillConfirm] = useState(false);
   const [where, setWhere] = useState('');
 
+  // 클릭 시 진행방식 저장하기
   const handleClick = (i) => {
     const newArr = Array(hows.length).fill(false);
     newArr[i] = true;
     setIsSelect(newArr);
     setIsSkillConfirm(true);
-    setProductProceedType(hows[i]);
+    setProductProceedType(hows[i].id);
   };
 
   useEffect(() => {
-    console.log(isSelect);
     pick();
   }, [isSelect]);
 
   const pick = () => {
     isSelect.map((item, i) => (item === true ? setChoose(hows[i]) : null));
-    if (productProceedType.id == 1) {
+    if (productProceedType == 1) {
       setWhere('matching_counselingregion');
     } else {
       setWhere('matching_consultantselect');
     }
   };
+
   useEffect(() => {
     console.log(productProceedType);
   }, [choose]);

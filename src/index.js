@@ -46,12 +46,17 @@ import ShowPw from './components/Login/FindIdPw/ShowPw';
 import Location from './components/mypage/UserInfo/Professor/Location';
 import Category from './components/mypage/UserInfo/Professor/Category';
 import Field from './components/mypage/UserInfo/Professor/Field';
+import NotFound from './NotFound';
+import Board from './components/board/Board';
+import BoardDetail from './components/board/BoardDetail';
+import Write from './components/board/Write';
+import EditPost from './components/board/EditPost';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <StartScreen /> },
       { path: '/loadingscreen', element: <LoadingScreen /> },
@@ -71,6 +76,10 @@ const router = createBrowserRouter([
       { path: '/professor/category', element: <Category /> },
       { path: '/professor/field', element: <Field /> },
       { path: '/professor/location', element: <Location /> },
+      { path: '/board', element: <Board /> },
+      { path: '/board/detail/:postId', element: <BoardDetail /> },
+      { path: '/board/write', element: <Write /> },
+      { path: '/board/edit/:postId', element: <EditPost /> },
       {
         path: '/counsel',
         element: <Counsel />,
@@ -85,7 +94,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Join /> },
       { path: '/joinemail', element: <JoinEmail /> },
@@ -120,7 +129,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    //errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Login /> },
       { path: '/findid', element: <FindId /> },
