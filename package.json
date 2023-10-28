@@ -51,6 +51,5 @@
   },
   "devDependencies": {
     "@types/react-datepicker": "4.15.0"
-  },
-  "proxy": "http://devtalk-alb-2068504067.ap-northeast-2.elb.amazonaws.com:8800/"
+  }
 }
