@@ -2,46 +2,51 @@ import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import styles from './BoardDetail.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { boardDataList } from '../../recoil/BoardAtom';
+import { AiOutlineUser, AiOutlineEye } from 'react-icons/ai';
+import { BiTime } from 'react-icons/bi';
+import CommentList from './CommentList';
+import { deletePost, getPost } from '../../apis/services/boardServices';
+import { changeTimeFormat } from '../../utils/timeFormat';
+import { boardData } from '../../recoil/BoardAtom';
+import { useBoardAxios } from '../../apis/config/board_interceptor';
+import { useRecoilValue } from 'recoil';
+import { userNameState } from '../../recoil/userAtom';
 
+// TODO: 현재 로그인 중인 id와 게시글의 userId를 비교해서 수정 삭제하는 기능 구현 필
 const BoardDetail = () => {
-  const [title, setTitle] = useState('');
-  const [boardData, setBoardData] = useRecoilState(boardDataList);
-
-  const [content, setContent] = useState('');
-  const [editData, setEditData] = useState([]);
-
+  const [content, setContent] = useState(boardData);
+  const userName = useRecoilValue(userNameState);
   const navigate = useNavigate();
+
   const { postId } = useParams();
 
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
-  const onChangeContent = (e) => {
-    setContent(e.target.value);
+  useBoardAxios();
+
+  useEffect(() => {
+    const getContent = async () => {
+      const data = await getPost(postId);
+
+      console.log(data);
+      setContent(data); //
+    };
+
+    getContent();
+  }, []);
+
+  const onDownloadFile = (fileUrl) => {
+    window.open(fileUrl);
   };
 
-  const onUploadFile = (e) => {
-    const selectedFiles = Array.from(e.target.files);
-    if (selectedFiles !== undefined && selectedFiles.length > 3) {
-      alert('첨부파일의 갯수는 3개를 넘을 수 없습니다!');
-      return;
-    }
-    const updateData = { ...editData, files: `selectedFiles` };
-    setEditData(updateData);
+  const onUpdatePost = async () => {
+    navigate(`/board/edit/${postId}`);
+    alert('업데이트 기능');
   };
 
-  const onDeleteFile = (index) => {
-    const updateFiles = [...editData.files];
-    updateFiles.splice(index, 1);
-    const updateData = { ...editData, files: updateFiles };
-    setEditData(updateData);
-  };
+  const onDeletePost = async () => {
+    const res = await deletePost(postId);
 
-  const onUpdateContent = () => {
-    setBoardData(...boardData, editData);
-    navigate('/board');
+    if (res) navigate(`/board`);
+    else alert('삭제에 실패했습니다.');
   };
 
   return (
@@ -50,60 +55,63 @@ const BoardDetail = () => {
         <Header title="무료 상담 커뮤니티" />
       </div>
       <div className={styles.contentContainer}>
-        <div className={styles.titleHeader}>
-          <input
-            id="title"
-            className={`${styles.title} ${styles.normalText} ${styles.contentBox}`}
-            value={title}
-            onChange={onChangeTitle}
-          />
-        </div>
-        <p className={styles.normalText}>{content.length}자/최대 1000자</p>
-        <textarea
-          placeholder="상담 받을 내용을 작성해 주세요."
-          className={`${styles.content} ${styles.normalText} ${styles.contentBox}`}
-          value={content}
-          onChange={onChangeContent}
-        />
-        <div className={styles.contentGroup}>
-          <p className={styles.mainText}>첨부파일</p>
-          <label
-            className={`${styles.button} ${styles.insertButton}`}
-            htmlFor="fileInput"
-          >
-            파일 첨부
-            <input
-              id="fileInput"
-              className={styles.fileInput}
-              type="file"
-              multiple
-              onChange={onUploadFile}
-            />
-          </label>
-          <div className={styles.contentGroup}>
-            <p className={styles.normalBoldText}>
-              첨부{' '}
-              {editData.files === undefined ? '0개' : editData.files.length}
-              /3개
+        <div className={styles.borderLine}>
+          <p className={styles.titleText}>{content.title}</p>
+          <div className={styles.subTitleHeader}>
+            <p className={`${styles.normalText} ${styles.subHeader}`}>
+              <AiOutlineUser />
+              {content.userName}
             </p>
-            <div className={`${styles.contentBox} ${styles.insertBox}`}>
-              {editData.files &&
-                editData.files.map((file, index) => (
-                  <div className={styles.fileList} key={index}>
-                    <button onClick={() => onDeleteFile(index)}>x</button>{' '}
-                    <p className={styles.normalBoldText}>{file.name}</p>
-                  </div>
-                ))}
-            </div>
+            <p className={`${styles.normalText} ${styles.subHeader}`}>
+              <BiTime />
+              {changeTimeFormat(content.modifiedAt)}
+            </p>
+            <p className={`${styles.normalText} ${styles.subHeader}`}>
+              <AiOutlineEye />
+              view : {content.views}
+            </p>
           </div>
         </div>
+        {content.attachedFileResList &&
+          content.attachedFileResList.length !== 0 && (
+            <div className={styles.borderLine}>
+              {console.log(content.attachedFileResList)}
+              {content.attachedFileResList.map((file, index) => {
+                return (
+                  <button
+                    key={`${file.originFileName}_${index}`}
+                    type="button"
+                    onClick={() => onDownloadFile(file.fileUrl)}
+                  >
+                    {file.originFileName}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
-        <button
-          className={`${styles.button} ${styles.changeButton}`}
-          onClick={onUpdateContent}
-        >
-          등록하기
-        </button>
+        <div className={styles.contentBox}>
+          <p className={`${styles.normalText}`}>{content.content}</p>
+        </div>
+        {userName === content.userName && (
+          <div className={styles.buttonBox}>
+            <button
+              className={`${styles.button} ${styles.normalBoldText}`}
+              type="button"
+              onClick={onUpdatePost}
+            >
+              수정
+            </button>
+            <button
+              className={`${styles.button} ${styles.normalBoldText}`}
+              type="button"
+              onClick={onDeletePost}
+            >
+              삭제
+            </button>
+          </div>
+        )}
+        <CommentList content={content} />
       </div>
     </div>
   );

@@ -1,27 +1,60 @@
-import axios from 'axios';
-import {
-  getLocalStorage,
-  removeLocalStorage,
-  setLocalStorage,
-} from './localStorage';
+import axios, { AxiosError } from 'axios';
+import { useRecoilValue } from 'recoil';
+import { userEmailState } from '../../recoil/userAtom';
+import { useEffect } from 'react';
+
+const baseURL = process.env.REACT_SERVER_URL;
 
 const productInstance = axios.create({
-  baseURL: 'url',
-  headers: process.env.REACT_APP_PRODUCT_SERVICE_API,
+  // baseURL: `${baseURL}/board`,
+  baseURL: `/product`,
+  headers: {
+    // 'content-type': 'application/json;charset=UTF-8',
+    accept: 'application/json,',
+  },
 });
 
-productInstance.interceptors.request.use((config) => {
-  const accessToken = getLocalStorage('accessToken');
+export const useProductAxios = () => {
+  const userEmail = useRecoilValue(userEmailState);
 
-  config.headers['Content-Type'] = 'application/json';
-  config.headers['Authorization'] = `Bearer ${accessToken}`;
-  return config;
-});
+  const requestIntetceptor = (config) => {
+    config.headers['User-Email'] = userEmail;
 
-productInstance.interceptors.response.use((config) => {
-  const accessToken = getLocalStorage('accessToken');
+    console.log(config);
+    return config;
+  };
 
-  config.headers['Content-Type'] = 'application/json';
-  config.headers['Authorization'] = `Bearer ${accessToken}`;
-  return config;
-});
+  const responseIntetceptor = (response) => {
+    return response;
+  };
+
+  const errorInterceptor = (error) => {
+    if (error instanceof AxiosError) {
+      console.error(
+        `AxiosError(${error.response?.status}/${error.code}): ${error.message}\n${error.response?.path}`
+      ); // 에러 출력
+    } else {
+      console.error(error.response);
+    }
+  };
+
+  useEffect(() => {
+    const request = productInstance.interceptors.request.use(
+      requestIntetceptor,
+      errorInterceptor
+    );
+    const response = productInstance.interceptors.response.use(
+      responseIntetceptor,
+      errorInterceptor
+    );
+
+    return () => {
+      productInstance.interceptors.request.eject(request);
+      productInstance.interceptors.response.use(response);
+    };
+  });
+
+  return productInstance;
+};
+
+export default productInstance;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../..//Header/Header';
 import styles from './CounselTime.module.css';
 import TimeTable from './TimeTable';
@@ -15,6 +15,8 @@ const CounselTime = () => {
     alert('상담 가능 시간이 변경되었습니다.');
     navigate('/homescreen');
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className={styles.userInfo}>
@@ -43,7 +45,7 @@ const CounselTime = () => {
           <DatePick />
         </div>
         <p className={styles.subText}>상담 시간</p>
-        <TimeTable />
+        <TimeTable selectedDate={selectedDate} />
         <button className={`${styles.changeButton}`} onClick={onUpdateDate}>
           상담 내용 수정
         </button>
