@@ -5,24 +5,26 @@ import {
   timeState,
   consultantPickState,
   dateState,
+  datePickState,
 } from '../../recoil/MatchingAtom';
 import TimeFormList from './TimeFormList';
 import { getConsultantTime } from '../../../apis/pages';
-import { v4 as uuidv4 } from 'uuid';
 
 export default function TimePickList({ checkTime }) {
   const consultant = useRecoilState(consultantPickState);
-  const date = useRecoilState(dateState);
   const [mentor, setMentor] = useState('');
   const [time, setTime] = useState([]);
-  const [avtime, setAvTime] = useState([]);
-  // recoil 저장 값 배열에서 뺴내기
-  useEffect(() => {
-    setMentor(consultant[0].id);
-  }, [consultant]);
+  const [date] = useRecoilState(dateState);
+  const datepick = useRecoilState(datePickState);
+  const [pickdate, setPickdate] = useState('');
 
   useEffect(() => {
-    if (mentor) {
+    setMentor(consultant[0].id);
+    setPickdate(datepick[0]);
+  }, [consultant, datepick]);
+
+  useEffect(() => {
+    if (pickdate === 1) {
       getConsultantTime(mentor, date)
         .then((response) => {
           console.log(response);
@@ -42,7 +44,7 @@ export default function TimePickList({ checkTime }) {
           console.log('시간 불러오기 오류!!');
         });
     }
-  }, [mentor]);
+  }, [mentor, pickdate]);
 
   const [counsellingTime, setCounsellingTime] = useRecoilState(timeState);
   const [isSelect, setIsSelect] = useState([]);

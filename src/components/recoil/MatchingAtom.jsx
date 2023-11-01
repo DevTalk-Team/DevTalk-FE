@@ -37,6 +37,12 @@ export const dateState = atom({
   default: {},
 });
 
+//날짜 선택 여부
+export const datePickState = atom({
+  key: `datePickState/${uuid()}`,
+  default: 0,
+});
+
 //시간 정보
 export const timeState = atom({
   key: `timeState/${uuid()}`,

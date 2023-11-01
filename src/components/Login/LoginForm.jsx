@@ -25,7 +25,8 @@ export default function LoginForm() {
 
   function loginDB() {
     axios
-      .post(`${process.env.REACT_APP_API_URL}/member/login`, {
+      // .post(`${process.env.REACT_APP_API_URL}/member/login`, {
+      .post(`/member/login`, {
         email: email,
         password: password,
       })

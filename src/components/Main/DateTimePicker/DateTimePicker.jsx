@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../Main.module.css';
+import { useRecoilState } from 'recoil';
+import { dateState } from '../../recoil/MatchingAtom';
 import MainHeader from '../MainHeader/MainHeader';
 import Header from '../../Header/Header';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -7,9 +9,9 @@ import DatePick from './DatePick';
 import TimePickList from './TimePickList';
 
 export default function DateTimePicker() {
-  // 원하는 예약 시간 및 날짜 선택 페이지
-
   const [isConfirm, setIsConfirm] = useState(false);
+  const [date] = useRecoilState(dateState);
+
   const checkTime = (i) => {
     setIsConfirm(i);
   };
@@ -31,10 +33,13 @@ export default function DateTimePicker() {
         <div className={styles.datepick}>
           <DatePick />
         </div>
-        <p className={styles.txt}>상담 시간</p>
-        <div className={styles.timepick}>
-          <TimePickList checkTime={checkTime} />
-        </div>
+        <>
+          <p className={styles.txt}>상담 시간</p>
+
+          <div className={styles.timepick}>
+            <TimePickList checkTime={checkTime} />
+          </div>
+        </>
       </div>
     </div>
   );

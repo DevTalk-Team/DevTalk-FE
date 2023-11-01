@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import styles from './DatePick.module.css';
 import { useRecoilState } from 'recoil';
-import { dateState } from '../../recoil/MatchingAtom';
+import { dateState, datePickState } from '../../recoil/MatchingAtom';
 import { ko } from 'date-fns/esm/locale';
 
 export default function DatePick() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [counsellingDate, setCounsellingDate] = useRecoilState(dateState);
-
+  const [datePick, setDatePick] = useRecoilState(datePickState);
   const [check, setCheck] = useState(0);
 
   useEffect(() => {
@@ -29,15 +29,20 @@ export default function DatePick() {
   const pick = (date) => {
     setCounsellingDate(date);
     setCheck(1);
+    setDatePick(0);
   };
 
   useEffect(() => {
-    console.log(counsellingDate);
-  }, [counsellingDate]);
+    console.log(counsellingDate, datePick);
+  }, [counsellingDate, datePick]);
 
   useEffect(() => {
     setCheck(0);
   }, []);
+
+  function FindTime() {
+    setDatePick(1);
+  }
 
   return (
     <div className={styles.container}>
@@ -52,8 +57,9 @@ export default function DatePick() {
         className={styles.datepick}
       />
       <button
-        className={check == 1 ? `${styles.timebtn}` : `${styles.distimebtn}`}
-        disabled={check == 0}
+        onClick={() => FindTime()} // 함수 참조로 수정
+        className={check === 1 ? `${styles.timebtn}` : `${styles.distimebtn}`}
+        disabled={check === 0}
       >
         가능한 시간 보기
       </button>
