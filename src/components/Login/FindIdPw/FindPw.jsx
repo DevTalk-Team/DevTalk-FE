@@ -12,7 +12,7 @@ export default function FindPw() {
 
   const gopw = () => {
     axios
-      .post('/member/profile/send-password', {
+      .post(`${process.env.REACT_APP_API_URL}/member/profile/send-password`, {
         name: name,
         email: email,
       })

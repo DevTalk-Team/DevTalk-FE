@@ -13,7 +13,7 @@ export default function FindId() {
 
   const goid = () => {
     axios
-      .post('/member/profile/find-email', {
+      .post(`${process.env.REACT_APP_API_URL}/member/profile/find-email`, {
         name: name,
         phoneNumber: phone,
       })

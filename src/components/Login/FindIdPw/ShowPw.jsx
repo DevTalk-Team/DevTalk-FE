@@ -40,7 +40,7 @@ export default function ShowPw() {
 
   function pw() {
     axios
-      .post('/member/profile/change-password', {
+      .post(`${process.env.REACT_APP_API_URL}/member/profile/change-password`, {
         password: secretpw,
         newPassword: password,
       })

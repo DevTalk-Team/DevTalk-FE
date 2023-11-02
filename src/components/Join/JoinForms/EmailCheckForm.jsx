@@ -15,7 +15,9 @@ export default function EmailCheckForm({ id, title }) {
 
   function gopw() {
     axios
-      .post(`/member/signup/auth-code?email=${email}&authCode=${code}`)
+      .post(
+        `${process.env.REACT_APP_API_URL}/member/signup/auth-code?email=${email}&authCode=${code}`
+      )
       .then((response) => {
         console.log('200', response.data);
 
