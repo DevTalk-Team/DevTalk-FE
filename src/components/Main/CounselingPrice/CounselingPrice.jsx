@@ -9,8 +9,10 @@ import {
   consultantPickState,
   regionState,
   detailsState,
+  detailsFile,
 } from '../../recoil/MatchingAtom';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function CounselingPrice() {
   //상담비용안내
@@ -22,56 +24,69 @@ export default function CounselingPrice() {
   const CounselingCounsultant = useRecoilValue(consultantPickState);
   const CounselingRegion = useRecoilValue(regionState);
   const CounselingContent = useRecoilValue(detailsState);
+  const CounselingFile = useRecoilValue(detailsFile);
   const [whenCounseling, setWhenCounseling] = useState('');
-
+  const [type, setType] = useState(''); //상담유형 수정
+  const [typescreen, setTypeScreen] = useState(''); //화면 출력용 상담유형
   useEffect(() => {
     console.log('날짜', CounselingDate);
     console.log('시간', CounselingTime);
     console.log('진행법', CounselingType);
     console.log('전문가', CounselingCounsultant);
+    console.log('지역', CounselingRegion);
+    console.log('내용', CounselingContent);
+    console.log('파일', CounselingFile);
     change();
+  }, []);
+
+  useEffect(() => {
+    if (CounselingType == 1) {
+      setType('F2F');
+      setTypeScreen('1시간 대면 상담');
+    } else {
+      setType('NF2F');
+      setTypeScreen('1시간 비대면 상담');
+    }
   }, []);
 
   const navigate = useNavigate();
 
   function postcounseling() {
-    //전문가 회원가입
-    // axios
-    //   .post('/matching/consulters/creation/consultations', {
-    //     productProceedType: CounselingType.how, //상담방식(각각 뭐를 보내야하는지?ex.F2F)
-    //     region: CounselingRegion,//상담지역(비대면일 경우에는?)
-    //     reservationDate: CounselingDate,//날짜 Tue Oct 24 2023 23:22:52 GMT+0900 (한국 표준시)
-    //     reservationTime: CounselingTime,//시간{id: 6, time: '12:30'}
-    //     content: CounselingContent,//상담내용(지금은 TXT만 가요)
-    //     cost: CounselingCounsultant.price,//가격
-    //   })
-    //   .then((response) => {
-    //     console.log('201', response.data);
-    //     navigate('/matching_done');
-    //     if (response.status === 201) {
-    //       console.log('상담신청 완료');
-    //     }
-    //   })
-    //   .catch((error) => console.log(error.response));
+    axios
+      .post('/matching/consulters/creation/consultations', {
+        productProceedType: type,
+        region: CounselingRegion,
+        reservationDate: CounselingDate,
+        reservationTime: CounselingTime.avtime,
+        content: CounselingContent,
+        attachedFiles: CounselingFile,
+        cost: CounselingCounsultant.cost,
+      })
+      .then((response) => {
+        console.log('201', response.data);
+        navigate('/matching_done');
+        if (response.status === 201) {
+          console.log('상담신청 완료');
+        }
+      })
+      .catch((error) => console.log(error.response));
   }
 
+  //상담일시 표기 변경
   const change = () => {
-    let D = CounselingDate.toISOString();
-    // let d = CounselingDate.toString();
+    let D = CounselingDate;
 
     let y = D.slice(0, 4);
     let m = D.slice(5, 7);
     let d = D.slice(8, 10);
 
-    let h = CounselingTime.time.slice(0, 2);
-    let mm = CounselingTime.time.slice(3, 5);
+    let h = CounselingTime.avtime.slice(0, 2);
+    let mm = CounselingTime.avtime.slice(3, 5);
     setWhenCounseling(
       y + '년 ' + m + '월 ' + d + '일  ' + h + '시' + mm + '분'
     );
-
-    // let day = d.slice(0, 3);
-    // console.log(day); //Wed
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -84,7 +99,7 @@ export default function CounselingPrice() {
         <p className={styles.topic}>상담 예약 정보</p>
         <div className={styles.moneyarea}>
           <p className={styles.money}>상담 비용</p>
-          <p className={styles.money}>{CounselingCounsultant.price}</p>
+          <p className={styles.money}>{CounselingCounsultant.cost}</p>
         </div>
         <div className={styles.txtblock}>
           <div className={styles.txtarea}>
@@ -93,7 +108,7 @@ export default function CounselingPrice() {
           </div>
           <div className={styles.txtarea}>
             <p className={styles.txt}>상담 유형</p>
-            <p className={styles.txt2}>{CounselingType.how}</p>
+            <p className={styles.txt2}>{typescreen}</p>
           </div>
           <div className={styles.txtarea}>
             <p className={styles.txt}>상담 전문가</p>

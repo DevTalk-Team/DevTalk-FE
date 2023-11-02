@@ -76,7 +76,7 @@ export default function AskForm({ checkTxt }) {
       <form
         // action="/uploadfiles"
         method="post"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
         className={styles.addfile}
       >
         <label className={styles.inputlabel} htmlFor="fileInput">

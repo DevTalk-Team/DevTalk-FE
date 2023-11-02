@@ -16,7 +16,7 @@ export default function TermsForm({ id, title }) {
     console.log('실행중', id);
     console.log(name, email, password, phone);
     axios
-      .post('/member/signup/consultant', {
+      .post(`${process.env.REACT_APP_API_URL}/member/signup/consultant`, {
         name: name,
         email: email,
         password: password,

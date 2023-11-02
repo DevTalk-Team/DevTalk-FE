@@ -15,7 +15,9 @@ export default function EmailForm({ id, title }) {
   function goemail() {
     //이메일인증
     axios
-      .get(`/member/signup/auth-code?email=${email}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/member/signup/auth-code?email=${email}`
+      )
       .then((response) => {
         console.log('200', response.data);
 

@@ -35,7 +35,7 @@ export const getConsultantTime = async (mentor, date) => {
   const authAxios = getAuthAxios(accessToken);
   const result = await authAxios.get(
     `${baseURL}/product/search/consultants/${mentor}/Date/${date}`,
-    // `/product/search/consultants/${mentor}/Date/2023-09-24`,
+    // `/product/search/consultants/${mentor}/Date/${date}`,
     {}
   );
   console.log('결과물', result);
