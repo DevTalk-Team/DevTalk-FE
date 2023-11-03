@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from '../Main.module.css';
-import MainHeader from '../MainHeader/MainHeader';
 import Header from '../../Header/Header';
 import AskForm from './AskForm';
 
@@ -18,11 +17,10 @@ export default function CounselingDetails() {
         <Header title="상담 예약" />
       </div>
       <div className={styles.mainheader}>
-        <MainHeader
-          topic="상담 받을 내용을"
-          where="matching_price"
-          check={isSkillConfirm}
-        />
+        <p className={styles.askform}>
+          상담할 내용을 <br />
+          자세히 작성해주세요
+        </p>
       </div>
       <div className={styles.pickarea}>
         <AskForm checkTxt={checkTxt} />
