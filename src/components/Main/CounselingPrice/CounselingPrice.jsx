@@ -11,6 +11,7 @@ import {
   detailsState,
   detailsFile,
 } from '../../recoil/MatchingAtom';
+import { userNameState } from '../../../recoil/userAtom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -18,6 +19,7 @@ export default function CounselingPrice() {
   //상담비용안내
 
   //recoil 정보 불러오기
+  const CounsulterName = useRecoilValue(userNameState);
   const CounselingDate = useRecoilValue(dateState);
   const CounselingTime = useRecoilValue(timeState);
   const CounselingType = useRecoilValue(proceedState);
@@ -53,14 +55,17 @@ export default function CounselingPrice() {
 
   function postcounseling() {
     axios
-      .post('/matching/consulters/creation/consultations', {
+      .post('/matching/consulters/reserve/consultations', {
+        consultantId: CounselingCounsultant.id,
+        consultantName: CounselingCounsultant.name,
+        consulterName: CounsulterName,
         productProceedType: type,
         region: CounselingRegion,
         reservationDate: CounselingDate,
         reservationTime: CounselingTime.avtime,
         content: CounselingContent,
-        attachedFiles: CounselingFile,
         cost: CounselingCounsultant.cost,
+        attachedFiles: CounselingFile,
       })
       .then((response) => {
         console.log('201', response.data);

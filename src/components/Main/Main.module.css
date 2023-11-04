@@ -12,6 +12,23 @@
   width: 100%;
   padding-top: 6rem;
 }
+.askform {
+  margin: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 2.5rem;
+  padding: 1rem;
+}
+
+.askform::after {
+  content: '';
+  display: block;
+  width: 5rem;
+  border-bottom: 0.3rem solid var(--color-bg-light);
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+
 .choosearea {
   margin-top: 10rem;
 }
@@ -120,8 +137,15 @@
   margin: 1rem 0;
 }
 
-/* 상담내용, 상담일시*/
 .pickarea {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상담내용, 상담일시*/
+.datetimepickarea {
   width: 100%;
   padding-top: 8rem;
   display: flex;

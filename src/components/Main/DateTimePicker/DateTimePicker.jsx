@@ -28,7 +28,7 @@ export default function DateTimePicker() {
           check={isConfirm}
         />
       </div>
-      <div className={styles.pickarea}>
+      <div className={styles.datetimepickarea}>
         <p className={styles.txt}>상담 날짜</p>
         <div className={styles.datepick}>
           <DatePick />

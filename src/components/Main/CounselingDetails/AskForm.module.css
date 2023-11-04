@@ -1,7 +1,7 @@
 .txt {
   font-size: 1.1rem;
   font-weight: 800;
-  margin: 2rem;
+  margin: 1rem 2rem 0 2rem;
 }
 .txtspan {
   color: var(--color-dark-gray);
@@ -32,6 +32,12 @@
 .askta:focus {
   border: 0.2rem solid var(--color-bg-light);
 }
+
+.filetxt {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 2rem 2rem 1rem 2rem;
+}
 .addfile {
   margin-left: 2rem;
 }
@@ -44,12 +50,18 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
+.filespan {
+  width: 90%;
+  text-align: right;
+  color: var(--color-bg);
+  font-weight: 500;
+}
 .showfile {
   border: 0.2rem solid var(--color-bg);
   border-radius: 1rem;
   width: 80%;
   height: 6rem;
-  margin: 1rem auto;
+  margin: 0.5rem auto 1.5rem auto;
   padding: 0.5rem;
 }
 .filelist {
@@ -69,4 +81,17 @@
 }
 .btn {
   color: var(--color-dark-gray);
+}
+
+.btnarea {
+  text-align: center;
+}
+.donebtn {
+  width: 90%;
+  height: 3rem;
+  background-color: var(--color-bg);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-white);
+  border-radius: 1rem;
 }
