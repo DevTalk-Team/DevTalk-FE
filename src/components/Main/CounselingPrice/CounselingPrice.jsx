@@ -44,7 +44,7 @@ export default function CounselingPrice() {
   async function postcounseling() {
     try {
       const response = await axios.post(
-        '/matching/consulters/reserve/consultations',
+        `${process.env.REACT_APP_API_URL}/matching/consulters/reserve/consultations`,
 
         CounselingFile,
 

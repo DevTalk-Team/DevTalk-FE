@@ -25,8 +25,7 @@ export default function LoginForm() {
 
   function loginDB() {
     axios
-      // .post(`${process.env.REACT_APP_API_URL}/member/login`, {
-      .post(`/member/login`, {
+      .post(`${process.env.REACT_APP_API_URL}/member/login`, {
         email: email,
         password: password,
       })
@@ -46,7 +45,9 @@ export default function LoginForm() {
           setUserEmail(email);
 
           axios
-            .get(`/member/profile/email/${email}`)
+            .get(
+              `${process.env.REACT_APP_API_URL}/member/profile/email/${email}`
+            )
             .then((res) => {
               console.log('유저 정보 가져오기 성공');
               res.data.name && setUserName(res.data.name);

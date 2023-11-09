@@ -41,7 +41,7 @@ export default function SkillForm({ id, title }) {
     console.log('실행중', id);
     console.log(name, email, password, phone);
     axios
-      .post('/member/signup/consulter', {
+      .post(`${process.env.REACT_APP_API_URL}/member/signup/consulter`, {
         name: name,
         email: email,
         password: password,
