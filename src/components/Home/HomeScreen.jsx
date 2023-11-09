@@ -56,7 +56,6 @@ export default function HomeScreen() {
         </div>
         <div className={styles.reservation_box}>
           <HomeReservation />
-          <HomeReservation />
           {/* <HomeLogin /> */}
         </div>
       </div>
