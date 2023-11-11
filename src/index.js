@@ -37,7 +37,7 @@ import ConsultantSelect from './components/Main/ConsultantSelect/ConsultantSelec
 import DateTimePicker from './components/Main/DateTimePicker/DateTimePicker';
 import CounselingDetails from './components/Main/CounselingDetails/CounselingDetails';
 import CounselingPrice from './components/Main/CounselingPrice/CounselingPrice';
-import RezDone from './components/Main/RezDone';
+import RezDone from './components/Main/RezDone/RezDone';
 import CounselingRegion from './components/Main/EtcRezPages/CounselingRegion';
 import FindId from './components/Login/FindIdPw/FindId';
 import FindPw from './components/Login/FindIdPw/FindPw';
