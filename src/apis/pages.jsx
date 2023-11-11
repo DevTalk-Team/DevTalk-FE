@@ -45,7 +45,7 @@ export const getConsultantRezInfo = async (email) => {
   console.log('엑세스토큰', accessToken);
   const authAxios = getAuthAxios(accessToken);
   const result = await authAxios.get(
-    `${baseURL}/product/search/consultants/${mentor}/Date/${date}`,
+    `${baseURL}/matching/consulters/searchAllConsultation`,
     {
       headers: {
         'User-Email': email,
