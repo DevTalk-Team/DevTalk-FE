@@ -3,10 +3,10 @@ import { useRecoilValue } from 'recoil';
 import { userEmailState } from '../../recoil/userAtom';
 import { useEffect } from 'react';
 
-// const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = process.env.REACT_APP_API_URL;
 
 const productInstance = axios.create({
-  baseURL: '/product',
+  baseURL: `${process.env.REACT_APP_API_URL}/product`,
   headers: {
     // 'content-type': 'application/json;charset=UTF-8',
     accept: 'application/json,',

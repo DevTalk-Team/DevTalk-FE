@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const baseURL = process.env.REACT_APP_API_URL;
 
 const boardInstance = axios.create({
-  baseURL: `/board`,
+  baseURL: `${process.env.REACT_APP_API_URL}/board`,
   // baseURL: `/board`,
   headers: {
     // 'content-type': 'application/json;charset=UTF-8',
