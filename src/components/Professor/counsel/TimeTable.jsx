@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TimeTable.module.css';
 import Modal from 'react-modal';
 import { useRecoilValue } from 'recoil';
@@ -93,7 +93,7 @@ const times = [
   },
 ];
 
-const TimeTable = ({ selectedDate }) => {
+const TimeTable = ({ selectedDate, product }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [timeState, setTimeState] = useState(times);
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -102,6 +102,22 @@ const TimeTable = ({ selectedDate }) => {
   const userId = useRecoilValue(userIdState);
 
   useProductAxios();
+
+  useEffect(() => {
+    product.forEach((item) => {
+      const reservationTime = item.reservationTime.substring(0, 5);
+
+      // times 배열에서 일치하는 시간 찾기
+      const selectedTime = times.find((time) => time.time === reservationTime);
+
+      // 일치하는 항목이 있으면 state 업데이트
+      if (selectedTime) {
+        item.productProceedType === 'F2F'
+          ? (selectedTime.state = 1)
+          : (selectedTime.state = 2);
+      }
+    });
+  }, []);
 
   const onOpenModal = (idx) => {
     setSelectedIdx(idx);
@@ -121,31 +137,30 @@ const TimeTable = ({ selectedDate }) => {
     const updatedTimeState = [...timeState];
     updatedTimeState[selectedIdx] = updatedData;
 
+    if (timeState[selectedIdx].state !== 0) {
+      const data = {
+        reservationDate: changeTimeFormatDay(selectedDate),
+        reservationTime: timeState[selectedIdx].time + ':00',
+        productProceedType: 'F2F',
+      };
+
+      const res = await updateProduct(data);
+
+      if (!res) alert('수정에 실패했습니다');
+    } else {
+      const data = {
+        consultantId: userId,
+        reservationDate: changeTimeFormatDay(selectedDate),
+        reservationTime: timeState[selectedIdx].time + ':00',
+        productProceedType: checkState === '1' ? 'F2F' : 'NF2F',
+      };
+
+      const res = await addProduct(data);
+
+      if (!res) alert('등록에 실패했습니다');
+    }
+
     setTimeState(updatedTimeState);
-
-    // TODO:  상담 가능 시간 설정 및 업데이트
-    // TODO:  상담 가능 시간 설정 및 업데이트
-    // TODO:  나중에 해당 날짜 상품 목록 조회 API 연동 후 붙여야됨.
-    /* const data = {
-      reservationDate: changeTimeFormatDay(selectedDate),
-      reservationTime: timeState[selectedIdx].time + ':00',
-      productProceedType: 'F2F',
-    };
-
-    const res = await updateProduct(data);
-
-    if (!res) alert('수정에 실패했습니다'); */
-
-    const data = {
-      consultantId: userId,
-      reservationDate: changeTimeFormatDay(selectedDate),
-      reservationTime: timeState[selectedIdx].time + ':00',
-      productProceedType: checkState === '1' ? 'F2F' : 'NF2F',
-    };
-
-    const res = await addProduct(data);
-
-    if (!res) alert('등록에 실패했습니다');
 
     onCloseModal();
   };

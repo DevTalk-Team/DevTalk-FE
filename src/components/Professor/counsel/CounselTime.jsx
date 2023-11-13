@@ -12,6 +12,7 @@ import { searchProductByDate } from '../../../apis/services/productServices';
 
 const CounselTime = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [product, setProduct] = useState([]);
   const memberId = useRecoilValue(userIdState);
   const navigate = useNavigate();
 
@@ -24,15 +25,16 @@ const CounselTime = () => {
     navigate('/homescreen');
   };
 
-  /*   const getProductByDate = async () => {
+  const getProductByDate = async () => {
     const date = changeTimeFormatDay(selectedDate);
 
     const res = await searchProductByDate(memberId, date);
+    setProduct(res);
   };
 
   useEffect(() => {
     getProductByDate();
-  }, [selectedDate]); */
+  }, [selectedDate]);
 
   return (
     <div className={styles.userInfo}>
@@ -61,7 +63,7 @@ const CounselTime = () => {
           <DatePick />
         </div>
         <p className={styles.subText}>상담 시간</p>
-        <TimeTable selectedDate={selectedDate} />
+        <TimeTable selectedDate={selectedDate} product={product} />
         <button className={`${styles.changeButton}`} onClick={onUpdateDate}>
           상담 내용 수정
         </button>
