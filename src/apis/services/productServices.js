@@ -74,9 +74,9 @@ export const searchAllProduct = async (memberId) => {
 };
 
 // (전문가) 특정 날짜 상품 전체 조회
-export const searchByDateProduct = async (memberId, date) => {
+export const searchProductByDate = async (memberId, date) => {
   try {
-    const res = await productApi.searchByDateProduct(memberId, date);
+    const res = await productApi.searchProductByDate(memberId, date);
     const { code, result } = res.data;
 
     if (code === '0502') return result;

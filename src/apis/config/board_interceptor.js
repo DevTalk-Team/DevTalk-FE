@@ -1,12 +1,12 @@
 import axios, { AxiosError } from 'axios';
 import { useRecoilValue } from 'recoil';
 import { userEmailState } from '../../recoil/userAtom';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 const baseURL = process.env.REACT_APP_API_URL;
 
 const boardInstance = axios.create({
-  baseURL: `${baseURL}/board`,
+  baseURL: `/board`,
   // baseURL: `/board`,
   headers: {
     // 'content-type': 'application/json;charset=UTF-8',
@@ -20,7 +20,6 @@ export const useBoardAxios = () => {
   const requestIntetceptor = (config) => {
     config.headers['User-Email'] = userEmail;
 
-    console.log(config);
     return config;
   };
 

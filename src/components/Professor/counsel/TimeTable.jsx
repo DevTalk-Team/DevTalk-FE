@@ -135,19 +135,19 @@ const TimeTable = ({ selectedDate }) => {
     const res = await updateProduct(data);
 
     if (!res) alert('수정에 실패했습니다'); */
-    /* 
+
     const data = {
       consultantId: userId,
       reservationDate: changeTimeFormatDay(selectedDate),
       reservationTime: timeState[selectedIdx].time + ':00',
-      productProceedType: 'F2F',
+      productProceedType: checkState === '1' ? 'F2F' : 'NF2F',
     };
 
     const res = await addProduct(data);
 
     if (!res) alert('등록에 실패했습니다');
 
- */ onCloseModal();
+    onCloseModal();
   };
 
   return (
@@ -157,6 +157,7 @@ const TimeTable = ({ selectedDate }) => {
         isOpen={modalIsOpen}
         onRequestClose={onCloseModal}
         contentLabel="Example Modal"
+        appElement={document.getElementById('root') || undefined}
       >
         <div className={styles.modalContent}>
           <div className={styles.btnBox}>

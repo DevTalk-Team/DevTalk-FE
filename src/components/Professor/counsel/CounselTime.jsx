@@ -4,10 +4,18 @@ import styles from './CounselTime.module.css';
 import TimeTable from './TimeTable';
 import DatePick from '../../Main/DateTimePicker/DatePick';
 import { useNavigate } from 'react-router-dom';
+import { useProductAxios } from '../../../apis/config/product_interceptors';
+import { changeTimeFormatDay } from '../../../utils/timeFormat';
+import { useRecoilValue } from 'recoil';
+import { userIdState } from '../../../recoil/userAtom';
+import { searchProductByDate } from '../../../apis/services/productServices';
 
 const CounselTime = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const memberId = useRecoilValue(userIdState);
   const navigate = useNavigate();
+
+  useProductAxios();
 
   const onOpenModal = () => {};
 
@@ -16,7 +24,15 @@ const CounselTime = () => {
     navigate('/homescreen');
   };
 
-  useEffect(() => {}, []);
+  /*   const getProductByDate = async () => {
+    const date = changeTimeFormatDay(selectedDate);
+
+    const res = await searchProductByDate(memberId, date);
+  };
+
+  useEffect(() => {
+    getProductByDate();
+  }, [selectedDate]); */
 
   return (
     <div className={styles.userInfo}>
