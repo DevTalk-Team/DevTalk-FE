@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import styles from './CounselCard.module.css';
 import { useNavigate } from 'react-router-dom';
 import { createPaymentLink } from '../../../apis/services/paymentServices';
+import { usePaymentAxios } from '../../../apis/config/payment_interceptors';
 
 const CounselCard = ({ item }) => {
   const navigate = useNavigate();
+
+  usePaymentAxios();
 
   const onNavigate = (id) => {
     navigate(`detail/${id}`);
