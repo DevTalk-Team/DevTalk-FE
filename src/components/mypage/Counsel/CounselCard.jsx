@@ -23,7 +23,24 @@ const CounselCard = ({ item }) => {
     window.open(link);
   };
 
+  const changeStatus = () => {
+    switch (item.status) {
+      case 'ACCEPTED':
+        return '승인 완료';
+      case 'PAID':
+        return '후기 작성';
+      case 'CONSULTANT_CANCELED':
+      case 'CONSULTER_CANCELED':
+        return '취소됨';
+      case 'CONSULTANT_REFUSED':
+        return '거절됨';
+      default:
+        return '상담 대기중';
+    }
+  };
+
   const renderButtons = () => {
+    console.log(item.status);
     switch (item.status) {
       case 'ACCEPTED':
         return (
@@ -49,7 +66,7 @@ const CounselCard = ({ item }) => {
   return (
     <div className={styles.counselCard} onClick={() => onNavigate(item.id)}>
       <div className={styles.cardHeader}>
-        <p className={styles.title}>{item.title}</p>
+        <p className={styles.title}>멘토 섭외 - 대면 상담</p>
         <p
           className={`${styles.title} ${
             item.status === '취소됨' || item.status === '거절됨'
@@ -57,11 +74,13 @@ const CounselCard = ({ item }) => {
               : styles.status
           }`}
         >
-          {item.status}
+          {changeStatus()}
         </p>
       </div>
-      <p className={styles.content}>일정 {item.date}</p>
-      <p className={styles.content}>상담자 {item.counseler}</p>
+      <p className={styles.content}>
+        일정 {item.consultationDetails.reservationDate}
+      </p>
+      <p className={styles.content}>상담자 {item.consulterName}</p>
       <div className={styles.buttonBox}>{renderButtons()}</div>
     </div>
   );
