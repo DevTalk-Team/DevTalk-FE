@@ -13,7 +13,7 @@ const CounselContent = () => {
   const pageIndex = useRecoilValue(pageIndexState);
   const [counselDataList, setCounselDataList] =
     useRecoilState(counselListState);
-  const [counselData, setCounselData] = useState();
+  const [counselData, setCounselData] = useState([]);
 
   useEffect(() => {
     let filteredData = [];
