@@ -19,7 +19,7 @@ const CounselCard = ({ item }) => {
   };
 
   const onPayment = async () => {
-    const link = await createPaymentLink();
+    const link = await createPaymentLink(item.productId);
     window.open(link);
   };
 

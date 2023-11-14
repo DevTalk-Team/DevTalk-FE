@@ -55,6 +55,7 @@ import ProfessorMypage from './components/Professor/mypage/ProfessorMypage';
 import ProfessorCounsel from './components/Professor/mypage/Counsel/ProfessorCounsel';
 import ProfessorCounselContent from './components/Professor/mypage/Counsel/ProfessorCounselContent';
 import ProfessorCounselDetail from './components/Professor/mypage/Counsel/ProfessorCounselDetail';
+import ProfessorHomeScreen from './components/Home/ProfessorHomeScreen';
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,7 @@ const router = createBrowserRouter([
       { path: '/loadingscreen', element: <LoadingScreen /> },
       { path: '/startscreen', element: <StartScreen /> },
       { path: '/homescreen', element: <HomeScreen /> },
+      { path: '/professorHomescreen', element: <ProfessorHomeScreen /> },
       { path: '/matching_counselingfield', element: <CounselingField /> },
       { path: '/login_popup', element: <LoginPopup /> },
       { path: '/loginscreen', element: <Login /> },
