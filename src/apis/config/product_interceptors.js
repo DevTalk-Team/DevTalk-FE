@@ -7,6 +7,7 @@ const baseURL = process.env.REACT_APP_API_URL;
 
 const productInstance = axios.create({
   baseURL: `${process.env.REACT_APP_API_URL}/product`,
+  // baseURL: `/product`,
   headers: {
     // 'content-type': 'application/json;charset=UTF-8',
     accept: 'application/json,',
