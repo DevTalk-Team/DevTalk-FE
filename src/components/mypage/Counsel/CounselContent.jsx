@@ -52,9 +52,10 @@ const CounselContent = () => {
 
   return (
     <div className={styles.counselContent}>
-      {counselData.map((item, index) => {
-        return <CounselCard key={index} item={item} />;
-      })}
+      {counselData.length !== 0 &&
+        counselData.map((item, index) => {
+          return <CounselCard key={index} item={item} />;
+        })}
     </div>
   );
 };
