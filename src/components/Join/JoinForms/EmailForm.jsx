@@ -35,7 +35,9 @@ export default function EmailForm({ id, title }) {
   function check_duplication() {
     //이메일 중복 확인
     axios
-      .get(`/member/signup/check-email?email=${email}`)
+      .get(
+        `${process.env.REACT_APP_API_URL}/member/signup/check-email?email=${email}`
+      )
       .then((response) => {
         console.log('200', response.data);
 
