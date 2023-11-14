@@ -25,7 +25,7 @@ const CounselCard = ({ item }) => {
   };
 
   const onPayment = async () => {
-    const link = await createPaymentLink(1);
+    const link = await createPaymentLink(item.id);
     window.open(link);
   };
 
