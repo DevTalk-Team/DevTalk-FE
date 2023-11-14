@@ -8,7 +8,7 @@ import {
   addProduct,
   updateProduct,
 } from '../../../apis/services/productServices';
-import { UNSAFE_RouteContext } from 'react-router-dom';
+import { useProductAxios } from '../../../apis/config/product_interceptors';
 
 const times = [
   {
@@ -100,6 +100,8 @@ const TimeTable = ({ selectedDate, product }) => {
   const [checkState, setCheckState] = useState(0);
 
   const userId = useRecoilValue(userIdState);
+
+  useProductAxios();
 
   useEffect(() => {
     let updatedTimes = [...times];

@@ -9,12 +9,15 @@ import { userIdState } from '../../../recoil/userAtom';
 import { searchProductByDate } from '../../../apis/services/productServices';
 import ReactDatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
+import { useProductAxios } from '../../../apis/config/product_interceptors';
 
 const CounselTime = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [product, setProduct] = useState('');
   const memberId = useRecoilValue(userIdState);
   const navigate = useNavigate();
+
+  useProductAxios();
 
   const onOpenModal = () => {};
 
