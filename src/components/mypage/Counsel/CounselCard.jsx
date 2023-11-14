@@ -10,9 +10,12 @@ const CounselCard = ({ item }) => {
     navigate(`detail/${id}`);
   };
 
-  const Button = ({ className, children }) => {
+  const Button = ({ className, children, func }) => {
     return (
-      <button className={`${styles.counselStatusButton} ${className}`}>
+      <button
+        className={`${styles.counselStatusButton} ${className}`}
+        onClick={func}
+      >
         {children}
       </button>
     );
@@ -45,7 +48,7 @@ const CounselCard = ({ item }) => {
       case 'ACCEPTED':
         return (
           <>
-            <Button onClick={onPayment}>결제</Button>
+            <Button func={onPayment}>결제</Button>
             <Button className={styles.counselCancel}>상담 취소</Button>
           </>
         );
@@ -64,7 +67,7 @@ const CounselCard = ({ item }) => {
   };
 
   return (
-    <div className={styles.counselCard} onClick={() => onNavigate(item.id)}>
+    <div className={styles.counselCard}>
       <div className={styles.cardHeader}>
         <p className={styles.title}>멘토 섭외 - 대면 상담</p>
         <p
