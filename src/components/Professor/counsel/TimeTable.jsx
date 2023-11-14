@@ -8,7 +8,7 @@ import {
   addProduct,
   updateProduct,
 } from '../../../apis/services/productServices';
-import { useProductAxios } from '../../../apis/config/product_interceptors';
+import { UNSAFE_RouteContext } from 'react-router-dom';
 
 const times = [
   {
@@ -101,23 +101,28 @@ const TimeTable = ({ selectedDate, product }) => {
 
   const userId = useRecoilValue(userIdState);
 
-  useProductAxios();
-
   useEffect(() => {
-    product.forEach((item) => {
-      const reservationTime = item.reservationTime.substring(0, 5);
+    let updatedTimes = [...times];
 
-      // times 배열에서 일치하는 시간 찾기
-      const selectedTime = times.find((time) => time.time === reservationTime);
+    if (
+      product.length !== 0 &&
+      product[0].reservationDate === changeTimeFormatDay(selectedDate)
+    ) {
+      product.forEach((item) => {
+        const reservationTime = item.reservationTime.substring(0, 5);
+        const index = updatedTimes.findIndex(
+          (time) => time.time === reservationTime
+        );
 
-      // 일치하는 항목이 있으면 state 업데이트
-      if (selectedTime) {
-        item.productProceedType === 'F2F'
-          ? (selectedTime.state = 1)
-          : (selectedTime.state = 2);
-      }
-    });
-  }, []);
+        // 일치하는 항목이 있으면 state 업데이트
+        if (index !== -1) {
+          updatedTimes[index].state = item.productProceedType === 'F2F' ? 1 : 2;
+        }
+      });
+    }
+
+    setTimeState(updatedTimes);
+  }, [selectedDate, product]);
 
   const onOpenModal = (idx) => {
     setSelectedIdx(idx);
@@ -139,9 +144,9 @@ const TimeTable = ({ selectedDate, product }) => {
 
     if (timeState[selectedIdx].state !== 0) {
       const data = {
-        reservationDate: changeTimeFormatDay(selectedDate),
-        reservationTime: timeState[selectedIdx].time + ':00',
-        productProceedType: 'F2F',
+        updateDate: changeTimeFormatDay(selectedDate),
+        updateTime: timeState[selectedIdx].time + ':00',
+        type: 'F2F',
       };
 
       const res = await updateProduct(data);
@@ -150,8 +155,8 @@ const TimeTable = ({ selectedDate, product }) => {
     } else {
       const data = {
         consultantId: userId,
-        reservationDate: changeTimeFormatDay(selectedDate),
-        reservationTime: timeState[selectedIdx].time + ':00',
+        reserveDate: changeTimeFormatDay(selectedDate),
+        reserveTime: timeState[selectedIdx].time + ':00',
         productProceedType: checkState === '1' ? 'F2F' : 'NF2F',
       };
 
@@ -201,23 +206,24 @@ const TimeTable = ({ selectedDate, product }) => {
           </button>
         </div>
       </Modal>
-      {timeState.map((data, index) => {
-        return (
-          <button
-            key={index}
-            className={`${styles.timeTableBox} ${
-              data.state !== 0
-                ? data.state === 1
-                  ? styles.contact
-                  : styles.nonContact
-                : ''
-            }`}
-            onClick={() => onOpenModal(index)}
-          >
-            <p>{data.time}</p>
-          </button>
-        );
-      })}
+      {timeState.length !== 0 &&
+        timeState.map((data, index) => {
+          return (
+            <button
+              key={index}
+              className={`${styles.timeTableBox} ${
+                data.state !== 0
+                  ? data.state === 1
+                    ? styles.contact
+                    : styles.nonContact
+                  : ''
+              }`}
+              onClick={() => onOpenModal(index)}
+            >
+              <p>{data.time}</p>
+            </button>
+          );
+        })}
     </div>
   );
 };
