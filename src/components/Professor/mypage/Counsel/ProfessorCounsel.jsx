@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../../Header/Header';
-import styles from './Counsel.module.css';
+import styles from './ProfessorCounsel.module.css';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { counselListState, pageIndexState } from '../../../recoil/MypageAtom';
-import { useMatchingAxios } from '../../../apis/config/matching_interceptors';
-import { searchAllConsultations } from '../../../apis/services/matchingServices';
+import { useMatchingAxios } from '../../../../apis/config/matching_interceptors';
+import { searchAllConsultations } from '../../../../apis/services/matchingServices';
+import {
+  professorCounselListState,
+  professorPageIndexState,
+} from '../../../../recoil/MypageAtom';
+import Header from '../../../Header/Header';
 
-const Counsel = () => {
+const ProfessorCounsel = () => {
   const navigate = useNavigate();
-  const [pageIndex, setPageIndex] = useRecoilState(pageIndexState);
-  const [_, setCounselList] = useRecoilState(counselListState);
+  const [pageIndex, setPageIndex] = useRecoilState(professorPageIndexState);
+  const [_, setCounselList] = useRecoilState(professorCounselListState);
 
   const onChangePageIndex = (idx) => {
     setPageIndex(idx);
-    navigate('/counsel');
+    navigate('/professorCounsel');
   };
 
   useMatchingAxios();
@@ -87,4 +90,4 @@ const Counsel = () => {
   );
 };
 
-export default Counsel;
+export default ProfessorCounsel;

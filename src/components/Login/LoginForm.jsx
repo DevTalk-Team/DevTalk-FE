@@ -56,7 +56,9 @@ export default function LoginForm() {
             .catch((ex) => console.log('get user Info fail:' + ex));
         }
 
-        Navigate('/homescreen');
+        if (response.data.result.memberType === 'CONSULTANT')
+          Navigate('/professorHomescreen');
+        else Navigate('/homescreen');
         // setLogin(1);
       })
       .catch((ex) => {

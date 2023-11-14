@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import styles from './Counsel.module.css';
-import CounselCard from './CounselCard';
-import {
-  waitData,
-  doneData,
-  cancelData,
-} from '../../../model/MyCounselDummyData';
+import styles from './ProfessorCounsel.module.css';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { counselListState, pageIndexState } from '../../../recoil/MypageAtom';
+import {
+  professorCounselListState,
+  professorPageIndexState,
+} from '../../../../recoil/MypageAtom';
+import ProfessorCounselCard from './ProfessorCounselCard';
 
-const CounselContent = () => {
-  const pageIndex = useRecoilValue(pageIndexState);
-  const [counselDataList, setCounselDataList] =
-    useRecoilState(counselListState);
+const ProfessorCounselContent = () => {
+  const pageIndex = useRecoilValue(professorPageIndexState);
+  const [counselDataList, setCounselDataList] = useRecoilState(
+    professorCounselListState
+  );
   const [counselData, setCounselData] = useState();
 
   useEffect(() => {
@@ -53,10 +52,10 @@ const CounselContent = () => {
   return (
     <div className={styles.counselContent}>
       {counselData.map((item, index) => {
-        return <CounselCard key={index} item={item} />;
+        return <ProfessorCounselCard key={index} item={item} />;
       })}
     </div>
   );
 };
 
-export default CounselContent;
+export default ProfessorCounselContent;

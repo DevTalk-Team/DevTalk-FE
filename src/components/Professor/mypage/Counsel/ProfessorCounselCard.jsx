@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import styles from './CounselCard.module.css';
+import styles from './ProfessorCounselCard.module.css';
 import { useNavigate } from 'react-router-dom';
-import { createPaymentLink } from '../../../apis/services/paymentServices';
+import { createPaymentLink } from '../../../../apis/services/paymentServices';
 
-const CounselCard = ({ item }) => {
+const ProfessorCounselCard = ({ item }) => {
   const navigate = useNavigate();
 
   const onNavigate = (id) => {
@@ -25,7 +25,7 @@ const CounselCard = ({ item }) => {
 
   const renderButtons = () => {
     switch (item.status) {
-      case 'ACCEPTED':
+      case '승인 완료':
         return (
           <>
             <Button onClick={onPayment}>결제</Button>
@@ -66,4 +66,4 @@ const CounselCard = ({ item }) => {
   );
 };
 
-export default CounselCard;
+export default ProfessorCounselCard;

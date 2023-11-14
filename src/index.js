@@ -51,6 +51,10 @@ import Board from './components/board/Board';
 import BoardDetail from './components/board/BoardDetail';
 import Write from './components/board/Write';
 import EditPost from './components/board/EditPost';
+import ProfessorMypage from './components/Professor/mypage/ProfessorMypage';
+import ProfessorCounsel from './components/Professor/mypage/Counsel/ProfessorCounsel';
+import ProfessorCounselContent from './components/Professor/mypage/Counsel/ProfessorCounselContent';
+import ProfessorCounselDetail from './components/Professor/mypage/Counsel/ProfessorCounselDetail';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +72,7 @@ const router = createBrowserRouter([
       { path: '/joinscreen', element: <Join /> },
       { path: '/noticescreen', element: <Notice /> },
       { path: '/mypagescreen', element: <Mypage /> },
+      { path: '/professorMypagescreen', element: <ProfessorMypage /> },
       { path: '/userInfo', element: <UserInfo /> },
       { path: '/userInfo2', element: <ProfessorInfo /> },
       { path: '/review', element: <Review /> },
@@ -87,6 +92,15 @@ const router = createBrowserRouter([
           { index: true, element: <CounselContent /> },
           // { path: 'cancel', element: <CounselCancel /> },
           { path: 'detail/:id', element: <CounselDetail /> },
+        ],
+      },
+      {
+        path: '/professorCounsel',
+        element: <ProfessorCounsel />,
+        children: [
+          { index: true, element: <ProfessorCounselContent /> },
+          // { path: 'cancel', element: <CounselCancel /> },
+          { path: 'detail/:id', element: <ProfessorCounselDetail /> },
         ],
       },
     ],

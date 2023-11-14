@@ -24,12 +24,7 @@ export const createPaymentLink = async (consultationId) => {
     const res = await paymentApi.createPaymentLink(consultationId);
     const { code, result } = res.data;
 
-    // TODO: Code 무엇?
-    if (code === '0401') {
-      return result;
-    }
-
-    return [];
+    return result;
   } catch (error) {
     console.error(error);
     return [];
