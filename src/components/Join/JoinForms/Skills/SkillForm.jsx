@@ -136,7 +136,7 @@ export default function SkillForm({ id, title }) {
           {skills.map((item) => (
             <SkillList
               key={item.id}
-              skilllist={item}
+              skilllist={item.skill}
               onUpdate={onUpdate}
               onDelete={onDelete}
             />
