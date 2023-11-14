@@ -20,12 +20,12 @@ const CounselContent = () => {
     switch (pageIndex) {
       case 1:
         filteredData = counselDataList.filter(
-          (item) => item.status === 'ACCEPT_WAIT'
+          (item) => item.status === 'ACCEPT_WAIT' || item.status === 'ACCEPTED'
         );
         break;
       case 2:
         filteredData = counselDataList.filter(
-          (item) => item.status === 'REVIEWED'
+          (item) => item.status === 'REVIEWED' || item.status === 'PAID'
         );
         break;
       case 3:
@@ -38,12 +38,12 @@ const CounselContent = () => {
         break;
       case 4:
         filteredData = counselDataList.filter(
-          (item) => item.status === 'ACCEPT_WAIT'
+          (item) => item.status === 'ACCEPT_WAIT' || item.status === 'ACCEPTED'
         );
         break;
       default:
         filteredData = counselDataList.filter(
-          (item) => item.status === 'ACCEPT_WAIT'
+          (item) => item.status === 'ACCEPT_WAIT' || item.status === 'ACCEPTED'
         );
         break;
     }
