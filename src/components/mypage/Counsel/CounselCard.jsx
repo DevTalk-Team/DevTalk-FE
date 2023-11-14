@@ -19,7 +19,7 @@ const CounselCard = ({ item }) => {
   };
 
   const onPayment = async () => {
-    const link = await createPaymentLink(item.productId);
+    const link = await createPaymentLink(1);
     window.open(link);
   };
 
@@ -32,13 +32,14 @@ const CounselCard = ({ item }) => {
             <Button className={styles.counselCancel}>상담 취소</Button>
           </>
         );
-      case '상담완료':
+      case 'PAID':
         return <Button>후기 작성</Button>;
       case '후기 작성완료':
         return;
-      case '취소됨':
+      case 'CONSULTANT_CANCELED':
+      case 'CONSULTER_CANCELED':
         return <Button>취소 사유</Button>;
-      case '거절됨':
+      case 'CONSULTANT_REFUSED':
         return <Button>거절 사유</Button>;
       default:
         return <Button>상담 취소</Button>;

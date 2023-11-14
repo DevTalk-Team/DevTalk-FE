@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { counselListState, pageIndexState } from '../../../recoil/MypageAtom';
 import { useMatchingAxios } from '../../../apis/config/matching_interceptors';
-import { searchAllConsultations } from '../../../apis/services/matchingServices';
+import { searchConsulterAllConsultations } from '../../../apis/services/consulterMatchingServices';
 
 const Counsel = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Counsel = () => {
   useMatchingAxios();
 
   const getCounselData = async () => {
-    const res = await searchAllConsultations();
+    const res = await searchConsulterAllConsultations();
     setCounselList(res);
   };
 
